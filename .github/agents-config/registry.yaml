@@ -1,0 +1,139 @@
+# Agent & Skills Registry
+# Central registry of all available agents and skills in this environment.
+# This file is referenced by the Orchestrator to know what's available.
+
+agents:
+  - name: agent-creator
+    file: .github/agents/agent-creator.agent.md
+    description: Create and manage new agents
+    category: meta
+    skills: []
+    status: active
+
+  - name: orchestrator
+    file: .github/agents/orchestrator.agent.md
+    description: Coordinate work across all agents
+    category: meta
+    skills: []
+    status: active
+    default: true
+
+  - name: code-writer
+    file: .github/agents/code-writer.agent.md
+    description: Write production-quality code
+    category: development
+    skills: [file-operations, code-generation, dependency-management]
+    status: active
+
+  - name: code-reviewer
+    file: .github/agents/code-reviewer.agent.md
+    description: Review code for quality, security, and structure; suggest and apply refactoring improvements
+    category: quality
+    skills: [file-operations, code-analysis, security-audit, code-generation]
+    status: active
+
+  - name: documenter
+    file: .github/agents/documenter.agent.md
+    description: Generate and maintain documentation
+    category: documentation
+    skills: [file-operations, markdown-generation]
+    status: active
+
+  - name: devops
+    file: .github/agents/devops.agent.md
+    description: CI/CD, infrastructure, and deployment
+    category: operations
+    skills: [file-operations, terminal-commands, docker, ci-cd]
+    status: active
+
+  - name: researcher
+    file: .github/agents/researcher.agent.md
+    description: Research best practices and solutions
+    category: analysis
+    skills: [web-search, code-analysis]
+    status: active
+
+  - name: tester
+    file: .github/agents/tester.agent.md
+    description: Generate tests and validate behavior
+    category: quality
+    skills: [file-operations, code-generation, terminal-commands]
+    status: active
+
+  - name: code-investigator
+    file: .github/agents/code-investigator.agent.md
+    description: Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports
+    category: analysis
+    skills: [file-operations, terminal-commands, code-analysis]
+    status: active
+
+skills:
+  - name: file-operations
+    file: .github/skills/file-operations.skill.md
+    description: Read, write, search, and navigate files in the workspace
+    category: core
+    status: active
+
+  - name: terminal-commands
+    file: .github/skills/terminal-commands.skill.md
+    description: Execute shell commands, install packages, run scripts
+    category: core
+    status: active
+
+  - name: code-generation
+    file: .github/skills/code-generation.skill.md
+    description: Generate code following patterns, conventions, and best practices
+    category: development
+    status: active
+
+  - name: code-analysis
+    file: .github/skills/code-analysis.skill.md
+    description: Analyze code structure, detect patterns, find issues
+    category: development
+    status: active
+
+  - name: web-search
+    file: .github/skills/web-search.skill.md
+    description: Search the web for documentation, best practices, and solutions
+    category: research
+    status: active
+
+  - name: security-audit
+    file: .github/skills/security-audit.skill.md
+    description: Check for vulnerabilities, CVEs, secrets, and security anti-patterns
+    category: quality
+    status: active
+
+  - name: dependency-management
+    file: .github/skills/dependency-management.skill.md
+    description: Manage project dependencies, check versions, validate CVEs
+    category: development
+    status: active
+
+  - name: markdown-generation
+    file: .github/skills/markdown-generation.skill.md
+    description: Generate well-structured Markdown documents with diagrams
+    category: documentation
+    status: active
+
+  - name: docker
+    file: .github/skills/docker.skill.md
+    description: Create and manage Dockerfiles, compose files, and container configs
+    category: operations
+    status: active
+
+  - name: ci-cd
+    file: .github/skills/ci-cd.skill.md
+    description: Create and manage CI/CD pipelines and GitHub Actions workflows
+    category: operations
+    status: active
+
+categories:
+  meta: Agents that manage other agents
+  development: Agents/skills that write or modify code
+  quality: Agents/skills that ensure code quality
+  documentation: Agents/skills that create documentation
+  operations: Agents/skills that handle infrastructure and deployment
+  analysis: Agents/skills that research and analyze
+  core: Foundational skills used by many agents
+  research: Skills for information gathering
