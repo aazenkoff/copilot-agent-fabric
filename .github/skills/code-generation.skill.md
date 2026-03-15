@@ -1,32 +1,64 @@
 ---
-description: "Generate code following project patterns, language conventions, and industry best practices."
+description: "Structured workflow for generating production-quality code aligned with the target project's architecture, patterns, and conventions."
 name: Code Generation
 ---
 
 # Code Generation Skill
 
 ## Capabilities
-- **Generate functions/classes** — write new code modules
-- **Implement patterns** — apply design patterns appropriate to the language
-- **Scaffold projects** — create boilerplate and project structure
-- **Generate boilerplate** — create repetitive but necessary code
+- **Implement features** — write new modules, endpoints, components, or services
+- **Extend existing code** — add functionality to existing files without breaking contracts
+- **Scaffold structure** — create boilerplate, project skeletons, and repeating patterns
+- **Apply design patterns** — use patterns appropriate to the language and architecture
 
-## Best Practices
-1. Follow the existing project's coding style and conventions.
-2. Use meaningful, descriptive names for variables, functions, and classes.
-3. Include error handling for all external interactions.
-4. Add JSDoc/docstrings/comments for public APIs.
-5. Prefer composition over inheritance.
-6. Keep functions small and focused (single responsibility).
-7. Use dependency injection where appropriate.
+## Workflow
 
-## Language-Aware Rules
-- Detect the project language from existing files (package.json, requirements.txt, pom.xml, etc.).
-- Follow the idiomatic patterns for that language.
-- Use the project's existing formatter/linter configuration.
+Follow these steps in order. Do not skip steps — each one feeds the next.
+
+### Step 1 — Understand Context
+Before writing any code, gather project context:
+- Identify the language, framework, and build tool (package.json, pom.xml, pubspec.yaml, etc.)
+- Read the project's existing code in the target area to underValidatstand conventions
+- Check for linter/formatter configs (.eslintrc, .prettierrc, analysis_options.yaml, checkstyle.xml)
+- Identify the architecture pattern in use (MVC, Clean Architecture, hexagonal, etc.)
+- Look for existing similar code to use as a reference implementation
+
+### Step 2 — Plan the Change
+Before writing code, define:
+- **What** files will be created or modified
+- **Where** they fit in the existing directory structure
+- **How** they integrate with existing modules (imports, DI, routing, etc.)
+- **What** edge cases and error scenarios must be handled
+
+### Step 3 — Implement
+Write the code following these rules:
+1. **Match the project's style exactly** — indentation, naming, import order, file structure
+2. **Follow the architecture** — put code in the right layer (domain, data, presentation, etc.)
+3. **Reuse existing utilities** — check for shared helpers, constants, base classes before creating new ones
+4. **Handle errors consistently** — use the project's established error handling pattern
+5. **Keep functions/methods focused** — one responsibility per function
+6. **Name things descriptively** — names should explain intent, not implementation
+7. **Only comment non-obvious logic** — do not add noise comments
+
+### Step 4 — Validate
+After writing code, verify:
+- The code compiles/builds without errors (`npm run build`, `./gradlew build`, etc.)
+- Existing tests still pass
+- The linter reports no new violations
+- Imports and dependencies are correctly declared
+- No duplicate code was introduced that should use an existing utility
+
+## Anti-Patterns to Avoid
+- ❌ Writing code that ignores existing project conventions
+- ❌ Hardcoding values that should be constants or config
+- ❌ Creating new utility functions when equivalent ones already exist
+- ❌ Adding dependencies without checking if the project already has an alternative
+- ❌ Skipping error handling for external calls (API, DB, file I/O)
+- ❌ Generating boilerplate comments (e.g., `// Constructor`, `// Getters and setters`)
 
 ## When to Use
-- Implementing new features or endpoints.
-- Creating utility functions or helper modules.
-- Scaffolding new components or services.
+- Implementing new features, endpoints, or components
+- Adding utility functions or helper modules
+- Scaffolding new services or project structure
+- Extending existing modules with new functionality
 

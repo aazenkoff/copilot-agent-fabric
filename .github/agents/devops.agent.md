@@ -53,3 +53,5 @@ When working with containers, you have access to specialized Docker MCP tools:
 - Place GitHub Actions workflows in `.github/workflows/`.
 - Place Docker files in the project root or `infra/` directory.
 - Include comments explaining non-obvious configuration choices.
+
+

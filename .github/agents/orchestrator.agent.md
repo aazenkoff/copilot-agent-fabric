@@ -45,12 +45,12 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | Agent | Purpose | Key Skills |
 |-------|---------|------------|
 | `agent-creator` | Create and manage new agents | — |
-| `code-writer` | Write production code | code-generation, dependency-management |
+| `code-writer` | Write production code | code-generation, dependency-management, git-workflow |
 | `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation |
 | `documenter` | Generate and maintain documentation | markdown-generation |
-| `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands |
+| `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow |
 | `researcher` | Research best practices and solutions | web-search, code-analysis |
-| `tester` | Generate tests and validate behavior | code-generation, terminal-commands |
+| `tester` | Generate tests and validate behavior | code-generation, terminal-commands, git-workflow |
 | `code-investigator` | Investigate bugs, trace code, root-cause analysis | file-operations, terminal-commands, code-analysis |
 
 ## Available Skills
@@ -68,6 +68,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `markdown-generation` | Generate Markdown with diagrams |
 | `docker` | Dockerfiles, compose, containers |
 | `ci-cd` | Pipelines and GitHub Actions |
+| `git-workflow` | Branch, commit, push, and create PRs via gh CLI |
 
 ## Workflow
 1. **Receive** the user's request.
@@ -82,9 +83,12 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 
 When delegating to developer agents (code-writer, tester):
 - Remind them to follow the full Code Quality Workflow before completing
-- Workflow: **Write → Code Reviewer → Apply Feedback → Test → Git Commit → Complete**
+- Workflow: **Branch → Write → Code Review → Apply Feedback → Test → Commit + Push + PR → Complete**
+- Agents must create a `copilot/<type>/<slug>` branch, commit changes, push, and create a PR using `gh pr create`
+- PRs are left **open** for manual review/merge by the user — agents must **never** merge their own PRs
 - If a developer agent completes without code review, delegate to code-reviewer yourself
-- Ensure changes are committed to git with proper conventional commit messages
+- Ensure changes are committed with conventional commit messages and Co-authored-by trailer
+- **Always report the PR URL** back to the user after the agent completes
 
 ## Rules
 - **Before planning, ALWAYS check `.github/prompts/` for a matching prompt template. If one exists, follow its steps — do not improvise your own workflow.**

@@ -23,35 +23,45 @@ You are the **Tester** agent — a quality assurance expert.
 
 ## Code Quality Workflow
 
-After completing any code changes:
+After completing any code changes, follow **every step** in order:
 
-1. **Self-Review** - Review your own changes first
-2. **Request Code Review** - Use the task tool to invoke the code-reviewer agent:
+1. **Create a branch** — before making changes, create a feature branch per the `git-workflow` skill:
+   ```bash
+   git fetch origin && git checkout main && git pull origin main
+   git checkout -b copilot/test/<short-slug>
+   ```
+2. **Implement** — write your tests on this branch.
+3. **Self-Review** — review your own changes first.
+4. **Request Code Review** — use the task tool to invoke the code-reviewer agent:
    - Provide context about what you changed
    - List the files modified
    - Ask for code quality, structure, and best practices review
-3. **Apply Feedback** - Implement all suggestions from the code-reviewer
-4. **Verify** - Ensure all tests still pass after refactoring
-5. **Commit Changes** - Commit your work to git:
+5. **Apply Feedback** — implement all suggestions from the code-reviewer.
+6. **Verify** — ensure all tests pass after refactoring.
+7. **Commit, Push & Create PR** — follow the `git-workflow` skill:
    ```bash
    git add -A
    git commit -m "test: brief description of tests added
-   
+
    Detailed explanation of what was tested:
    - Test suite 1 (X tests)
    - Test suite 2 (Y tests)
-   - Edge cases covered
-   
+
    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+   git push origin HEAD
+   gh pr create --title "test: brief description" --body "## Summary\n..."
+   git checkout main
    ```
    - Use conventional commits: `test:` for new tests, `fix:` for test fixes
    - Always include the `Co-authored-by` trailer
-   - Provide clear, descriptive commit messages
-6. **Only then** - Mark your work as complete
+   - **Report the PR URL** back to the user/orchestrator
+8. **Only then** — mark your work as complete.
 
-This ensures all code meets quality standards and is properly tracked in version control before completion.
+**Important:** Never commit directly to `main`. All changes go through a pull request for manual review.
 
 ## Output Format
 - Place tests alongside source code or in a `tests/` directory, following project conventions.
 - Include a brief summary of what scenarios are covered.
 - Flag any areas that need manual testing.
+
+

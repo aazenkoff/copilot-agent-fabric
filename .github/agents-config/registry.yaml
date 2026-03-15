@@ -22,7 +22,7 @@ agents:
     file: .github/agents/code-writer.agent.md
     description: Write production-quality code
     category: development
-    skills: [file-operations, code-generation, dependency-management]
+    skills: [file-operations, code-generation, dependency-management, git-workflow]
     status: active
 
   - name: code-reviewer
@@ -43,7 +43,7 @@ agents:
     file: .github/agents/devops.agent.md
     description: CI/CD, infrastructure, and deployment
     category: operations
-    skills: [file-operations, terminal-commands, docker, ci-cd]
+    skills: [file-operations, terminal-commands, docker, ci-cd, git-workflow]
     status: active
 
   - name: researcher
@@ -57,7 +57,7 @@ agents:
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-    skills: [file-operations, code-generation, terminal-commands]
+    skills: [file-operations, code-generation, terminal-commands, git-workflow]
     status: active
 
   - name: code-investigator
@@ -126,6 +126,12 @@ skills:
     file: .github/skills/ci-cd.skill.md
     description: Create and manage CI/CD pipelines and GitHub Actions workflows
     category: operations
+    status: active
+
+  - name: git-workflow
+    file: .github/skills/git-workflow.skill.md
+    description: Branch, commit, push, and create pull requests using gh CLI
+    category: core
     status: active
 
 categories:
