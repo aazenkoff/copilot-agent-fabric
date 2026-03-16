@@ -18,7 +18,7 @@ Follow these steps in order. Do not skip steps — each one feeds the next.
 ### Step 1 — Understand Context
 Before writing any code, gather project context:
 - Identify the language, framework, and build tool (package.json, pom.xml, pubspec.yaml, etc.)
-- Read the project's existing code in the target area to underValidatstand conventions
+- Read the project's existing code in the target area to understand conventions
 - Check for linter/formatter configs (.eslintrc, .prettierrc, analysis_options.yaml, checkstyle.xml)
 - Identify the architecture pattern in use (MVC, Clean Architecture, hexagonal, etc.)
 - Look for existing similar code to use as a reference implementation
