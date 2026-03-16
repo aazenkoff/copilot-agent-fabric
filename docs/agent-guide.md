@@ -141,6 +141,23 @@ MCP servers are external processes that expose tools to Copilot CLI. They enable
 - Isolated test environment setup
 - Multi-container orchestration
 
+#### Figma MCP
+**Purpose**: Design-to-code workflows, asset extraction, visual QA, and Code Connect mapping
+
+**Capabilities**:
+- **Design Context**: Extract layout, styles, and reference code from Figma designs
+- **Screenshots**: Capture Figma node screenshots for visual comparison
+- **Code Connect**: Map Figma components to code components bidirectionally
+- **Variables**: Extract design tokens (colors, fonts, spacings)
+- **FigJam**: Generate diagrams using Mermaid.js syntax
+
+**Use cases**:
+- Building UI components from Figma designs
+- Visual QA comparing implementation vs. design
+- Extracting design tokens for theming
+- Maintaining design-code mappings with Code Connect
+- Creating architecture diagrams in FigJam
+
 ### How Agents Use MCP Servers
 
 MCP tools are available to all agents, but certain agents are better suited to leverage specific servers:
@@ -149,10 +166,12 @@ MCP tools are available to all agents, but certain agents are better suited to l
 |------------|----------------|-------------|
 | **Chrome DevTools** | Tester, Researcher | UI testing, web analysis, performance audits |
 | **Docker** | DevOps, Tester | Container management, isolated environments |
+| **Figma** | Game Developer, Code Writer, Documenter | Design-to-code, visual QA, diagram generation |
 
 ### Learn More
 
 - **Docker MCP**: See [Docker MCP Guide](docker-mcp-guide.md)
+- **Figma MCP**: See [Figma MCP Guide](figma-mcp-guide.md)
 - **Configuration**: MCP servers are configured in `~/.copilot/mcp-config.json`
 
 ## Using Prompt Templates
