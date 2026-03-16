@@ -42,7 +42,8 @@ ai-env-public0/
 ├── docs/                              # Documentation
 │   ├── architecture.md                # System architecture
 │   ├── agent-guide.md                 # How to use agents & skills
-│   └── docker-mcp-guide.md           # Docker MCP server usage
+│   ├── docker-mcp-guide.md           # Docker MCP server usage
+│   └── figma-mcp-guide.md            # Figma MCP server usage
 └── README.md                          # This file
 ```
 
@@ -129,8 +130,9 @@ This environment supports [Model Context Protocol (MCP)](https://modelcontextpro
 
 - **Chrome DevTools MCP** — Browser automation, UI testing, performance audits
 - **Docker MCP** — Container management, isolated environments
+- **Figma MCP** — Design-to-code workflows, asset extraction, visual QA, Code Connect
 
-See [Docker MCP Guide](docs/docker-mcp-guide.md) for setup and usage.
+See [Docker MCP Guide](docs/docker-mcp-guide.md) and [Figma MCP Guide](docs/figma-mcp-guide.md) for setup and usage.
 
 ## 📖 Documentation
 
@@ -139,6 +141,7 @@ See [Docker MCP Guide](docs/docker-mcp-guide.md) for setup and usage.
 | [Architecture](docs/architecture.md) | System design and diagrams |
 | [Agent Guide](docs/agent-guide.md) | How to use, create, and customize agents |
 | [Docker MCP Guide](docs/docker-mcp-guide.md) | Docker MCP server setup and reference |
+| [Figma MCP Guide](docs/figma-mcp-guide.md) | Figma MCP server setup and reference |
 
 ## 🎨 Customization
 

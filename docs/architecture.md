@@ -46,6 +46,7 @@ graph TD
     subgraph MCP ["🔌 MCP Servers"]
         ChromeMCP[🌐 Chrome DevTools]
         DockerMCP[🐳 Docker Server]
+        FigmaMCP[🎨 Figma]
     end
 
     CodeWriter -.-> CodeGen
@@ -71,6 +72,8 @@ graph TD
     DevOps -.-> Observe
     Researcher -.-> WebSearch
     Researcher -.-> CodeAna
+    CodeWriter -.-> FigmaMCP
+    Documenter -.-> FigmaMCP
 
     subgraph Config
         Registry
@@ -197,6 +200,7 @@ This cycle ensures all code meets quality standards before delivery.
 |--------|---------|----------------|
 | **Chrome DevTools** | Browser automation and web testing | Page navigation, element interaction, performance profiling, Lighthouse audits |
 | **Docker** | Container management and operations | Command execution, file operations, process management inside containers |
+| **Figma** | Design-to-code workflows | Design context extraction, screenshots, Code Connect mapping, variable definitions, FigJam diagram generation |
 
 ### How MCP Servers Work
 
@@ -219,6 +223,7 @@ sequenceDiagram
 
 - **Chrome DevTools MCP**: UI testing, web scraping, performance audits, accessibility checks
 - **Docker MCP**: DevOps workflows, container debugging, isolated command execution, file operations in containers
+- **Figma MCP**: Design-to-code workflows, visual QA, asset extraction, Code Connect mapping, FigJam diagrams
 
 ### Configuration
 
@@ -234,6 +239,10 @@ MCP servers are configured in `~/.copilot/mcp-config.json`:
     "docker": {
       "command": "npx",
       "args": ["-y", "docker-mcp-server@latest"]
+    },
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/figma-mcp@latest"]
     }
   }
 }
@@ -246,4 +255,4 @@ MCP servers are configured in `~/.copilot/mcp-config.json`:
 - **Extensibility**: New capabilities can be added by installing additional MCP servers
 - **Maintenance**: MCP servers are updated independently from agent definitions
 
-📚 **Learn more**: See [Docker MCP Guide](docker-mcp-guide.md) for detailed usage.
+📚 **Learn more**: See [Docker MCP Guide](docker-mcp-guide.md) and [Figma MCP Guide](figma-mcp-guide.md) for detailed usage.
