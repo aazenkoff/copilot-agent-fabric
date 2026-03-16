@@ -17,7 +17,7 @@ I need to build an interactive clickable prototype from a Figma design.
 
 The prototype should use **PixiJS v8 + Vite + TypeScript** and faithfully replicate the Figma screens using real exported PNG assets.
 
-Refer to the `.github/skills/figma-prototype.skill.md` skill for the full procedure, code patterns, and conventions.
+Refer to the `code-generation` and `code-analysis` skills for implementation patterns and code review conventions.
 
 ---
 
@@ -27,7 +27,7 @@ Refer to the `.github/skills/figma-prototype.skill.md` skill for the full proced
 
 Delegate to `@code-investigator`:
 
-> Using the `figma-prototype` skill, explore the Figma file `{{FIGMA_FILE_KEY}}` starting from root node `{{FIGMA_ROOT_NODE}}`.
+> Using the `code-analysis` skill, explore the Figma file `{{FIGMA_FILE_KEY}}` starting from root node `{{FIGMA_ROOT_NODE}}`.
 >
 > Produce a structured report containing:
 > - A table mapping every top-level screen node ID → proposed `SceneKey` name → scene class name
@@ -44,7 +44,7 @@ Branch: `copilot/feat/{{PROJECT_NAME}}-prototype`
 
 Delegate to `@code-writer`:
 
-> Using the investigation report from Step 1 and the `figma-prototype` skill, on branch `copilot/feat/{{PROJECT_NAME}}-prototype`:
+> Using the investigation report from Step 1 and the `code-generation` skill, on branch `copilot/feat/{{PROJECT_NAME}}-prototype`:
 >
 > 1. Scaffold a fresh PixiJS v8 + Vite + TypeScript project at `projects/sources/{{PROJECT_NAME}}/` (run `npm create vite@latest` + `npm install pixi.js`).
 > 2. Create the full directory structure: `src/scenes/`, `src/theme/`, `src/types/`, `public/assets/`.
@@ -59,7 +59,7 @@ Delegate to `@code-writer`:
 
 Delegate to `@code-writer` (same branch):
 
-> Using the `figma-prototype` skill (Steps 2 and 5), replace every programmatic placeholder with real Figma assets:
+> Using the `code-generation` skill, replace every programmatic placeholder with real Figma assets:
 >
 > 1. For each asset in the manifest from Step 1, download the PNG from its Figma design-context URL into `public/assets/` following the `<scene>-<element>.png` naming convention.
 > 2. Validate every file: `file public/assets/**/*.png` — re-download any that fail.
@@ -73,7 +73,7 @@ Delegate to `@code-writer` (same branch):
 
 Delegate to `@code-reviewer`:
 
-> Review the implementation on branch `copilot/feat/{{PROJECT_NAME}}-prototype` against the `figma-prototype` skill.
+> Review the implementation on branch `copilot/feat/{{PROJECT_NAME}}-prototype` against the `code-generation` and `code-analysis` skills.
 >
 > Focus on:
 > - Correct PixiJS v8 API usage (`Assets.get`, async `app.init`, `eventMode: 'static'`)

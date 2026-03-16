@@ -55,7 +55,7 @@ After completing any code changes, follow **every step** in order:
    ```
 2. **Implement** — write your tests on this branch.
 3. **Self-Review** — review your own changes first.
-4. **Request Code Review** — use the task tool to invoke the code-reviewer agent:
+4. **Request Code Review** — state that the changes need a code review. The orchestrator will delegate to the `code-reviewer` agent, or you can mention `@code-reviewer` directly:
    - Provide context about what you changed
    - List the files modified
    - Ask for code quality, structure, and best practices review

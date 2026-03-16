@@ -288,7 +288,7 @@ After completing any code changes, follow **every step** in order:
    ```
 2. **Implement** — make your code changes on this branch.
 3. **Self-Review** — review your own changes first.
-4. **Request Code Review** — use the task tool to invoke the code-reviewer agent:
+4. **Request Code Review** — state that the changes need a code review. The orchestrator will delegate to the `code-reviewer` agent, or you can mention `@code-reviewer` directly:
    - Provide context about what you changed
    - List the files modified
    - Ask for code quality, structure, and best practices review
@@ -321,7 +321,7 @@ After completing any code changes, follow **every step** in order:
 - `dependency-management`: Configure package.json, Gradle, and pubspec.yaml
 - `docker`: Containerize applications
 - `terminal-commands`: Run builds, tests, dev servers
-- `icon-generation`: Generate and manage game icons and visual assets
+
 - `git-workflow`: Branch, commit, push, and create PRs
 
 ## When Delegating

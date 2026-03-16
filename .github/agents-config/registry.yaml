@@ -29,21 +29,21 @@ agents:
     file: .github/agents/code-reviewer.agent.md
     description: Review code for quality, security, and structure; suggest and apply refactoring improvements
     category: quality
-    skills: [file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks]
+skills: [file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, performance-optimization]
     status: active
 
   - name: documenter
     file: .github/agents/documenter.agent.md
     description: Generate and maintain documentation
     category: documentation
-    skills: [file-operations, markdown-generation]
+    skills: [file-operations, markdown-generation, git-workflow, api-design]
     status: active
 
   - name: devops
     file: .github/agents/devops.agent.md
     description: CI/CD, infrastructure, and deployment
     category: operations
-    skills: [file-operations, terminal-commands, docker, ci-cd, git-workflow, observability]
+skills: [file-operations, terminal-commands, docker, ci-cd, git-workflow, database-operations, observability]
     status: active
 
   - name: researcher
@@ -57,7 +57,7 @@ agents:
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-    skills: [file-operations, code-generation, terminal-commands, git-workflow, testing-infrastructure, performance-optimization]
+skills: [file-operations, code-generation, terminal-commands, git-workflow, database-operations, testing-infrastructure, performance-optimization]
     status: active
 
   - name: game-developer
@@ -143,37 +143,37 @@ skills:
 
   - name: database-operations
     file: .github/skills/database-operations.skill.md
-    description: Schema design, migrations, query optimization, connection pooling
+description: Schema design, migrations, seeding, query optimization, and backup/recovery strategies
     category: data
     status: active
 
   - name: api-design
     file: .github/skills/api-design.skill.md
-    description: REST/GraphQL patterns, OpenAPI specs, versioning, error formats
+description: REST and GraphQL API design patterns, OpenAPI specifications, versioning, and backwards compatibility
     category: api
     status: active
 
   - name: frontend-frameworks
     file: .github/skills/frontend-frameworks.skill.md
-    description: React/Vue/Angular component patterns, state management, accessibility
+description: React, Vue, Angular, and Svelte patterns including state management, component design, and accessibility
     category: frontend
     status: active
 
   - name: observability
     file: .github/skills/observability.skill.md
-    description: Logging, metrics, distributed tracing, alerting, dashboards
+description: Logging, metrics, distributed tracing, alerting, and dashboard design for production systems
     category: observability
     status: active
 
   - name: performance-optimization
     file: .github/skills/performance-optimization.skill.md
-    description: Profiling, caching strategies, load testing, benchmarking
+    description: Profiling, caching strategies, query optimization, load testing, and performance benchmarking
     category: performance
     status: active
 
   - name: testing-infrastructure
     file: .github/skills/testing-infrastructure.skill.md
-    description: Test data management, fixtures, Testcontainers, test pyramid
+description: Test data management, fixtures, factories, Testcontainers, flakiness handling, and test pyramid strategy
     category: testing
     status: active
 
