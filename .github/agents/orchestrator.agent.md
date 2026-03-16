@@ -28,7 +28,7 @@ You are the default agent. When a user sends any message, you receive it, assess
 ```
 User Request
 │
-├── Code writing / feature / bug fix → code-writer
+├── Code writing / feature / bug fix → game-developer or code-writer
 ├── Tests / coverage → tester
 ├── Code review / quality / refactoring → code-reviewer
 ├── Bug investigation / root cause analysis → code-investigator
@@ -46,6 +46,7 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 |-------|---------|------------|
 | `agent-creator` | Create and manage new agents | — |
 | `code-writer` | Write production code | code-generation, dependency-management, git-workflow |
+| `game-developer` | Game dev (PixiJS prototypes, Spring Boot, Flutter) | code-generation, code-analysis, dependency-management |
 | `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation |
 | `documenter` | Generate and maintain documentation | markdown-generation |
 | `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow |

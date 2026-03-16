@@ -60,6 +60,13 @@ agents:
     skills: [file-operations, code-generation, terminal-commands, git-workflow]
     status: active
 
+  - name: game-developer
+    file: .github/agents/game-developer.agent.md
+    description: "Specialized game developer for frontend gameplay, prototype workflows, visual QA loops, and backend-ready game integration"
+    category: development
+    skills: [file-operations, code-generation, code-analysis, dependency-management, docker, git-workflow]
+    status: active
+
   - name: code-investigator
     file: .github/agents/code-investigator.agent.md
     description: Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports

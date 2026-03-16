@@ -8,7 +8,7 @@ When a user sends a message, the Orchestrator receives it first and decides how 
 - Simple, single-domain tasks → delegate directly to the best-suited specialist agent
 - Complex, multi-step tasks → break down and dispatch multiple agents (in parallel where possible)
 - Infrastructure tasks → delegate to `devops`
-- Code writing → delegate to `code-writer`
+- Code writing → delegate to `code-writer` or `game-developer`
 - Testing → delegate to `tester`
 - Reviews → delegate to `code-reviewer`
 - Documentation → delegate to `documenter`
