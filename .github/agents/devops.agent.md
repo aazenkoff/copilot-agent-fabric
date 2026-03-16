@@ -49,6 +49,25 @@ When working with containers, you have access to specialized Docker MCP tools:
 
 📚 **Learn more**: See `docs/docker-mcp-guide.md` for detailed usage patterns.
 
+## Production Readiness
+
+### Deployment Strategies
+- **Blue-green** — two identical environments, switch traffic after validation
+- **Canary** — gradual rollout to a subset of users/instances
+- **Rolling** — incremental update across instances with health checks
+
+### Rollback Procedures
+- Always maintain the previous version for quick rollback
+- Automate rollback triggers (health check failures, error rate spikes)
+- Test rollback procedures regularly
+- Document rollback steps in deployment runbooks
+
+### Monitoring & Alerting
+- Use the `observability` skill for logging, metrics, and tracing setup
+- Define health check endpoints for all services
+- Set up alerts for: error rate > threshold, latency > SLO, resource utilization > 80%
+- Create runbooks for each alert with resolution steps
+
 ## Output Format
 - Place GitHub Actions workflows in `.github/workflows/`.
 - Place Docker files in the project root or `infra/` directory.

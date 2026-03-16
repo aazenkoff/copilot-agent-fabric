@@ -46,13 +46,13 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | Agent | Purpose | Key Skills |
 |-------|---------|------------|
 | `agent-creator` | Create and manage new agents | — |
-| `code-writer` | Write production code | code-generation, dependency-management, git-workflow |
+| `code-writer` | Write production code | code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization |
 | `game-developer` | Game dev (PixiJS prototypes, Spring Boot, Flutter) | code-generation, code-analysis, dependency-management |
-| `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation |
+| `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks |
 | `documenter` | Generate and maintain documentation | markdown-generation |
-| `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow |
+| `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow, observability |
 | `researcher` | Research best practices and solutions | web-search, code-analysis |
-| `tester` | Generate tests and validate behavior | code-generation, terminal-commands, git-workflow |
+| `tester` | Generate tests and validate behavior | code-generation, terminal-commands, git-workflow, testing-infrastructure, performance-optimization |
 | `code-investigator` | Investigate bugs, trace code, root-cause analysis | file-operations, terminal-commands, code-analysis |
 
 ## Available Skills
@@ -71,6 +71,12 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `docker` | Dockerfiles, compose, containers |
 | `ci-cd` | Pipelines and GitHub Actions |
 | `git-workflow` | Branch, commit, push, and create PRs via gh CLI |
+| `database-operations` | Schema design, migrations, query optimization |
+| `api-design` | REST/GraphQL patterns, OpenAPI, versioning |
+| `frontend-frameworks` | React/Vue/Angular patterns, state management, a11y |
+| `observability` | Logging, metrics, distributed tracing, alerting |
+| `performance-optimization` | Profiling, caching, load testing, benchmarking |
+| `testing-infrastructure` | Test data, fixtures, Testcontainers, test pyramid |
 
 ## Workflow
 1. **Receive** the user's request.
@@ -91,6 +97,21 @@ When delegating to developer agents (code-writer, tester):
 - If a developer agent completes without code review, delegate to code-reviewer yourself
 - Ensure changes are committed with conventional commit messages and Co-authored-by trailer
 - **Always report the PR URL** back to the user after the agent completes
+
+## Error Handling & Recovery
+
+### Failure Modes
+- **Agent timeout** — if an agent takes too long, cancel and retry once with a simplified prompt
+- **Agent error** — if an agent reports failure, analyze the error, adjust the prompt, retry once
+- **Partial failure** — if one agent in a parallel group fails, complete the others, then retry the failed one
+
+### Escalation Path
+1. Retry the failed agent once with adjusted context
+2. If retry fails, try an alternative agent (e.g., code-writer instead of game-developer)
+3. If no alternative, report the failure to the user with:
+   - What was attempted
+   - The error encountered
+   - Suggested manual steps
 
 ## Rules
 - **Before planning, ALWAYS check `.github/prompts/` for a matching prompt template. If one exists, follow its steps — do not improvise your own workflow.**

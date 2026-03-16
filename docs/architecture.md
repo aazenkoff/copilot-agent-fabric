@@ -35,6 +35,12 @@ graph TD
         MdGen[📄 Markdown Gen]
         Docker[🐳 Docker]
         CICD[🔄 CI/CD]
+        DBOps[🗄️ Database Operations]
+        APIDesign[🔗 API Design]
+        FrontendFW[⚛️ Frontend Frameworks]
+        Observe[📊 Observability]
+        PerfOpt[⚡ Performance Optimization]
+        TestInfra[🧪 Testing Infrastructure]
     end
 
     subgraph MCP ["🔌 MCP Servers"]
@@ -44,15 +50,25 @@ graph TD
 
     CodeWriter -.-> CodeGen
     CodeWriter -.-> DepMgmt
+    CodeWriter -.-> DBOps
+    CodeWriter -.-> APIDesign
+    CodeWriter -.-> FrontendFW
+    CodeWriter -.-> PerfOpt
     CodeReviewer -.-> CodeAna
     CodeReviewer -.-> SecAudit
+    CodeReviewer -.-> APIDesign
+    CodeReviewer -.-> DBOps
+    CodeReviewer -.-> FrontendFW
     Tester -.-> CodeGen
     Tester -.-> Terminal
+    Tester -.-> TestInfra
+    Tester -.-> PerfOpt
     Documenter -.-> MdGen
     DevOps -.-> Docker
     DevOps -.-> CICD
     DevOps -.-> Terminal
     DevOps -.-> DockerMCP
+    DevOps -.-> Observe
     Researcher -.-> WebSearch
     Researcher -.-> CodeAna
 

@@ -80,11 +80,11 @@ The orchestrator will break down the task, delegate to specialists, and synthesi
 |-------|----------|------------|
 | **Orchestrator** | Meta | Coordination |
 | **Agent Creator** | Meta | — |
-| **Code Writer** | Development | code-generation, dependency-management |
-| **Code Reviewer** | Quality | code-analysis, security-audit |
-| **Tester** | Quality | code-generation, terminal-commands |
+| **Code Writer** | Development | code-generation, dependency-management, database-operations, api-design, frontend-frameworks, performance-optimization |
+| **Code Reviewer** | Quality | code-analysis, security-audit, api-design, database-operations, frontend-frameworks |
+| **Tester** | Quality | code-generation, terminal-commands, testing-infrastructure, performance-optimization |
 | **Documenter** | Documentation | markdown-generation |
-| **DevOps** | Operations | docker, ci-cd, terminal-commands |
+| **DevOps** | Operations | docker, ci-cd, terminal-commands, observability |
 | **Researcher** | Analysis | web-search, code-analysis |
 | **Code Investigator** | Analysis | code-analysis, file-operations |
 
@@ -102,6 +102,12 @@ The orchestrator will break down the task, delegate to specialists, and synthesi
 | markdown-generation | Generate Markdown with diagrams |
 | docker | Dockerfiles, compose, containers |
 | ci-cd | Pipelines and GitHub Actions |
+| database-operations | Schema design, migrations, query optimization |
+| api-design | REST/GraphQL patterns, OpenAPI, versioning |
+| frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| observability | Logging, metrics, distributed tracing, alerting |
+| performance-optimization | Profiling, caching, load testing, benchmarking |
+| testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
 
 ## 📋 Code Quality Workflow
 
