@@ -98,6 +98,12 @@ Skills are **not invoked directly** by users. Instead:
 | **Documentation** | markdown-generation | Creating well-structured docs |
 | **Operations** | docker, ci-cd | Infrastructure and deployment |
 | **Research** | web-search | Information gathering |
+| **Data** | database-operations | Schema design, migrations, query optimization |
+| **API** | api-design | REST/GraphQL patterns, OpenAPI, versioning |
+| **Frontend** | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| **Observability** | observability | Logging, metrics, distributed tracing, alerting |
+| **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
+| **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
 
 ## MCP Servers
 
@@ -160,6 +166,9 @@ Prompt templates in `.github/prompts/` are reusable workflows:
 | Create Agent | `create-agent.prompt.md` | Add a new agent to the system |
 | Setup Infra | `setup-infra.prompt.md` | Configure CI/CD and infrastructure |
 | Refactor | `refactor.prompt.md` | Clean up technical debt |
+| Setup Database | `setup-database.prompt.md` | Database infrastructure, schema, and data access layer |
+| Deploy to Production | `deploy-to-production.prompt.md` | Production deployment with rollback and monitoring |
+| Setup Auth | `setup-auth.prompt.md` | Authentication system (registration, login, tokens) |
 
 ## Creating Custom Agents
 

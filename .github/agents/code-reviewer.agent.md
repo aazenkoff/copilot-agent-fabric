@@ -40,6 +40,26 @@ Your goal is to elevate code quality, not block progress. Be constructive and ed
 7. **Dependencies** — Are new dependencies justified and safe?
 8. **Structure** — Are there code smells, duplication, or unnecessary complexity?
 
+## Extended Review Areas
+
+### API Contract Review
+- Backwards compatibility of API changes
+- Proper HTTP status codes and error formats
+- Input validation and sanitization
+- Pagination and rate limiting for list endpoints
+
+### Database Review
+- Migration safety (no data loss, reversible)
+- Query performance (proper indexing, no N+1)
+- Connection management (pooling, cleanup)
+- Data integrity constraints (foreign keys, unique constraints)
+
+### Accessibility Review
+- Semantic HTML usage
+- ARIA attributes where needed
+- Keyboard navigation support
+- Color contrast and screen reader compatibility
+
 ## Refactoring Guidelines
 1. **Behavior preservation** — refactoring must NOT change functionality.
 2. **Small steps** — make incremental, reversible changes.
