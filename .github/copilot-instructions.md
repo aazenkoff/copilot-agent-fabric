@@ -28,6 +28,13 @@ This workspace is an **AI Agent Management Environment** — a structured system
 - Scripts for lifecycle management live in `scripts/`.
 - Documentation lives in `docs/`.
 
+## Repository Protection Rules
+- This repository is an **agent-config-only** workspace. It must NOT contain application source code, project files, or third-party dependencies.
+- **Only the `agent-creator` agent is authorized to make changes** to files in this repository.
+- All changes **must be submitted via Pull Request** — direct commits to the main branch are prohibited.
+- Other agents (code-writer, tester, devops, etc.) must **never** modify files in this repository directly.
+- If a non-agent-creator agent needs a repo change, it must request the change through the orchestrator, who will delegate to `agent-creator`.
+
 ## Agent Naming
 - Use lowercase kebab-case for agent file names: `my-agent.agent.md`
 - Use lowercase kebab-case for skill file names: `my-skill.skill.md`
