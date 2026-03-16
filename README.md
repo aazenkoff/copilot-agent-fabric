@@ -1,6 +1,6 @@
 # AI Agent Management Environment
 
-A structured workspace for creating, orchestrating, and managing AI agents via GitHub Copilot CLI.
+A structured workspace for creating, orchestrating, and managing AI agents via GitHub Copilot CLI. This repository contains **only agent configuration** — no application source code should be stored here.
 
 ## 🏗️ Architecture
 
@@ -39,8 +39,6 @@ ai-env-public0/
 │   │   ├── setup-infra.prompt.md
 │   │   └── refactor.prompt.md
 │   └── copilot-instructions.md        # Global instructions
-├── projects/                          # Your project source code
-│   └── sources/                       # Place your projects here
 ├── docs/                              # Documentation
 │   ├── architecture.md                # System architecture
 │   ├── agent-guide.md                 # How to use agents & skills
@@ -158,10 +156,6 @@ Or manually:
 4. Assign to relevant agents
 
 See the [Agent Guide](docs/agent-guide.md) for detailed instructions.
-
-## 📁 Project Structure
-
-Place your project source code in `projects/sources/`. The agent framework is designed to work with any codebase — agents read your code, understand conventions, and produce changes that match your project's style.
 
 ## 📄 License
 

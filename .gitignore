@@ -42,3 +42,6 @@ target/
 
 # Temp
 temp/
+
+# Projects (this repo is agent-config only)
+projects/
