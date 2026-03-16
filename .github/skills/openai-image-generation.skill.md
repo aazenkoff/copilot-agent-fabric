@@ -32,9 +32,9 @@ Keep a **style anchor phrase** consistent across all prompts for a project (e.g.
 |-----------|-------------------|-------|
 | `model`   | `gpt-image-1`     | Highest quality; use `dall-e-3` as fallback |
 | `size`    | `1024x1024`       | Square icons, portraits, and item art |
-|           | `1792x1024`       | Wide panels, banners, and backgrounds |
-|           | `1024x1792`       | Tall backgrounds and vertical banners |
-| `quality` | `high`            | Final assets; use `standard` for drafts |
+|           | `1536x1024`       | Wide panels, banners, and backgrounds |
+|           | `1024x1536`       | Tall backgrounds and vertical banners |
+| `quality` | `high`            | Final assets; use `medium` for drafts |
 | `format`  | `png`             | Always PNG for game assets |
 
 ### Step 3 — Make the API Call
@@ -50,8 +50,8 @@ client = openai.OpenAI()  # uses OPENAI_API_KEY env var
 response = client.images.generate(
     model="gpt-image-1",
     prompt="<your detailed prompt>",
-    size="1024x1024",
-    quality="high",
+    size="1536x1024",   # wide background; use 1024x1024 for square, 1024x1536 for tall
+    quality="medium",   # valid: low | medium | high | auto
 )
 
 # gpt-image-1 returns base64-encoded PNG
@@ -129,7 +129,7 @@ import time
 
 assets = [("icon-sword", "sword icon prompt ..."), ("icon-shield", "shield icon prompt ...")]
 for name, prompt in assets:
-    response = client.images.generate(model="gpt-image-1", prompt=prompt, size="1024x1024", quality="standard")
+    response = client.images.generate(model="gpt-image-1", prompt=prompt, size="1024x1024", quality="medium")
     Path(f"public/assets/{name}.png").write_bytes(base64.b64decode(response.data[0].b64_json))
     time.sleep(1)  # respect rate limits
 ```
