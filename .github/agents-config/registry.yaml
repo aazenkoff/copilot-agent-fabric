@@ -22,7 +22,7 @@ agents:
     file: .github/agents/code-writer.agent.md
     description: Write production-quality code
     category: development
-    skills: [file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization]
+    skills: [file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization, openai-image-generation]
     status: active
 
   - name: code-reviewer
@@ -64,7 +64,7 @@ skills: [file-operations, code-generation, terminal-commands, git-workflow, data
     file: .github/agents/game-developer.agent.md
     description: "Specialized game developer for frontend gameplay, prototype workflows, visual QA loops, and backend-ready game integration"
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, docker, git-workflow]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, docker, git-workflow, openai-image-generation]
     status: active
 
   - name: code-investigator
@@ -177,6 +177,12 @@ description: Test data management, fixtures, factories, Testcontainers, flakines
     category: testing
     status: active
 
+  - name: openai-image-generation
+    file: .github/skills/openai-image-generation.skill.md
+    description: Generate game UI assets, concept art, and textures from text prompts using the OpenAI Images API (gpt-image-1 / DALL-E 3)
+    category: ai-generation
+    status: active
+
 categories:
   meta: Agents that manage other agents
   development: Agents/skills that write or modify code
@@ -192,3 +198,4 @@ categories:
   observability: Skills for monitoring, logging, and tracing
   performance: Skills for performance optimization
   testing: Skills for test infrastructure and tooling
+  ai-generation: Skills for AI-powered content and asset generation
