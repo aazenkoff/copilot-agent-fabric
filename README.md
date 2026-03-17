@@ -43,7 +43,7 @@ ai-env-public0/
 │   ├── architecture.md                # System architecture
 │   ├── agent-guide.md                 # How to use agents & skills
 │   ├── docker-mcp-guide.md           # Docker MCP server usage
-│   └── figma-mcp-guide.md            # Figma MCP server usage
+│   ├── figma-mcp-guide.md            # Figma MCP server usage
 └── README.md                          # This file
 ```
 

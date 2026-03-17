@@ -62,3 +62,21 @@ Agents use a persistent **project registry** to remember which projects exist an
 - Any agent that needs to work with code should check this registry **before** asking the user.
 - The `project-context` skill defines the full read/write pattern.
 - The Orchestrator is responsible for populating the registry at the start of a session if it is not already set.
+
+## Project Copilot Instructions
+
+Every project has a `.github/copilot-instructions.md` file **inside the project repo** that GitHub Copilot automatically loads when working in that project.
+
+These files are **mandatory context** for all agents working on code tasks. Before starting any coding, testing, reviewing, or infrastructure work on a project:
+
+1. Look up the project path via the Project Registry (see above).
+2. Read `<project-path>/.github/copilot-instructions.md`.
+3. Use the architecture, conventions, types, and commands documented there.
+
+### Creating Instructions
+When a project is added to the registry, delegate to `agent-creator` to create `.github/copilot-instructions.md` inside the target project repo via PR. Use the project's existing README and source structure as the basis.
+
+### Enforcement
+- Agents must **not** ask the user for information already in the instructions file.
+- Agents must **not** start coding work without loading the instructions first.
+- If no instructions file exists, agents should suggest creating one before proceeding.
