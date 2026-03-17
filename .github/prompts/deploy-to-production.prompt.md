@@ -12,11 +12,19 @@ Deploy **{{SERVICE_NAME}}** to production environment.
 - **Environment**: {{TARGET_ENVIRONMENT}}
 - **Deployment Strategy**: {{STRATEGY}} *(blue-green | canary | rolling)*
 
+## Workflow Note
+- Use `/agent` to select the role for each step.
+- Use the orchestrator workflow only if you want one coordinating agent for the whole release.
+- Use `/fleet` if pre-flight analysis or verification tracks can safely run in parallel.
+- Use `@` only for files and paths.
+
 ## Steps
 
-### 1 — Pre-flight Checks (`@devops`)
+### 1 — Pre-flight Checks
 
-Delegate to `@devops`:
+**Role:** DevOps
+
+Select the devops agent with `/agent`, or have the orchestrator assign this step:
 
 > Verify production readiness for **{{SERVICE_NAME}}** version **{{VERSION_OR_TAG}}**:
 >
@@ -31,9 +39,11 @@ Delegate to `@devops`:
 
 ---
 
-### 2 — Deploy (`@devops`)
+### 2 — Deploy
 
-Delegate to `@devops`:
+**Role:** DevOps
+
+Select the devops agent with `/agent`, or have the orchestrator assign this step:
 
 > Implement the **{{STRATEGY}}** deployment for **{{SERVICE_NAME}}**:
 >
@@ -49,9 +59,11 @@ Delegate to `@devops`:
 
 ---
 
-### 3 — Smoke Tests (`@tester`)
+### 3 — Smoke Tests
 
-Delegate to `@tester`:
+**Role:** Tester
+
+Select the tester agent with `/agent`, or have the orchestrator assign this step:
 
 > Run smoke tests against the deployed **{{TARGET_ENVIRONMENT}}** environment:
 >
@@ -63,9 +75,11 @@ Delegate to `@tester`:
 
 ---
 
-### 4 — Verify Monitoring (`@devops`)
+### 4 — Verify Monitoring
 
-Delegate to `@devops`:
+**Role:** DevOps
+
+Select the devops agent with `/agent`, or have the orchestrator assign this step:
 
 > Using the `observability` skill, verify monitoring is active for the deployment:
 >
@@ -77,9 +91,11 @@ Delegate to `@devops`:
 
 ---
 
-### 5 — Deployment Runbook (`@documenter`)
+### 5 — Deployment Runbook
 
-Delegate to `@documenter`:
+**Role:** Documenter
+
+Select the documenter agent with `/agent`, or have the orchestrator assign this step:
 
 > Create or update the deployment runbook for **{{SERVICE_NAME}}**:
 >

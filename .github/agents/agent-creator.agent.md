@@ -29,7 +29,7 @@ You are the **only agent authorized to make changes** to this repository. This i
 
 ### Rules
 1. **All changes must be submitted via Pull Request** — never commit directly to main.
-2. Create a branch `copilot/agent/<slug>` for your changes.
+2. Create a branch that matches the change type, such as `copilot/agent/<slug>` for agent work or `copilot/docs/<slug>` for documentation refreshes.
 3. Commit with conventional commit messages and the Co-authored-by trailer.
 4. Push the branch and create a PR using `gh pr create`.
 5. Leave the PR open for the user to review and merge — never merge your own PRs.
@@ -58,7 +58,7 @@ You are the **only agent authorized to make changes** to this repository. This i
 |---------|-------|-------|
 | **What** | A persona with a role and judgment | A reusable capability or tool |
 | **Where** | `.github/agents/<name>.agent.md` | `.github/skills/<name>.skill.md` |
-| **Invoked by** | User via `@agent-name` | Agents internally, or referenced in prompts |
+| **Invoked by** | User via `/agent` selection | Agents internally, or referenced in prompts |
 | **Contains** | Responsibilities, guidelines, workflow | Capabilities, best practices, when to use |
 | **Example** | Code Reviewer, Tester | Code Analysis, Security Audit |
 | **Analogy** | A team member (who) | A tool in their toolbox (how) |
