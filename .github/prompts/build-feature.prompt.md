@@ -11,11 +11,10 @@ I need to implement a new feature: **{{FEATURE_NAME}}**. The tasks can be delega
 {{FEATURE_REQUIREMENTS}}
 
 ## Steps
-1. @code-investigator — analyze the requirements and design the feature architecture
-2. @orchestrator — break down the feature into tasks and assign them to the appropriate agents
-3. @code-writer or an appropriate specialized agent — implement the feature on a `copilot/feat/<slug>` branch
-4. @tester — write tests for the new feature (on the same branch)
-5. @code-reviewer — review the implementation
-6. @documenter — update documentation
-7. @code-writer or implementing agent — push the branch and create a PR via `gh pr create`, report the PR URL to the user for manual review and merge
-
+1. **Code Investigator** — analyze the requirements and design the feature architecture.
+2. **Orchestrator (optional)** — coordinate the overall plan and route work to the right specialists.
+3. **Code Writer** or another suitable specialist — implement the feature on a `copilot/feat/<slug>` branch.
+4. **Tester** — write tests for the new feature on the same branch.
+5. **Code Reviewer** — review the implementation.
+6. **Documenter** — update documentation.
+7. **Implementing agent** — push the branch and create a PR via `gh pr create`, then report the PR URL for manual review and merge.
