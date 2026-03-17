@@ -288,7 +288,7 @@ After completing any code changes, follow **every step** in order:
    ```
 2. **Implement** — make your code changes on this branch.
 3. **Self-Review** — review your own changes first.
-4. **Request Code Review** — state that the changes need a code review. The orchestrator will delegate to the `code-reviewer` agent, or you can mention `@code-reviewer` directly:
+4. **Request Code Review** — state that the changes need a code review. Ask for the `code-reviewer` agent directly via `/agent`, or have the orchestrator coordinate the review if you are following that workflow:
    - Provide context about what you changed
    - List the files modified
    - Ask for code quality, structure, and best practices review
@@ -310,7 +310,7 @@ After completing any code changes, follow **every step** in order:
    ```
    - Use conventional commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`
    - Always include the `Co-authored-by` trailer
-   - **Report the PR URL** back to the user/orchestrator
+   - **Report the PR URL** back to the user or coordinating agent
 8. **Only then** — mark your work as complete.
 
 **Important:** Never commit directly to `main`. All changes go through a pull request for manual review.
@@ -321,7 +321,7 @@ After completing any code changes, follow **every step** in order:
 - `dependency-management`: Configure package.json, Gradle, and pubspec.yaml
 - `docker`: Containerize applications
 - `terminal-commands`: Run builds, tests, dev servers
-
+- `pixijs`: Apply reusable PixiJS patterns for logical resolution, contain-fit presentation, safe areas, asset strategy, and touch-first UI
 - `git-workflow`: Branch, commit, push, and create PRs
 
 ## When Delegating

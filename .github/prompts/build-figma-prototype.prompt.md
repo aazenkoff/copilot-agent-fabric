@@ -19,13 +19,21 @@ The prototype should use **PixiJS v8 + Vite + TypeScript** and faithfully replic
 
 Refer to the `code-generation` and `code-analysis` skills for implementation patterns and code review conventions.
 
+## Workflow Note
+- Use `/agent` to select the agent for each step.
+- For end-to-end coordination, you can select the repo's **orchestrator** first.
+- Use `/fleet` for independent investigation or QA tracks only when parallel work helps.
+- Use `@` for file and path mentions, not agent selection.
+
 ---
 
 ## Steps
 
-### 1 — Explore Design (`@code-investigator`)
+### 1 — Explore Design
 
-Delegate to `@code-investigator`:
+**Role:** Code Investigator
+
+Select the code-investigator agent with `/agent`, or have the orchestrator assign this step:
 
 > Using the `code-analysis` skill, explore the Figma file `{{FIGMA_FILE_KEY}}` starting from root node `{{FIGMA_ROOT_NODE}}`.
 >
@@ -38,11 +46,13 @@ Delegate to `@code-investigator`:
 
 ---
 
-### 2 — Scaffold & Implement Scenes (`@code-writer`)
+### 2 — Scaffold & Implement Scenes
+
+**Role:** Code Writer
 
 Branch: `copilot/feat/{{PROJECT_NAME}}-prototype`
 
-Delegate to `@code-writer`:
+Select the code-writer agent with `/agent`, or have the orchestrator assign this step:
 
 > Using the investigation report from Step 1 and the `code-generation` skill, on branch `copilot/feat/{{PROJECT_NAME}}-prototype`:
 >
@@ -55,9 +65,13 @@ Delegate to `@code-writer`:
 
 ---
 
-### 3 — Export Assets & Replace Placeholders (`@code-writer`)
+### 3 — Export Assets & Replace Placeholders
 
-Delegate to `@code-writer` (same branch):
+**Role:** Code Writer
+
+Stay on the same branch.
+
+Select the code-writer agent with `/agent`, or have the orchestrator assign this step:
 
 > Using the `code-generation` skill, replace every programmatic placeholder with real Figma assets:
 >
@@ -69,9 +83,11 @@ Delegate to `@code-writer` (same branch):
 
 ---
 
-### 4 — Code Review (`@code-reviewer`)
+### 4 — Code Review
 
-Delegate to `@code-reviewer`:
+**Role:** Code Reviewer
+
+Select the code-reviewer agent with `/agent`, or have the orchestrator assign this step:
 
 > Review the implementation on branch `copilot/feat/{{PROJECT_NAME}}-prototype` against the `code-generation` and `code-analysis` skills.
 >
@@ -85,9 +101,13 @@ Delegate to `@code-reviewer`:
 
 ---
 
-### 5 — Apply Feedback & Open PR (`@code-writer`)
+### 5 — Apply Feedback & Open PR
 
-Delegate to `@code-writer` (same branch):
+**Role:** Code Writer
+
+Stay on the same branch.
+
+Select the code-writer agent with `/agent`, or have the orchestrator assign this step:
 
 > Apply all review feedback from Step 4 on branch `copilot/feat/{{PROJECT_NAME}}-prototype`.
 > Run `npm run build` to confirm the build is clean.
@@ -96,14 +116,16 @@ Delegate to `@code-writer` (same branch):
 > git push -u origin copilot/feat/{{PROJECT_NAME}}-prototype
 > gh pr create \
 >   --title "feat: PixiJS prototype for {{PROJECT_NAME}}" \
->   --body "Clickable prototype built from Figma file \`{{FIGMA_FILE_KEY}}\`. Implements scenes: $(git --no-pager diff --name-only origin/main... | grep Scene | tr '\n' ', ')." \
+>   --body "## Summary\nClickable prototype built from Figma file `{{FIGMA_FILE_KEY}}`. Implements scenes: $(git --no-pager diff --name-only origin/main... | grep Scene | tr '\n' ', ')." \
 >   --head copilot/feat/{{PROJECT_NAME}}-prototype
 > ```
 > Report the PR URL.
 
 ---
 
-### 6 — Visual QA *(orchestrator runs this step)*
+### 6 — Visual QA
+
+Use the coordinating agent you selected for the workflow. If you want repo-standard coordination, keep the orchestrator on point for this QA loop.
 
 For **each scene** in the prototype:
 
@@ -114,7 +136,7 @@ For **each scene** in the prototype:
    ```
 3. Take a browser screenshot with `chrome-devtools-take_screenshot`.
 4. Take the Figma reference screenshot with `figma-get_screenshot` using the scene's `nodeId` and `{{FIGMA_FILE_KEY}}`.
-5. Compare the two screenshots side-by-side. For each gap found, delegate a targeted fix to `@code-writer`:
+5. Compare the two screenshots side-by-side. For each gap found, route a targeted fix to the **Code Writer** role:
    - Missing sprite → add asset + `Sprite` to scene
    - Position/size mismatch → adjust `x / y / width / height` to match Figma coordinates
    - Remaining `Graphics` shape → replace with `Sprite`

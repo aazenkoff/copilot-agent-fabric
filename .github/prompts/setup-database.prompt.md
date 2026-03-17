@@ -10,11 +10,19 @@ Set up database infrastructure for: **{{PROJECT_OR_SERVICE}}**
 ## Requirements
 {{DATABASE_REQUIREMENTS}}
 
+## Workflow Note
+- Use `/agent` to select the role for each step.
+- For end-to-end coordination, you can select the orchestrator first.
+- Use `/fleet` when research or review work can safely happen in parallel.
+- Use `@` only for files and paths.
+
 ## Steps
 
-### 1 — Research Database Options (`@researcher`)
+### 1 — Research Database Options
 
-Delegate to `@researcher`:
+**Role:** Researcher
+
+Select the researcher agent with `/agent`, or have the orchestrator assign this step:
 
 > Evaluate database options (PostgreSQL, MySQL, MongoDB, etc.) for **{{PROJECT_OR_SERVICE}}**.
 >
@@ -29,11 +37,13 @@ Delegate to `@researcher`:
 
 ---
 
-### 2 — Design Schema & Migrations (`@code-writer`)
+### 2 — Design Schema & Migrations
+
+**Role:** Code Writer
 
 Branch: `copilot/feat/{{PROJECT_OR_SERVICE}}-database`
 
-Delegate to `@code-writer`:
+Select the code-writer agent with `/agent`, or have the orchestrator assign this step:
 
 > Using the `database-operations` skill and the research from Step 1:
 >
@@ -45,9 +55,13 @@ Delegate to `@code-writer`:
 
 ---
 
-### 3 — Implement Data Access Layer (`@code-writer`)
+### 3 — Implement Data Access Layer
 
-Delegate to `@code-writer` (same branch):
+**Role:** Code Writer
+
+Stay on the same branch.
+
+Select the code-writer agent with `/agent`, or have the orchestrator assign this step:
 
 > Implement the repository/DAO pattern for the data model from Step 2:
 >
@@ -60,9 +74,13 @@ Delegate to `@code-writer` (same branch):
 
 ---
 
-### 4 — Test (`@tester`)
+### 4 — Test
 
-Delegate to `@tester` (same branch):
+**Role:** Tester
+
+Stay on the same branch.
+
+Select the tester agent with `/agent`, or have the orchestrator assign this step:
 
 > Write database integration tests:
 >
@@ -74,9 +92,11 @@ Delegate to `@tester` (same branch):
 
 ---
 
-### 5 — Review (`@code-reviewer`)
+### 5 — Review
 
-Delegate to `@code-reviewer`:
+**Role:** Code Reviewer
+
+Select the code-reviewer agent with `/agent`, or have the orchestrator assign this step:
 
 > Review the database implementation on branch `copilot/feat/{{PROJECT_OR_SERVICE}}-database`:
 >
@@ -88,9 +108,13 @@ Delegate to `@code-reviewer`:
 
 ---
 
-### 6 — Document (`@documenter`)
+### 6 — Document
 
-Delegate to `@documenter` (same branch):
+**Role:** Documenter
+
+Stay on the same branch.
+
+Select the documenter agent with `/agent`, or have the orchestrator assign this step:
 
 > Create data model documentation:
 >
@@ -104,7 +128,8 @@ Push the branch and open a PR:
 
 ```bash
 git push -u origin copilot/feat/{{PROJECT_OR_SERVICE}}-database
-gh pr create --title "feat: database setup for {{PROJECT_OR_SERVICE}}" \
+gh pr create \
+  --title "feat: database setup for {{PROJECT_OR_SERVICE}}" \
   --body "## Summary\nDatabase infrastructure, schema, data access layer, and tests."
 ```
 

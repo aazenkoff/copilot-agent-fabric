@@ -47,9 +47,9 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 |-------|---------|------------|
 | `orchestrator` | Coordinate work across all agents | `project-context` |
 | `agent-creator` | Create and manage new agents | — |
-| `code-writer` | Write production code | code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization, `project-context` |
-| `game-developer` | Game dev (PixiJS prototypes, Spring Boot, Flutter) | code-generation, code-analysis, dependency-management |
-| `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, `project-context` |
+| `code-writer` | Write production code | code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, pixijs, performance-optimization, `project-context` |
+| `game-developer` | Game dev (PixiJS prototypes, Spring Boot, Flutter) | code-generation, code-analysis, dependency-management, pixijs |
+| `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, pixijs, `project-context` |
 | `documenter` | Generate and maintain documentation | markdown-generation |
 | `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow, observability, `project-context` |
 | `researcher` | Research best practices and solutions | web-search, code-analysis |
@@ -76,6 +76,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `database-operations` | Schema design, migrations, query optimization |
 | `api-design` | REST/GraphQL patterns, OpenAPI, versioning |
 | `frontend-frameworks` | React/Vue/Angular patterns, state management, a11y |
+| `pixijs` | PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | `observability` | Logging, metrics, distributed tracing, alerting |
 | `performance-optimization` | Profiling, caching, load testing, benchmarking |
 | `testing-infrastructure` | Test data, fixtures, Testcontainers, test pyramid |

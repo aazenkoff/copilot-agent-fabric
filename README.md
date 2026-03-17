@@ -1,6 +1,6 @@
 # AI Agent Management Environment
 
-A structured workspace for creating, orchestrating, and managing AI agents via GitHub Copilot CLI. This repository contains **only agent configuration** — no application source code should be stored here.
+A structured workspace for defining, coordinating, and maintaining custom agents for GitHub Copilot CLI. This repository contains **only agent configuration** — no application source code should be stored here.
 
 ## 🏗️ Architecture
 
@@ -8,7 +8,7 @@ A structured workspace for creating, orchestrating, and managing AI agents via G
 ai-env-public0/
 ├── .github/
 │   ├── agents/                        # Agent definitions (who does the work)
-│   │   ├── orchestrator.agent.md      # 🎯 Master coordinator
+│   │   ├── orchestrator.agent.md      # 🎯 Optional coordinator for complex workflows
 │   │   ├── agent-creator.agent.md     # 🆕 Agent & skill creator
 │   │   ├── code-writer.agent.md       # ✍️  Code implementation
 │   │   ├── code-reviewer.agent.md     # 🔍 Code review & refactoring
@@ -42,8 +42,8 @@ ai-env-public0/
 ├── docs/                              # Documentation
 │   ├── architecture.md                # System architecture
 │   ├── agent-guide.md                 # How to use agents & skills
-│   ├── docker-mcp-guide.md           # Docker MCP server usage
-│   ├── figma-mcp-guide.md            # Figma MCP server usage
+│   ├── docker-mcp-guide.md            # Docker MCP server usage
+│   ├── figma-mcp-guide.md             # Figma MCP server usage
 └── README.md                          # This file
 ```
 
@@ -54,26 +54,37 @@ ai-env-public0/
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line) installed and authenticated
 - A GitHub Copilot subscription with agent support
 
-### Using Agents
+### Using Agents in Copilot CLI
 
-Invoke any agent by mentioning it with `@` in your Copilot CLI chat:
+- Use `/agent` to browse and select an agent.
+- Use `@` to mention files or paths for context, not to invoke agents.
+- Use `/fleet` when you want parallel subagent execution for independent work.
 
-```
-@orchestrator Build a REST API for user management
-@code-writer Implement a login endpoint
-@code-reviewer Review the changes in src/auth/
-@tester Write unit tests for the user service
-```
+Example flow:
 
-### Orchestrated Workflows
-
-For complex tasks, use the orchestrator — it automatically coordinates multiple agents:
-
-```
-@orchestrator Build a user authentication system with JWT tokens
+```text
+/agent
+# select code-writer
+Implement a login endpoint in @src/auth/
 ```
 
-The orchestrator will break down the task, delegate to specialists, and synthesize the results.
+```text
+/agent
+# select tester
+Write unit tests for @src/services/user-service.ts
+```
+
+### Recommended Coordination Pattern
+
+For complex, multi-step work, this repo recommends selecting the **orchestrator** with `/agent` and using it as the coordinator.
+
+```text
+/agent
+# select orchestrator
+Build a user authentication system with JWT tokens for @docs/requirements/auth.md
+```
+
+This is a **repo convention**, not a Copilot CLI default. The orchestrator is a selectable custom agent that can break down work, route to specialists, and synthesize results when you choose to use it.
 
 ## 🎯 Available Agents
 
@@ -81,8 +92,9 @@ The orchestrator will break down the task, delegate to specialists, and synthesi
 |-------|----------|------------|
 | **Orchestrator** | Meta | Coordination |
 | **Agent Creator** | Meta | — |
-| **Code Writer** | Development | code-generation, dependency-management, database-operations, api-design, frontend-frameworks, performance-optimization |
-| **Code Reviewer** | Quality | code-analysis, security-audit, api-design, database-operations, frontend-frameworks |
+| **Code Writer** | Development | code-generation, dependency-management, database-operations, api-design, frontend-frameworks, pixijs, performance-optimization |
+| **Code Reviewer** | Quality | code-analysis, security-audit, api-design, database-operations, frontend-frameworks, pixijs |
+| **Game Developer** | Development | code-generation, code-analysis, dependency-management, pixijs |
 | **Tester** | Quality | code-generation, terminal-commands, testing-infrastructure, performance-optimization |
 | **Documenter** | Documentation | markdown-generation |
 | **DevOps** | Operations | docker, ci-cd, terminal-commands, observability |
@@ -106,6 +118,7 @@ The orchestrator will break down the task, delegate to specialists, and synthesi
 | database-operations | Schema design, migrations, query optimization |
 | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| pixijs | PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | observability | Logging, metrics, distributed tracing, alerting |
 | performance-optimization | Profiling, caching, load testing, benchmarking |
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
@@ -138,8 +151,8 @@ See [Docker MCP Guide](docs/docker-mcp-guide.md) and [Figma MCP Guide](docs/figm
 
 | Document | Description |
 |----------|-------------|
-| [Architecture](docs/architecture.md) | System design and diagrams |
-| [Agent Guide](docs/agent-guide.md) | How to use, create, and customize agents |
+| [Architecture](docs/architecture.md) | System design and coordination model |
+| [Agent Guide](docs/agent-guide.md) | How to select, use, create, and customize agents |
 | [Docker MCP Guide](docs/docker-mcp-guide.md) | Docker MCP server setup and reference |
 | [Figma MCP Guide](docs/figma-mcp-guide.md) | Figma MCP server setup and reference |
 
@@ -147,9 +160,7 @@ See [Docker MCP Guide](docs/docker-mcp-guide.md) and [Figma MCP Guide](docs/figm
 
 ### Adding a New Agent
 
-```
-@agent-creator Create a new agent for <purpose>
-```
+Use `/agent` to select **agent-creator**, then ask for the new agent you want. If relevant, mention supporting files with `@`.
 
 Or manually:
 1. Copy `.github/agents-config/agent-template.md` → `.github/agents/<name>.agent.md`

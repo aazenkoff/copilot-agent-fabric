@@ -10,11 +10,19 @@ Implement authentication for: **{{PROJECT_OR_SERVICE}}**
 ## Requirements
 {{AUTH_REQUIREMENTS}}
 
+## Workflow Note
+- Use `/agent` to select the role for each step.
+- For an end-to-end coordination pattern, you can select the orchestrator first.
+- Use `/fleet` for independent research or verification steps when parallel work is safe.
+- Use `@` only for files and paths.
+
 ## Steps
 
-### 1 — Research Auth Strategy (`@researcher`)
+### 1 — Research Auth Strategy
 
-Delegate to `@researcher`:
+**Role:** Researcher
+
+Select the researcher agent with `/agent`, or have the orchestrator assign this step:
 
 > Evaluate authentication strategies for **{{PROJECT_OR_SERVICE}}**:
 >
@@ -33,11 +41,13 @@ Delegate to `@researcher`:
 
 ---
 
-### 2 — Implement Authentication (`@code-writer`)
+### 2 — Implement Authentication
+
+**Role:** Code Writer
 
 Branch: `copilot/feat/{{PROJECT_OR_SERVICE}}-auth`
 
-Delegate to `@code-writer`:
+Select the code-writer agent with `/agent`, or have the orchestrator assign this step:
 
 > Implement the authentication system based on the research from Step 1:
 >
@@ -51,9 +61,11 @@ Delegate to `@code-writer`:
 
 ---
 
-### 3 — Security Review (`@code-reviewer`)
+### 3 — Security Review
 
-Delegate to `@code-reviewer`:
+**Role:** Code Reviewer
+
+Select the code-reviewer agent with `/agent`, or have the orchestrator assign this step:
 
 > Perform a security-focused review of the auth implementation on branch `copilot/feat/{{PROJECT_OR_SERVICE}}-auth`:
 >
@@ -69,9 +81,13 @@ Delegate to `@code-reviewer`:
 
 ---
 
-### 4 — Test (`@tester`)
+### 4 — Test
 
-Delegate to `@tester` (same branch):
+**Role:** Tester
+
+Stay on the same branch.
+
+Select the tester agent with `/agent`, or have the orchestrator assign this step:
 
 > Write comprehensive auth tests:
 >
@@ -84,9 +100,13 @@ Delegate to `@tester` (same branch):
 
 ---
 
-### 5 — Document Auth Flow (`@documenter`)
+### 5 — Document Auth Flow
 
-Delegate to `@documenter` (same branch):
+**Role:** Documenter
+
+Stay on the same branch.
+
+Select the documenter agent with `/agent`, or have the orchestrator assign this step:
 
 > Create authentication documentation:
 >
@@ -100,7 +120,8 @@ Push the branch and open a PR:
 
 ```bash
 git push -u origin copilot/feat/{{PROJECT_OR_SERVICE}}-auth
-gh pr create --title "feat: authentication for {{PROJECT_OR_SERVICE}}" \
+gh pr create \
+  --title "feat: authentication for {{PROJECT_OR_SERVICE}}" \
   --body "## Summary\nAuthentication system with registration, login, tokens, and security review."
 ```
 

@@ -1,19 +1,15 @@
 # Global Copilot Instructions
 
-## Default Agent: Orchestrator
+## Recommended Coordination Pattern
 
-**All user requests are handled by the `orchestrator` agent by default.**
+This repository defines a custom **orchestrator** agent as the preferred coordinator for complex, multi-step work. In GitHub Copilot CLI, users browse and select agents with `/agent`.
 
-When a user sends a message, the Orchestrator receives it first and decides how to handle it:
-- Simple, single-domain tasks → delegate directly to the best-suited specialist agent
-- Complex, multi-step tasks → break down and dispatch multiple agents (in parallel where possible)
-- Infrastructure tasks → delegate to `devops`
-- Code writing → delegate to `code-writer` or `game-developer`
-- Testing → delegate to `tester`
-- Reviews → delegate to `code-reviewer`
-- Documentation → delegate to `documenter`
+- Select **orchestrator** with `/agent` when you want one agent to coordinate specialist work.
+- Select a specialist directly with `/agent` for focused single-domain tasks.
+- Use `/fleet` when parallel subagent execution would help.
+- Use `@` to mention files and paths for context, not to invoke custom agents.
 
-The Orchestrator **never does the work itself** — it always delegates to the right specialist.
+The orchestrator is a **repo convention and selectable workflow**, not an automatic CLI default.
 
 ---
 
@@ -33,7 +29,7 @@ This workspace is an **AI Agent Management Environment** — a structured system
 - **Only the `agent-creator` agent is authorized to make changes** to files in this repository.
 - All changes **must be submitted via Pull Request** — direct commits to the main branch are prohibited.
 - Other agents (code-writer, tester, devops, etc.) must **never** modify files in this repository directly.
-- If a non-agent-creator agent needs a repo change, it must request the change through the orchestrator, who will delegate to `agent-creator`.
+- If another agent identifies a needed repo change, it should stop and request the `agent-creator` workflow rather than editing directly.
 
 ## Agent Naming
 - Use lowercase kebab-case for agent file names: `my-agent.agent.md`
@@ -61,7 +57,7 @@ Agents use a persistent **project registry** to remember which projects exist an
 - Format: `Projects: name1=/path/to/project1, name2=/path/to/project2`
 - Any agent that needs to work with code should check this registry **before** asking the user.
 - The `project-context` skill defines the full read/write pattern.
-- The Orchestrator is responsible for populating the registry at the start of a session if it is not already set.
+- When using the orchestrator workflow, the orchestrator should populate the registry at the start of a session if it is not already set.
 
 ## Project Copilot Instructions
 
@@ -74,7 +70,7 @@ These files are **mandatory context** for all agents working on code tasks. Befo
 3. Use the architecture, conventions, types, and commands documented there.
 
 ### Creating Instructions
-When a project is added to the registry, delegate to `agent-creator` to create `.github/copilot-instructions.md` inside the target project repo via PR. Use the project's existing README and source structure as the basis.
+When a project is added to the registry, use the `agent-creator` workflow to create `.github/copilot-instructions.md` inside the target project repo via PR. Use the project's existing README and source structure as the basis.
 
 ### Enforcement
 - Agents must **not** ask the user for information already in the instructions file.

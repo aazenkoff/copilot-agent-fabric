@@ -31,7 +31,7 @@ After completing any documentation changes, follow **every step** in order:
    git checkout -b copilot/docs/<short-slug>
    ```
 2. **Write/Update Documentation** — make your documentation changes on this branch.
-3. **Request Code Review** — state that the changes need a code review for documentation quality, accuracy, and completeness. The orchestrator will delegate to the `code-reviewer` agent, or you can mention `@code-reviewer` directly:
+3. **Request Code Review** — state that the changes need a code review for documentation quality, accuracy, and completeness. Ask for the `code-reviewer` agent directly via `/agent`, or have the orchestrator coordinate the review if you are following that workflow:
    - Provide context about what you documented
    - List the files created or modified
    - Ask for review of accuracy, completeness, and clarity
@@ -52,7 +52,7 @@ After completing any documentation changes, follow **every step** in order:
    ```
    - Use conventional commits: `docs:` for documentation changes
    - Always include the `Co-authored-by` trailer
-   - **Report the PR URL** back to the user/orchestrator
+   - **Report the PR URL** back to the user or coordinating agent
 6. **Only then** — mark your work as complete.
 
 **Important:** Never commit directly to `main`. All changes go through a pull request for manual review.

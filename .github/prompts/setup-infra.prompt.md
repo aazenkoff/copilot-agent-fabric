@@ -10,11 +10,19 @@ Set up the infrastructure for: **{{PROJECT_OR_SERVICE}}**
 ## Requirements
 {{INFRASTRUCTURE_REQUIREMENTS}}
 
+## Workflow Note
+- Use `/agent` to select the role for each step.
+- For end-to-end coordination, you can select the orchestrator first.
+- Use `/fleet` when research, validation, or review work can safely run in parallel.
+- Use `@` only for files and paths.
+
 ## Steps
 
-### 1 — Research Infrastructure Options (`@researcher`)
+### 1 — Research Infrastructure Options
 
-Delegate to `@researcher`:
+**Role:** Researcher
+
+Select the researcher agent with `/agent`, or have the orchestrator assign this step:
 
 > Evaluate infrastructure options for **{{PROJECT_OR_SERVICE}}**:
 >
@@ -27,11 +35,13 @@ Delegate to `@researcher`:
 
 ---
 
-### 2 — Implement Infrastructure (`@devops`)
+### 2 — Implement Infrastructure
+
+**Role:** DevOps
 
 Branch: `copilot/infra/{{PROJECT_OR_SERVICE}}-setup`
 
-Delegate to `@devops`:
+Select the devops agent with `/agent`, or have the orchestrator assign this step:
 
 > Based on the research from Step 1, implement:
 >
@@ -44,9 +54,13 @@ Delegate to `@devops`:
 
 ---
 
-### 3 — Test Infrastructure (`@tester`)
+### 3 — Test Infrastructure
 
-Delegate to `@tester` (same branch):
+**Role:** Tester
+
+Stay on the same branch.
+
+Select the tester agent with `/agent`, or have the orchestrator assign this step:
 
 > Validate the infrastructure setup:
 >
@@ -58,9 +72,13 @@ Delegate to `@tester` (same branch):
 
 ---
 
-### 4 — Document (`@documenter`)
+### 4 — Document
 
-Delegate to `@documenter` (same branch):
+**Role:** Documenter
+
+Stay on the same branch.
+
+Select the documenter agent with `/agent`, or have the orchestrator assign this step:
 
 > Create infrastructure documentation:
 >
@@ -72,9 +90,11 @@ Delegate to `@documenter` (same branch):
 
 ---
 
-### 5 — Review (`@code-reviewer`)
+### 5 — Review
 
-Delegate to `@code-reviewer`:
+**Role:** Code Reviewer
+
+Select the code-reviewer agent with `/agent`, or have the orchestrator assign this step:
 
 > Review infrastructure code on branch `copilot/infra/{{PROJECT_OR_SERVICE}}-setup`:
 >
@@ -87,9 +107,9 @@ Push the branch and open a PR:
 
 ```bash
 git push -u origin copilot/infra/{{PROJECT_OR_SERVICE}}-setup
-gh pr create --title "infra: setup for {{PROJECT_OR_SERVICE}}" \
+gh pr create \
+  --title "infra: setup for {{PROJECT_OR_SERVICE}}" \
   --body "## Summary\nCI/CD pipeline, containerization, and infrastructure-as-code."
 ```
 
 Report the PR URL.
-

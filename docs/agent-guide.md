@@ -18,39 +18,70 @@
 - This repository cloned locally
 
 ### How It Works
-Each `.agent.md` file in `.github/agents/` defines a specialized AI agent. When you mention an agent with `@agent-name` in Copilot chat, the agent's instructions are loaded and guide Copilot's behavior.
+Each `.agent.md` file in `.github/agents/` defines a specialized custom agent for GitHub Copilot CLI. Use `/agent` to browse and select an agent. Use `@` to mention files or paths for context.
 
 ## Using Agents
 
-### Direct Agent Invocation
+### Selecting an Agent
 
-Use `@` to invoke a specific agent:
+Use `/agent` to browse and select the agent you want to work with, then send your task.
 
-```
-@code-writer Create a Python function that validates email addresses
-```
-
-```
-@tester Write pytest tests for the email validator in src/utils.py
+```text
+/agent
+# select code-writer
+Create a Python function that validates email addresses in @src/utils.py
 ```
 
+```text
+/agent
+# select tester
+Write pytest tests for the email validator in @src/utils.py
 ```
-@code-reviewer Review the file src/auth/handler.py for security issues
+
+```text
+/agent
+# select code-reviewer
+Review @src/auth/handler.py for security issues
 ```
+
+### File Mentions
+
+Use `@` for files and paths only.
+
+```text
+Review @README.md and @docs/architecture.md for clarity
+```
+
+Do **not** use `@code-writer`, `@tester`, or similar syntax to invoke agents.
 
 ### Orchestrated Workflows
 
-For complex tasks, use the orchestrator to automatically coordinate multiple agents:
+For complex tasks, this repo recommends selecting the **orchestrator** with `/agent` and using it as the coordinator.
 
-```
-@orchestrator Build a user authentication system with JWT tokens
+```text
+/agent
+# select orchestrator
+Build a user authentication system with JWT tokens based on @docs/requirements/auth.md
 ```
 
-The orchestrator will:
+The orchestrator can:
 1. Break down the task
-2. Delegate to specialized agents
+2. Route work to specialized agents
 3. Coordinate the workflow
 4. Synthesize the results
+
+This is a **repo workflow convention**, not an automatic CLI default.
+
+### Parallel Subagents with `/fleet`
+
+Use `/fleet` when the work naturally splits into independent tracks.
+
+Good examples:
+- Research + implementation planning
+- Review + test-gap analysis
+- Multiple independent investigation tasks
+
+`/fleet` enables parallel subagent execution. It does **not** mean “use the orchestrator.” You can use `/fleet` with or without the orchestrator workflow.
 
 ## Understanding Skills
 
@@ -67,7 +98,7 @@ This ensures consistent code quality across the codebase.
 ### How It Works
 
 1. A developer agent (code-writer, tester) writes code
-2. The agent requests a code review by invoking the code-reviewer agent
+2. The developer or coordinating agent requests a code review from the code-reviewer agent
 3. The code-reviewer analyzes the code and provides feedback (including structural improvements)
 4. The developer agent applies the suggested improvements
 5. Tests are re-run to ensure nothing broke
@@ -86,7 +117,7 @@ Multiple agents can share the same skill. For example, both the **Code Reviewer*
 Skills are **not invoked directly** by users. Instead:
 1. A skill defines capabilities, best practices, and guidelines.
 2. Agents reference skills via the registry (`registry.yaml`).
-3. When an agent is invoked, it applies its assigned skills' knowledge.
+3. When an agent is selected, it applies its assigned skills' knowledge.
 
 ### Skill Categories
 
@@ -100,7 +131,7 @@ Skills are **not invoked directly** by users. Instead:
 | **Research** | web-search | Information gathering |
 | **Data** | database-operations | Schema design, migrations, query optimization |
 | **API** | api-design | REST/GraphQL patterns, OpenAPI, versioning |
-| **Frontend** | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| **Frontend** | frontend-frameworks, pixijs | React/Vue/Angular patterns plus PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
 | **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
@@ -189,6 +220,8 @@ Prompt templates in `.github/prompts/` are reusable workflows:
 | Deploy to Production | `deploy-to-production.prompt.md` | Production deployment with rollback and monitoring |
 | Setup Auth | `setup-auth.prompt.md` | Authentication system (registration, login, tokens) |
 
+These templates describe **roles and workflow steps**. Use `/agent` to select the needed agent for each step, or select the orchestrator if you want a single coordinating agent to manage the workflow.
+
 ## Creating Custom Agents
 
 ### Step-by-Step
@@ -237,16 +270,16 @@ Prompt templates in `.github/prompts/` are reusable workflows:
 ### Skill Design Tips
 - A skill should describe a *capability*, not a *role*
 - Keep skills atomic — one skill = one type of capability
-- Include "When to Use" to help agents (and the orchestrator) decide applicability
+- Include "When to Use" to help agents and coordinators decide applicability
 - Prefer reusing existing skills over creating overlapping ones
 - If two skills overlap significantly, merge them
 
 ## Best Practices
 
-1. **Use the right agent** — don't ask the code-writer to review code
-2. **Provide context** — include file paths, requirements, and constraints
-3. **Start with the orchestrator** — for multi-step tasks
-4. **Iterate** — refine agent instructions based on results
+1. **Use `/agent` deliberately** — choose the specialist or orchestrator that matches the job
+2. **Use `@` only for files** — mention paths, specs, and diffs for context
+3. **Use the orchestrator for multi-step work when helpful** — it is the repo's recommended coordinator
+4. **Use `/fleet` for parallelizable work** — especially independent research, review, or investigation tracks
 5. **Keep agents focused** — create new agents rather than overloading existing ones
 
 ## Troubleshooting
@@ -256,9 +289,10 @@ Prompt templates in `.github/prompts/` are reusable workflows:
 - Verify the agent is registered in `registry.yaml` with `status: active`
 - Review the agent instructions for conflicting guidelines
 
-### Agent not found
+### Agent not found in `/agent`
 - Ensure the file is in `.github/agents/` with `.agent.md` extension
-- Check the file name matches what you're referencing
+- Check the file name matches what you're expecting
+- Confirm it is registered and active in `registry.yaml`
 
 ### Poor quality output
 - Add more specific guidelines to the agent

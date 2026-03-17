@@ -2,14 +2,17 @@
 
 ## Overview
 
-This workspace implements a **multi-agent system** managed through GitHub Copilot CLI. Each agent is a specialized Markdown-based instruction set that guides Copilot's behavior for specific tasks.
+This workspace implements a **multi-agent system** managed through GitHub Copilot CLI. Each agent is a specialized Markdown-based instruction set that guides Copilot's behavior for specific tasks. Users select agents with `/agent`; the orchestrator is an optional repo convention for coordinating complex work. Use `/fleet` when independent subagent tasks should run in parallel.
 
 ## Architecture Diagram
 
 ```mermaid
 graph TD
     User[👤 User] --> CLI[Copilot CLI]
-    CLI --> Orchestrator[🎯 Orchestrator]
+    CLI -->|/agent select orchestrator| Orchestrator[🎯 Orchestrator]
+    CLI -->|/agent select specialist| CodeWriter[✍️ Code Writer]
+    CLI -->|/agent select specialist| CodeReviewer[🔍 Code Reviewer]
+    CLI -->|/agent select specialist| Tester[🧪 Tester]
 
     Orchestrator --> CodeWriter[✍️ Code Writer]
     Orchestrator --> CodeReviewer[🔍 Code Reviewer]
@@ -93,6 +96,7 @@ graph TD
 ```mermaid
 sequenceDiagram
     participant U as User
+    participant CLI as Copilot CLI
     participant O as Orchestrator
     participant R as Researcher
     participant CW as Code Writer
@@ -100,7 +104,8 @@ sequenceDiagram
     participant CR as Code Reviewer
     participant D as Documenter
 
-    U->>O: Build feature X
+    U->>CLI: /agent → select orchestrator
+    CLI->>O: Build feature X
     O->>R: Research best approach
     R-->>O: Recommendation
     O->>CW: Implement feature
@@ -156,7 +161,7 @@ This cycle ensures all code meets quality standards before delivery.
 | Layer | Purpose | Location |
 |-------|---------|----------|
 | **User Interface** | Copilot CLI chat | Terminal / IDE |
-| **Orchestration** | Task decomposition & routing | `.github/agents/orchestrator.agent.md` |
+| **Orchestration** | Optional task decomposition & routing | `.github/agents/orchestrator.agent.md` |
 | **Agents** | Specialized task execution (who) | `.github/agents/*.agent.md` |
 | **Skills** | Reusable capabilities (how) | `.github/skills/*.skill.md` |
 | **MCP Servers** | External tool integration | `~/.copilot/mcp-config.json` |
@@ -182,13 +187,13 @@ This cycle ensures all code meets quality standards before delivery.
 ### Why a central registry?
 - Single source of truth for all available agents AND skills
 - Maps which skills are assigned to which agents
-- Enables the orchestrator to discover capabilities dynamically
+- Enables the orchestrator or other coordination workflows to discover capabilities dynamically
 - Makes it easy to enable/disable agents or skills
 
 ### Why prompt templates?
 - Standardize common workflows
 - Reduce repetitive typing
-- Encode best-practice agent coordination patterns
+- Encode best-practice agent coordination patterns that users can run after choosing agents with `/agent`
 
 ## MCP Server Integration
 
