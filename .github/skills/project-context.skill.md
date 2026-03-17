@@ -18,13 +18,26 @@ Maintain a persistent, named list of the user's projects and their local paths. 
 ### 1. Check Memory First
 Before asking the user, always check if a project registry already exists in memory (subject: `project-registry`). If it exists, parse the stored fact and use those paths.
 
-### 2. Ask the User (if no registry exists)
+### 2. Load Project Copilot Instructions
+After locating the project path, check if a Copilot instructions file exists at:
+  `<project-path>/.github/copilot-instructions.md`
+
+If it exists:
+- Read it in full before starting any work on that project.
+- It contains architecture, conventions, key types, dev commands, and asset pipeline info.
+- Do NOT ask the user for information that is already documented there.
+
+If it doesn't exist:
+- Suggest the user create one using the standard template.
+- Fall back to exploring the project README and source structure.
+
+### 3. Ask the User (if no registry exists)
 If no project registry is found in memory, ask the user using `ask_user`:
 - Ask for a named list of projects and their local paths.
 - Example: "Please provide your projects as a list, e.g.: `my-api=/Users/me/Develop/my-api, frontend=/Users/me/Develop/frontend`"
 - Accept freeform text input (`allow_freeform: true`).
 
-### 3. Store the Registry
+### 4. Store the Registry
 After collecting project info, call `store_memory` with:
 - `subject`: `project-registry`
 - `category`: `user_preferences`
@@ -32,7 +45,7 @@ After collecting project info, call `store_memory` with:
 - `reason`: `Agents need to know which projects exist and their paths to work effectively without asking the user repeatedly.`
 - `citations`: `User input: provided by user`
 
-### 4. Use the Registry
+### 5. Use the Registry
 When delegating or starting work on a project:
 - Parse the stored fact to extract project names and paths.
 - Pass the relevant project path as context when delegating to specialist agents.
