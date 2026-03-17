@@ -60,18 +60,158 @@ agents:
     skills: [file-operations, code-generation, terminal-commands, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
     status: active
 
-  - name: game-developer
-    file: .github/agents/game-developer.agent.md
-    description: "Specialized game developer for frontend gameplay, prototype workflows, visual QA loops, and backend-ready game integration"
-    category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, docker, git-workflow, pixijs, openai-image-generation]
-    status: active
-
   - name: code-investigator
     file: .github/agents/code-investigator.agent.md
     description: Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports
     category: analysis
     skills: [file-operations, terminal-commands, code-analysis, project-context]
+    status: active
+
+  - name: game-audio-engineer
+    file: .github/agents/game-audio-engineer.agent.md
+    description: Design and implement interactive game audio systems, adaptive music, and runtime audio budgets.
+    category: development
+    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, observability, project-context]
+    status: active
+
+  - name: game-designer
+    file: .github/agents/game-designer.agent.md
+    description: Shape core loops, mechanics, progression, and tuning into implementation-ready game design specifications.
+    category: analysis
+    skills: [file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context]
+    status: active
+
+  - name: level-designer
+    file: .github/agents/level-designer.agent.md
+    description: Design readable spaces, encounter flow, and pacing plans for levels, missions, and playable areas.
+    category: analysis
+    skills: [file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context]
+    status: active
+
+  - name: narrative-designer
+    file: .github/agents/narrative-designer.agent.md
+    description: Create interactive story structure, dialogue, lore, and consequence design that fits gameplay realities.
+    category: analysis
+    skills: [file-operations, markdown-generation, code-analysis, project-context]
+    status: active
+
+  - name: technical-artist
+    file: .github/agents/technical-artist.agent.md
+    description: Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance.
+    category: development
+    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, openai-image-generation, project-context]
+    status: active
+
+  - name: unity-architect
+    file: .github/agents/unity-architect.agent.md
+    description: Design scalable, data-driven Unity architectures with decoupled systems and clean prefab boundaries.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, project-context]
+    status: active
+
+  - name: unity-editor-tool-developer
+    file: .github/agents/unity-editor-tool-developer.agent.md
+    description: Build Unity editor tooling that automates repetitive work and enforces project standards.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, project-context]
+    status: active
+
+  - name: unity-multiplayer-engineer
+    file: .github/agents/unity-multiplayer-engineer.agent.md
+    description: Implement authoritative, latency-aware Unity multiplayer systems with reliable sync and validation.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, project-context]
+    status: active
+
+  - name: unity-shader-graph-artist
+    file: .github/agents/unity-shader-graph-artist.agent.md
+    description: Create reusable Unity materials and effects with Shader Graph while respecting render budgets.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, performance-optimization, project-context]
+    status: active
+
+  - name: godot-gameplay-scripter
+    file: .github/agents/godot-gameplay-scripter.agent.md
+    description: Implement typed, signal-driven Godot gameplay systems with clean scene composition.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, testing-infrastructure, project-context]
+    status: active
+
+  - name: godot-multiplayer-engineer
+    file: .github/agents/godot-multiplayer-engineer.agent.md
+    description: Build Godot multiplayer systems with clear authority, RPC design, and sync reliability.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, project-context]
+    status: active
+
+  - name: godot-shader-developer
+    file: .github/agents/godot-shader-developer.agent.md
+    description: Author performant Godot shaders and effects for 2D and 3D projects.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, performance-optimization, terminal-commands, project-context]
+    status: active
+
+  - name: unreal-multiplayer-architect
+    file: .github/agents/unreal-multiplayer-architect.agent.md
+    description: Architect Unreal multiplayer around server authority, replication correctness, and scalable session design.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, project-context]
+    status: active
+
+  - name: unreal-systems-engineer
+    file: .github/agents/unreal-systems-engineer.agent.md
+    description: Build performant Unreal gameplay systems at the C++ and Blueprint boundary.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, dependency-management, performance-optimization, testing-infrastructure, project-context]
+    status: active
+
+  - name: unreal-technical-artist
+    file: .github/agents/unreal-technical-artist.agent.md
+    description: Own Unreal materials, Niagara, PCG, and rendering workflows with strong optimization discipline.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, performance-optimization, terminal-commands, project-context]
+    status: active
+
+  - name: unreal-world-builder
+    file: .github/agents/unreal-world-builder.agent.md
+    description: Plan and optimize Unreal environments, streaming strategy, and world-scale content workflows.
+    category: development
+    skills: [file-operations, markdown-generation, code-analysis, performance-optimization, project-context]
+    status: active
+
+  - name: blender-addon-engineer
+    file: .github/agents/blender-addon-engineer.agent.md
+    description: Create Blender add-ons and automation tools for asset validation, export, and content workflows.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, project-context]
+    status: active
+
+  - name: roblox-avatar-creator
+    file: .github/agents/roblox-avatar-creator.agent.md
+    description: Design Roblox avatar and UGC asset workflows that satisfy platform constraints and user customization goals.
+    category: development
+    skills: [file-operations, markdown-generation, code-analysis, code-generation, project-context]
+    status: active
+
+  - name: roblox-experience-designer
+    file: .github/agents/roblox-experience-designer.agent.md
+    description: Design Roblox-native onboarding, engagement, progression, monetization, and social loops.
+    category: analysis
+    skills: [file-operations, markdown-generation, code-analysis, database-operations, api-design, project-context]
+    status: active
+
+  - name: roblox-systems-scripter
+    file: .github/agents/roblox-systems-scripter.agent.md
+    description: Implement secure, scalable Roblox gameplay and persistence systems in Luau.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, database-operations, api-design, testing-infrastructure, project-context]
+    status: active
+
+  - name: pixijs-prototype-specialist
+    file: .github/agents/pixijs-prototype-specialist.agent.md
+    description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, project-context]
     status: active
 
 skills:

@@ -134,15 +134,15 @@ for name, prompt in assets:
     time.sleep(1)  # respect rate limits
 ```
 
-## Integration with the `game-developer` Agent
+## Integration with Game-Focused Agents
 
-This skill is invoked by the `game-developer` agent when:
-- A PIL-generated or programmatic asset doesn't meet quality or visual fidelity requirements
-- Character portraits, hero art, or complex scene illustrations are needed
-- The project brief explicitly calls for AI-generated art assets
-- Placeholder art needs to be replaced with polished visuals before a demo or release
+This skill is especially useful for the `pixijs-prototype-specialist` and `technical-artist` agents when:
+- Placeholder UI or scene art needs a faster path to polished visuals
+- Exported design assets need complementary generated textures, icons, or decorative treatments
+- Concept art, marketing-style mockups, or rapid visual directions are needed before a manual art pass
+- A prototype needs stronger visual fidelity for stakeholder review, demos, or playtests
 
-The `code-writer` agent may also use this skill when asked to write scripts that automate game asset generation pipelines.
+The `code-writer` agent may also use this skill when asked to automate image-generation pipelines or asset post-processing scripts.
 
 ## When to Use
 - Game UI assets that require artistic quality beyond programmatic drawing
