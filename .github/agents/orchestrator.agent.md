@@ -40,6 +40,10 @@ User Request
 ├── Dialogue / branching narrative / lore → narrative-designer
 ├── Audio systems / adaptive music / spatial sound → game-audio-engineer
 ├── PixiJS web prototypes / Figma-to-browser / visual QA → pixijs-prototype-specialist
+├── PixiJS architecture / scalability / scene graph design → pixijs-architect
+├── PixiJS multiplayer / WebSockets / Colyseus / socket.io → pixijs-multiplayer-engineer
+├── PixiJS shaders / GLSL / WebGL visual effects → pixijs-shader-developer
+├── PixiJS asset pipeline / tooling / build automation → pixijs-tooling-developer
 ├── Art-tech pipeline / shaders / VFX / asset optimization → technical-artist
 ├── Unity architecture / tooling / multiplayer / shaders → matching Unity specialist
 ├── Godot gameplay / multiplayer / shaders → matching Godot specialist
@@ -70,6 +74,10 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `narrative-designer` | Create interactive story structure, dialogue, lore, and consequence design that fits gameplay realities. | `file-operations`, `markdown-generation`, `code-analysis`, `project-context` |
 | `technical-artist` | Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance. | `file-operations`, `code-analysis`, `code-generation`, `performance-optimization`, `terminal-commands`, `openai-image-generation`, `project-context` |
 | `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `pixijs`, `api-design`, `testing-infrastructure`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `project-context` |
+| `pixijs-architect` | Design scalable PixiJS game architectures with clean scene graphs, entity-component patterns, state machines, and asset management strategies. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
+| `pixijs-multiplayer-engineer` | Build PixiJS multiplayer game systems using WebSockets, Colyseus, or socket.io with reliable sync, client prediction, and latency-aware design. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
+| `pixijs-shader-developer` | Write GLSL/WebGL shaders and PixiJS Filter subclasses for visual effects, post-processing, and custom rendering in PixiJS games. | `pixijs`, `shader-programming`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
+| `pixijs-tooling-developer` | Build PixiJS project tooling including asset pipelines, texture atlases, level editors, build scripts, and developer workflow automation. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `dependency-management`, `project-context` |
 | `unity-architect` | Design scalable, data-driven Unity architectures with decoupled systems and clean prefab boundaries. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `testing-infrastructure`, `project-context` |
 | `unity-editor-tool-developer` | Build Unity editor tooling that automates repetitive work and enforces project standards. | `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `testing-infrastructure`, `project-context` |
 | `unity-multiplayer-engineer` | Implement authoritative, latency-aware Unity multiplayer systems with reliable sync and validation. | `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
@@ -111,6 +119,14 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `performance-optimization` | Profiling, caching, load testing, benchmarking |
 | `testing-infrastructure` | Test data, fixtures, Testcontainers, test pyramid |
 | `openai-image-generation` | Generate game-ready UI assets, textures, and concept art from prompts |
+| `unity-scripting` | Unity C# scripting patterns: MonoBehaviour, ScriptableObjects, event channels, DI, testable components |
+| `godot-gdscript` | Godot 4 GDScript patterns: typed scripting, signals, scene composition, Resources |
+| `unreal-cpp` | Unreal C++ and Blueprints: UPROPERTY/UFUNCTION macros, GAS, component design, reflection |
+| `shader-programming` | Cross-platform shaders: GLSL/HLSL/ShaderLab, Shader Graph, Godot shaders, PixiJS Filters |
+| `audio-middleware` | Game audio: FMOD/Wwise event architecture, spatial audio, adaptive music, voice budgets |
+| `game-design-documentation` | Game design docs: GDDs, mechanic specs, tuning tables, playtest plans, level briefs |
+| `luau` | Roblox Luau: typed scripting, ModuleScript architecture, RemoteEvent security, DataStore persistence |
+| `blender-python` | Blender Python API: add-ons, batch export pipelines, mesh/material validation using bpy |
 
 ## Workflow
 1. **Receive** the user's request.
