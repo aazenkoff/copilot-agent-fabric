@@ -52,3 +52,13 @@ This workspace is an **AI Agent Management Environment** — a structured system
 2. **Atomicity** — each skill does one thing well.
 3. **Declarative** — skills describe *what* to do, not *which agent* does it.
 4. **Composable** — skills can be combined in prompt templates and agent instructions.
+
+## Project Registry
+
+Agents use a persistent **project registry** to remember which projects exist and where they live on disk.
+
+- The registry is stored via `store_memory` with subject `project-registry`.
+- Format: `Projects: name1=/path/to/project1, name2=/path/to/project2`
+- Any agent that needs to work with code should check this registry **before** asking the user.
+- The `project-context` skill defines the full read/write pattern.
+- The Orchestrator is responsible for populating the registry at the start of a session if it is not already set.
