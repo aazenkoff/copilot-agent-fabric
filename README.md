@@ -16,7 +16,28 @@ ai-env-public0/
 │   │   ├── devops.agent.md            # ⚙️  Infrastructure
 │   │   ├── researcher.agent.md        # 🔬 Research & analysis
 │   │   ├── tester.agent.md            # 🧪 Testing
-│   │   └── code-investigator.agent.md # 🔎 Bug investigation
+│   │   ├── code-investigator.agent.md # 🔎 Bug investigation
+│   │   ├── game-audio-engineer.agent.md
+│   │   ├── game-designer.agent.md
+│   │   ├── level-designer.agent.md
+│   │   ├── narrative-designer.agent.md
+│   │   ├── technical-artist.agent.md
+│   │   ├── pixijs-prototype-specialist.agent.md
+│   │   ├── unity-architect.agent.md
+│   │   ├── unity-editor-tool-developer.agent.md
+│   │   ├── unity-multiplayer-engineer.agent.md
+│   │   ├── unity-shader-graph-artist.agent.md
+│   │   ├── godot-gameplay-scripter.agent.md
+│   │   ├── godot-multiplayer-engineer.agent.md
+│   │   ├── godot-shader-developer.agent.md
+│   │   ├── unreal-multiplayer-architect.agent.md
+│   │   ├── unreal-systems-engineer.agent.md
+│   │   ├── unreal-technical-artist.agent.md
+│   │   ├── unreal-world-builder.agent.md
+│   │   ├── blender-addon-engineer.agent.md
+│   │   ├── roblox-avatar-creator.agent.md
+│   │   ├── roblox-experience-designer.agent.md
+│   │   └── roblox-systems-scripter.agent.md
 │   ├── skills/                        # Skill definitions (reusable capabilities)
 │   │   ├── file-operations.skill.md   # 📂 Read, write, search files
 │   │   ├── terminal-commands.skill.md # 💻 Execute shell commands
@@ -88,23 +109,46 @@ This is a **repo convention**, not a Copilot CLI default. The orchestrator is a 
 
 ## 🎯 Available Agents
 
+The environment includes the core engineering agents plus a full specialist game-development roster adapted from `msitarzewski/agency-agents`, with a dedicated **PixiJS Prototype Specialist** covering the repo's original Figma-to-browser, visual QA, and backend-ready prototype workflow.
+
 | Agent | Category | Key Skills |
 |-------|----------|------------|
-| **Orchestrator** | Meta | Coordination |
+| **Orchestrator** | Meta | project-context |
 | **Agent Creator** | Meta | — |
-| **Code Writer** | Development | code-generation, dependency-management, database-operations, api-design, frontend-frameworks, pixijs, performance-optimization |
-| **Code Reviewer** | Quality | code-analysis, security-audit, api-design, database-operations, frontend-frameworks, pixijs |
-| **Game Developer** | Development | code-generation, code-analysis, dependency-management, pixijs |
-| **Tester** | Quality | code-generation, terminal-commands, testing-infrastructure, performance-optimization |
-| **Documenter** | Documentation | markdown-generation |
-| **DevOps** | Operations | docker, ci-cd, terminal-commands, observability |
+| **Code Writer** | Development | file-operations, code-generation, dependency-management, git-workflow, database-operations, … |
+| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, code-generation, api-design, … |
+| **Documenter** | Documentation | file-operations, markdown-generation, git-workflow, api-design |
+| **DevOps** | Operations | file-operations, terminal-commands, docker, ci-cd, kubernetes, … |
 | **Researcher** | Analysis | web-search, code-analysis |
-| **Code Investigator** | Analysis | code-analysis, file-operations |
+| **Tester** | Quality | file-operations, code-generation, terminal-commands, git-workflow, database-operations, … |
+| **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, project-context |
+| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, … |
+| **Game Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
+| **Level Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
+| **Narrative Designer** | Analysis | file-operations, markdown-generation, code-analysis, project-context |
+| **Technical Artist** | Development | file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, … |
+| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, … |
+| **Unity Architect** | Development | file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, … |
+| **Unity Editor Tool Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, … |
+| **Unity Multiplayer Engineer** | Development | file-operations, code-generation, code-analysis, api-design, performance-optimization, … |
+| **Unity Shader Graph Artist** | Development | file-operations, code-generation, code-analysis, performance-optimization, project-context |
+| **Godot Gameplay Scripter** | Development | file-operations, code-generation, code-analysis, testing-infrastructure, project-context |
+| **Godot Multiplayer Engineer** | Development | file-operations, code-generation, code-analysis, api-design, performance-optimization, … |
+| **Godot Shader Developer** | Development | file-operations, code-generation, code-analysis, performance-optimization, terminal-commands, … |
+| **Unreal Multiplayer Architect** | Development | file-operations, code-generation, code-analysis, api-design, performance-optimization, … |
+| **Unreal Systems Engineer** | Development | file-operations, code-generation, code-analysis, dependency-management, performance-optimization, … |
+| **Unreal Technical Artist** | Development | file-operations, code-generation, code-analysis, performance-optimization, terminal-commands, … |
+| **Unreal World Builder** | Development | file-operations, markdown-generation, code-analysis, performance-optimization, project-context |
+| **Blender Add-on Engineer** | Development | file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, … |
+| **Roblox Avatar Creator** | Development | file-operations, markdown-generation, code-analysis, code-generation, project-context |
+| **Roblox Experience Designer** | Analysis | file-operations, markdown-generation, code-analysis, database-operations, api-design, … |
+| **Roblox Systems Scripter** | Development | file-operations, code-generation, code-analysis, database-operations, api-design, … |
 
 ## 🛠️ Available Skills
 
 | Skill | Purpose |
 |-------|---------|
+| project-context | Persist and resolve named local project paths for agents |
 | file-operations | Read, write, search, navigate files |
 | terminal-commands | Execute shell commands, run scripts |
 | code-generation | Generate code following patterns |
@@ -115,6 +159,8 @@ This is a **repo convention**, not a Copilot CLI default. The orchestrator is a 
 | markdown-generation | Generate Markdown with diagrams |
 | docker | Dockerfiles, compose, containers |
 | ci-cd | Pipelines and GitHub Actions |
+| kubernetes | Kubernetes manifests, ingress, and cluster deployment workflows |
+| git-workflow | Branch, commit, push, and create PRs with `gh` |
 | database-operations | Schema design, migrations, query optimization |
 | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
@@ -122,6 +168,7 @@ This is a **repo convention**, not a Copilot CLI default. The orchestrator is a 
 | observability | Logging, metrics, distributed tracing, alerting |
 | performance-optimization | Profiling, caching, load testing, benchmarking |
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
+| openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
 
 ## 📋 Code Quality Workflow
 

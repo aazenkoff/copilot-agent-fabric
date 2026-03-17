@@ -197,7 +197,7 @@ MCP tools are available to all agents, but certain agents are better suited to l
 |------------|----------------|-------------|
 | **Chrome DevTools** | Tester, Researcher | UI testing, web analysis, performance audits |
 | **Docker** | DevOps, Tester | Container management, isolated environments |
-| **Figma** | Game Developer, Code Writer, Documenter | Design-to-code, visual QA, diagram generation |
+| **Figma** | PixiJS Prototype Specialist, Technical Artist, Code Writer, Documenter | Design-to-code, visual QA, asset extraction, diagram generation |
 
 ### Learn More
 

@@ -181,7 +181,8 @@ Create architecture or workflow diagrams in FigJam:
 
 | Agent | Use Case |
 |-------|----------|
-| **Game Developer** | Figma-to-PixiJS prototype workflows, asset extraction, visual QA loops |
+| **PixiJS Prototype Specialist** | Figma-to-PixiJS prototype workflows, asset extraction, visual QA loops |
+| **Technical Artist** | Asset export workflows, render-pipeline guidance, and visual fidelity handoff |
 | **Code Writer** | Design-to-code implementation, component scaffolding from designs |
 | **Code Reviewer** | Visual QA comparison against design specifications |
 | **Documenter** | FigJam diagram generation for architecture documentation |
