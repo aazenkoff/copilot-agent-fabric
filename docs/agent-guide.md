@@ -131,7 +131,7 @@ Skills are **not invoked directly** by users. Instead:
 | **Research** | web-search | Information gathering |
 | **Data** | database-operations | Schema design, migrations, query optimization |
 | **API** | api-design | REST/GraphQL patterns, OpenAPI, versioning |
-| **Frontend** | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| **Frontend** | frontend-frameworks, pixijs | React/Vue/Angular patterns plus PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
 | **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |

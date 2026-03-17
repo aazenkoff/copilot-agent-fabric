@@ -92,8 +92,9 @@ This is a **repo convention**, not a Copilot CLI default. The orchestrator is a 
 |-------|----------|------------|
 | **Orchestrator** | Meta | Coordination |
 | **Agent Creator** | Meta | — |
-| **Code Writer** | Development | code-generation, dependency-management, database-operations, api-design, frontend-frameworks, performance-optimization |
-| **Code Reviewer** | Quality | code-analysis, security-audit, api-design, database-operations, frontend-frameworks |
+| **Code Writer** | Development | code-generation, dependency-management, database-operations, api-design, frontend-frameworks, pixijs, performance-optimization |
+| **Code Reviewer** | Quality | code-analysis, security-audit, api-design, database-operations, frontend-frameworks, pixijs |
+| **Game Developer** | Development | code-generation, code-analysis, dependency-management, pixijs |
 | **Tester** | Quality | code-generation, terminal-commands, testing-infrastructure, performance-optimization |
 | **Documenter** | Documentation | markdown-generation |
 | **DevOps** | Operations | docker, ci-cd, terminal-commands, observability |
@@ -117,6 +118,7 @@ This is a **repo convention**, not a Copilot CLI default. The orchestrator is a 
 | database-operations | Schema design, migrations, query optimization |
 | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| pixijs | PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | observability | Logging, metrics, distributed tracing, alerting |
 | performance-optimization | Profiling, caching, load testing, benchmarking |
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |

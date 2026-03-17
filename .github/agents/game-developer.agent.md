@@ -321,7 +321,7 @@ After completing any code changes, follow **every step** in order:
 - `dependency-management`: Configure package.json, Gradle, and pubspec.yaml
 - `docker`: Containerize applications
 - `terminal-commands`: Run builds, tests, dev servers
-
+- `pixijs`: Apply reusable PixiJS patterns for logical resolution, contain-fit presentation, safe areas, asset strategy, and touch-first UI
 - `git-workflow`: Branch, commit, push, and create PRs
 
 ## When Delegating

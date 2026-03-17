@@ -22,14 +22,14 @@ agents:
     file: .github/agents/code-writer.agent.md
     description: Write production-quality code
     category: development
-    skills: [file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization, openai-image-generation, project-context]
+    skills: [file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization, pixijs, openai-image-generation, project-context]
     status: active
 
   - name: code-reviewer
     file: .github/agents/code-reviewer.agent.md
     description: Review code for quality, security, and structure; suggest and apply refactoring improvements
     category: quality
-skills: [file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, performance-optimization, project-context]
+    skills: [file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, performance-optimization, pixijs, project-context]
     status: active
 
   - name: documenter
@@ -57,14 +57,14 @@ skills: [file-operations, code-analysis, security-audit, code-generation, api-de
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-skills: [file-operations, code-generation, terminal-commands, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
+    skills: [file-operations, code-generation, terminal-commands, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
     status: active
 
   - name: game-developer
     file: .github/agents/game-developer.agent.md
     description: "Specialized game developer for frontend gameplay, prototype workflows, visual QA loops, and backend-ready game integration"
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, docker, git-workflow, openai-image-generation]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, docker, git-workflow, pixijs, openai-image-generation]
     status: active
 
   - name: code-investigator
@@ -155,25 +155,31 @@ skills:
 
   - name: database-operations
     file: .github/skills/database-operations.skill.md
-description: Schema design, migrations, seeding, query optimization, and backup/recovery strategies
+    description: Schema design, migrations, seeding, query optimization, and backup/recovery strategies
     category: data
     status: active
 
   - name: api-design
     file: .github/skills/api-design.skill.md
-description: REST and GraphQL API design patterns, OpenAPI specifications, versioning, and backwards compatibility
+    description: REST and GraphQL API design patterns, OpenAPI specifications, versioning, and backwards compatibility
     category: api
     status: active
 
   - name: frontend-frameworks
     file: .github/skills/frontend-frameworks.skill.md
-description: React, Vue, Angular, and Svelte patterns including state management, component design, and accessibility
+    description: React, Vue, Angular, and Svelte patterns including state management, component design, and accessibility
+    category: frontend
+    status: active
+
+  - name: pixijs
+    file: .github/skills/pixijs.skill.md
+    description: PixiJS game and prototype patterns for fixed logical resolution, crisp rendering, contain scaling, safe-area-aware layout, and touch-first UI
     category: frontend
     status: active
 
   - name: observability
     file: .github/skills/observability.skill.md
-description: Logging, metrics, distributed tracing, alerting, and dashboard design for production systems
+    description: Logging, metrics, distributed tracing, alerting, and dashboard design for production systems
     category: observability
     status: active
 
@@ -185,7 +191,7 @@ description: Logging, metrics, distributed tracing, alerting, and dashboard desi
 
   - name: testing-infrastructure
     file: .github/skills/testing-infrastructure.skill.md
-description: Test data management, fixtures, factories, Testcontainers, flakiness handling, and test pyramid strategy
+    description: Test data management, fixtures, factories, Testcontainers, flakiness handling, and test pyramid strategy
     category: testing
     status: active
 
