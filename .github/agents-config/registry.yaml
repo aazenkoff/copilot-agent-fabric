@@ -3,13 +3,6 @@
 # This file is referenced by the Orchestrator to know what's available.
 
 agents:
-  - name: agent-creator
-    file: .github/agents/agent-creator.agent.md
-    description: Create and manage new agents
-    category: meta
-    skills: []
-    status: active
-
   - name: orchestrator
     file: .github/agents/orchestrator.agent.md
     description: Coordinate work across all agents
@@ -17,6 +10,13 @@ agents:
     skills: [project-context]
     status: active
     default: true
+
+  - name: agent-creator
+    file: .github/agents/agent-creator.agent.md
+    description: Create and manage new agents
+    category: meta
+    skills: []
+    status: active
 
   - name: code-writer
     file: .github/agents/code-writer.agent.md
