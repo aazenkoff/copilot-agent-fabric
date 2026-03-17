@@ -44,8 +44,6 @@ ai-env-public0/
 │   ├── agent-guide.md                 # How to use agents & skills
 │   ├── docker-mcp-guide.md           # Docker MCP server usage
 │   ├── figma-mcp-guide.md            # Figma MCP server usage
-│   └── projects/                      # Per-project profiles for agents
-│       └── dark-knight.md             # PixiJS v8 RPG prototype profile
 └── README.md                          # This file
 ```
 
