@@ -76,6 +76,45 @@ After creating pipeline configuration:
 - ❌ Missing `concurrency` groups (wasted compute on superseded commits)
 - ❌ No timeout on jobs (risk of infinite-running workflows)
 - ❌ Duplicating logic across workflows instead of using reusable workflows
+- ❌ Storing a kubeconfig with `127.0.0.1` or `localhost` as the Kubernetes API server address — GitHub Actions runners cannot reach loopback addresses on the remote machine (see [Kubernetes Deployment Pitfalls](#kubernetes-deployment-pitfalls))
+
+## Kubernetes Deployment Pitfalls
+
+### Kubeconfig using localhost/127.0.0.1 as Kubernetes API server address
+
+**Problem**: When a kubeconfig is generated on a VPS or local cluster (e.g., k3s, microk8s, kind), the API server address is often set to `127.0.0.1:6443` or `localhost:6443`. If this kubeconfig is base64-encoded and stored as a GitHub Secret (`KUBECONFIG_B64`), the deploy job will fail with:
+
+```
+dial tcp 127.0.0.1:6443: connect: connection refused
+```
+
+GitHub Actions runners run on their own machines and cannot reach `127.0.0.1` on your remote VPS — that loopback address resolves to the runner itself, not your cluster.
+
+**Fix — patch at deploy time with `sed`**: After decoding the kubeconfig secret in the workflow, rewrite the server address before invoking `kubectl`. This keeps the stored secret unchanged and avoids re-encoding the kubeconfig:
+
+```bash
+echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > $HOME/.kube/config
+sed -i 's|https://127.0.0.1:|https://<ACTUAL_VPS_IP>:|g' $HOME/.kube/config
+sed -i 's|https://localhost:|https://<ACTUAL_VPS_IP>:|g' $HOME/.kube/config
+chmod 600 $HOME/.kube/config
+```
+
+Replace `<ACTUAL_VPS_IP>` with the real public IP (or store it as a separate secret, e.g. `${{ secrets.VPS_IP }}`):
+
+```bash
+sed -i "s|https://127.0.0.1:|https://${{ secrets.VPS_IP }}:|g" $HOME/.kube/config
+sed -i "s|https://localhost:|https://${{ secrets.VPS_IP }}:|g" $HOME/.kube/config
+```
+
+**Alternative — fix the kubeconfig at the source before encoding**: Update the cluster entry in the kubeconfig on the VPS, then re-encode and update the GitHub Secret:
+
+```bash
+kubectl config set-cluster <cluster-name> --server=https://<VPS_IP>:6443
+cat ~/.kube/config | base64 | tr -d '\n'
+# Then update the KUBECONFIG_B64 GitHub Secret with this new value
+```
+
+This approach is cleaner long-term but requires updating the secret whenever the kubeconfig changes.
 
 ## When to Use
 - Setting up automated testing for a repository
