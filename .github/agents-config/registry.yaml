@@ -43,7 +43,7 @@ skills: [file-operations, code-analysis, security-audit, code-generation, api-de
     file: .github/agents/devops.agent.md
     description: CI/CD, infrastructure, and deployment
     category: operations
-skills: [file-operations, terminal-commands, docker, ci-cd, git-workflow, database-operations, observability, project-context]
+    skills: [file-operations, terminal-commands, docker, ci-cd, kubernetes, git-workflow, database-operations, observability, project-context]
     status: active
 
   - name: researcher
@@ -138,6 +138,12 @@ skills:
   - name: ci-cd
     file: .github/skills/ci-cd.skill.md
     description: Create and manage CI/CD pipelines and GitHub Actions workflows
+    category: operations
+    status: active
+
+  - name: kubernetes
+    file: .github/skills/kubernetes.skill.md
+    description: Deploy and manage applications on Kubernetes clusters with manifests, GitHub Actions CI/CD, and ingress TLS configuration
     category: operations
     status: active
 
