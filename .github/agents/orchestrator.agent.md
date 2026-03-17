@@ -124,6 +124,15 @@ At the start of each session, check persistent memory for a known project regist
 
 Always pass the relevant project path to any agent you delegate to so they can navigate the codebase without asking again.
 
+## File Discovery Rules
+
+When locating files in a project (especially config files like `copilot-instructions.md`):
+
+1. **Never use `cat` with an assumed path** — `cat .../file 2>/dev/null || echo NOT FOUND` silently swallows errors and gives false negatives, especially for files in hidden directories (e.g., `.github/`).
+2. **Always use the `glob` tool for file discovery** — it handles hidden directories correctly and is the preferred tool.
+   - Example: `glob: **/.github/copilot-instructions.md` rooted at the project path
+3. **Use `find` as a fallback** when glob is insufficient — `find <project-path> -name "filename"` is authoritative and does not miss hidden directories.
+
 ## Rules
 - **Before planning, ALWAYS check `.github/prompts/` for a matching prompt template. If one exists, follow its steps — do not improvise your own workflow.**
 - **Never perform a task yourself if a specialized agent exists for it.**
