@@ -29,6 +29,15 @@ When implementing features, leverage these skills based on the domain:
 - **Frontend UI** — use the `frontend-frameworks` skill for React/Vue/Angular component patterns, state management
 - **Performance** — use the `performance-optimization` skill for caching, lazy loading, query optimization
 
+## Project Context
+
+Before starting any task, use the `project-context` skill to resolve the target project directory:
+
+1. Check memory for the project registry (subject: `project-registry`).
+2. If no registry exists, ask the user for their project name and path using `ask_user`, then store via `store_memory`.
+3. If multiple projects are registered and the task doesn't specify one, ask the user to choose using `ask_user` with the project names as choices.
+4. Use the resolved path as the working directory for all file operations.
+
 ## Code Quality Workflow
 
 After completing any code changes, follow **every step** in order:

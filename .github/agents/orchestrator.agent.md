@@ -45,21 +45,23 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 
 | Agent | Purpose | Key Skills |
 |-------|---------|------------|
+| `orchestrator` | Coordinate work across all agents | `project-context` |
 | `agent-creator` | Create and manage new agents | — |
-| `code-writer` | Write production code | code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization |
+| `code-writer` | Write production code | code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization, `project-context` |
 | `game-developer` | Game dev (PixiJS prototypes, Spring Boot, Flutter) | code-generation, code-analysis, dependency-management |
-| `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks |
+| `code-reviewer` | Review code for quality, security, and refactoring | code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, `project-context` |
 | `documenter` | Generate and maintain documentation | markdown-generation |
-| `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow, observability |
+| `devops` | CI/CD, infrastructure, and deployment | docker, ci-cd, terminal-commands, git-workflow, observability, `project-context` |
 | `researcher` | Research best practices and solutions | web-search, code-analysis |
-| `tester` | Generate tests and validate behavior | code-generation, terminal-commands, git-workflow, testing-infrastructure, performance-optimization |
-| `code-investigator` | Investigate bugs, trace code, root-cause analysis | file-operations, terminal-commands, code-analysis |
+| `tester` | Generate tests and validate behavior | code-generation, terminal-commands, git-workflow, testing-infrastructure, performance-optimization, `project-context` |
+| `code-investigator` | Investigate bugs, trace code, root-cause analysis | file-operations, terminal-commands, code-analysis, `project-context` |
 
 ## Available Skills
 Skills are reusable capabilities defined in `.github/skills/`. Agents use skills to perform their work. When delegating, consider which skills a task requires and pick the agent that has them.
 
 | Skill | Description |
 |-------|-------------|
+| `project-context` | Check and store the persistent project registry (paths) |
 | `file-operations` | Read, write, search, navigate files |
 | `terminal-commands` | Execute shell commands, run scripts |
 | `code-generation` | Generate code following patterns |
@@ -112,6 +114,15 @@ When delegating to developer agents (code-writer, tester):
    - What was attempted
    - The error encountered
    - Suggested manual steps
+
+## Project Context
+
+At the start of each session, check persistent memory for a known project registry (subject: `project-registry`, skill: `project-context`).
+
+- **If the registry exists** — load project names and paths; include them as context when delegating to code-facing agents.
+- **If no registry exists** — ask the user using `ask_user` (freeform) for a named list of projects and their paths, then store via `store_memory` using the `project-context` skill.
+
+Always pass the relevant project path to any agent you delegate to so they can navigate the codebase without asking again.
 
 ## Rules
 - **Before planning, ALWAYS check `.github/prompts/` for a matching prompt template. If one exists, follow its steps — do not improvise your own workflow.**
