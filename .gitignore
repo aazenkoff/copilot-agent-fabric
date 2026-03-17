@@ -43,5 +43,5 @@ target/
 # Temp
 temp/
 
-# Projects (this repo is agent-config only)
-projects/
+# Projects (this repo is agent-config only; anchored to root so docs/projects/ is allowed)
+/projects/
