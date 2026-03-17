@@ -76,6 +76,15 @@ After creating pipeline configuration:
 - ❌ Missing `concurrency` groups (wasted compute on superseded commits)
 - ❌ No timeout on jobs (risk of infinite-running workflows)
 - ❌ Duplicating logic across workflows instead of using reusable workflows
+- ❌ Letting build and deploy define different container repository or tag formats — keep one canonical image name shared across all jobs
+- ❌ Omitting `packages: read` on deploy jobs that must reference or validate private GHCR images
+- ❌ Failing a deployment on rollout timeout without printing actionable diagnostics (pods, describe output, logs, recent events)
+
+## Kubernetes Deployment Notes
+- For Kubernetes deploys, define one canonical image repository/tag convention and reuse it in build, deploy, and manifests.
+- If the deployment references private GHCR images, ensure the deploy job requests `permissions: packages: read`.
+- Add debug-on-failure diagnostics to rollout steps so failed deploys surface pod state, describe output, logs, and events.
+- Keep detailed Kubernetes manifest and cluster guidance in `.github/skills/kubernetes.skill.md`; use this skill for pipeline structure and workflow design.
 
 ## When to Use
 - Setting up automated testing for a repository
@@ -83,4 +92,3 @@ After creating pipeline configuration:
 - Automating release processes
 - Adding quality gates to pull requests
 - Configuring matrix builds for cross-platform testing
-
