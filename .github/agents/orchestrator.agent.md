@@ -61,8 +61,8 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 |-------|---------|------------|
 | `orchestrator` | Coordinate work across all agents | `project-context` |
 | `agent-creator` | Create and manage new agents | — |
-| `code-writer` | Write production-quality code | `file-operations`, `code-generation`, `dependency-management`, `git-workflow`, `database-operations`, `api-design`, `frontend-frameworks`, `performance-optimization`, `pixijs`, `openai-image-generation`, `project-context` |
-| `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `api-design`, `database-operations`, `frontend-frameworks`, `performance-optimization`, `pixijs`, `project-context` |
+| `code-writer` | Write production-quality code | `file-operations`, `code-generation`, `dependency-management`, `git-workflow`, `database-operations`, `api-design`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `openai-image-generation`, `project-context` |
+| `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `api-design`, `database-operations`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `project-context` |
 | `documenter` | Generate and maintain documentation | `file-operations`, `markdown-generation`, `git-workflow`, `api-design` |
 | `devops` | CI/CD, infrastructure, and deployment | `file-operations`, `terminal-commands`, `docker`, `ci-cd`, `kubernetes`, `git-workflow`, `database-operations`, `observability`, `project-context` |
 | `researcher` | Research best practices and solutions | `web-search`, `code-analysis` |
@@ -72,8 +72,8 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `game-designer` | Shape core loops, mechanics, progression, and tuning into implementation-ready game design specifications. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `level-designer` | Design readable spaces, encounter flow, and pacing plans for levels, missions, and playable areas. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `narrative-designer` | Create interactive story structure, dialogue, lore, and consequence design that fits gameplay realities. | `file-operations`, `markdown-generation`, `code-analysis`, `project-context` |
-| `technical-artist` | Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance. | `file-operations`, `code-analysis`, `code-generation`, `performance-optimization`, `terminal-commands`, `openai-image-generation`, `project-context` |
-| `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `pixijs`, `api-design`, `testing-infrastructure`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `project-context` |
+| `technical-artist` | Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance. | `file-operations`, `code-analysis`, `code-generation`, `landing-page-creation`, `performance-optimization`, `terminal-commands`, `openai-image-generation`, `project-context` |
+| `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `landing-page-creation`, `pixijs`, `api-design`, `testing-infrastructure`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `project-context` |
 | `pixijs-architect` | Design scalable PixiJS game architectures with clean scene graphs, entity-component patterns, state machines, and asset management strategies. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
 | `pixijs-multiplayer-engineer` | Build PixiJS multiplayer game systems using WebSockets, Colyseus, or socket.io with reliable sync, client prediction, and latency-aware design. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
 | `pixijs-shader-developer` | Write GLSL/WebGL shaders and PixiJS Filter subclasses for visual effects, post-processing, and custom rendering in PixiJS games. | `pixijs`, `shader-programming`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
@@ -114,6 +114,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `database-operations` | Schema design, migrations, query optimization |
 | `api-design` | REST/GraphQL patterns, OpenAPI, versioning |
 | `frontend-frameworks` | React/Vue/Angular patterns, state management, a11y |
+| `landing-page-creation` | Conversion-aware landing pages and marketing microsites with semantic, responsive, performance-minded UX |
 | `pixijs` | PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | `observability` | Logging, metrics, distributed tracing, alerting |
 | `performance-optimization` | Profiling, caching, load testing, benchmarking |

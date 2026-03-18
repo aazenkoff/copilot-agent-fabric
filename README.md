@@ -115,8 +115,8 @@ The environment includes the core engineering agents plus a full specialist game
 |-------|----------|------------|
 | **Orchestrator** | Meta | project-context |
 | **Agent Creator** | Meta | — |
-| **Code Writer** | Development | file-operations, code-generation, dependency-management, git-workflow, database-operations, … |
-| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, code-generation, api-design, … |
+| **Code Writer** | Development | file-operations, code-generation, dependency-management, landing-page-creation, git-workflow, … |
+| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, code-generation, landing-page-creation, … |
 | **Documenter** | Documentation | file-operations, markdown-generation, git-workflow, api-design |
 | **DevOps** | Operations | file-operations, terminal-commands, docker, ci-cd, kubernetes, … |
 | **Researcher** | Analysis | web-search, code-analysis |
@@ -126,8 +126,8 @@ The environment includes the core engineering agents plus a full specialist game
 | **Game Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Level Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Narrative Designer** | Analysis | file-operations, markdown-generation, code-analysis, project-context |
-| **Technical Artist** | Development | file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, … |
-| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, … |
+| **Technical Artist** | Development | file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, … |
+| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, … |
 | **Unity Architect** | Development | file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, … |
 | **Unity Editor Tool Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, … |
 | **Unity Multiplayer Engineer** | Development | file-operations, code-generation, code-analysis, api-design, performance-optimization, … |
@@ -164,6 +164,7 @@ The environment includes the core engineering agents plus a full specialist game
 | database-operations | Schema design, migrations, query optimization |
 | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | frontend-frameworks | React/Vue/Angular patterns, state management, a11y |
+| landing-page-creation | Conversion-aware landing pages and marketing microsites with semantic responsive UX |
 | pixijs | PixiJS game/prototype patterns for logical resolution, viewport fitting, safe areas, assets, and touch UI |
 | observability | Logging, metrics, distributed tracing, alerting |
 | performance-optimization | Profiling, caching, load testing, benchmarking |

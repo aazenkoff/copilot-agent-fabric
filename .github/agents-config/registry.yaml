@@ -22,14 +22,14 @@ agents:
     file: .github/agents/code-writer.agent.md
     description: Write production-quality code
     category: development
-    skills: [file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, performance-optimization, pixijs, openai-image-generation, project-context]
+    skills: [file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, openai-image-generation, project-context]
     status: active
 
   - name: code-reviewer
     file: .github/agents/code-reviewer.agent.md
     description: Review code for quality, security, and structure; suggest and apply refactoring improvements
     category: quality
-    skills: [file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, performance-optimization, pixijs, project-context]
+    skills: [file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, project-context]
     status: active
 
   - name: documenter
@@ -99,7 +99,7 @@ agents:
     file: .github/agents/technical-artist.agent.md
     description: Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance.
     category: development
-    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, project-context]
+    skills: [file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, project-context]
     status: active
 
   - name: unity-architect
@@ -211,7 +211,7 @@ agents:
     file: .github/agents/pixijs-prototype-specialist.agent.md
     description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, project-context]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, project-context]
     status: active
 
   - name: pixijs-architect
@@ -336,6 +336,12 @@ skills:
   - name: frontend-frameworks
     file: .github/skills/frontend-frameworks.skill.md
     description: React, Vue, Angular, and Svelte patterns including state management, component design, and accessibility
+    category: frontend
+    status: active
+
+  - name: landing-page-creation
+    file: .github/skills/landing-page-creation.skill.md
+    description: Create polished landing pages and marketing microsites with accessible responsive layouts, clear conversion paths, and lightweight performance-minded implementation
     category: frontend
     status: active
 
