@@ -1,6 +1,6 @@
 ---
 description: "Master orchestrator that coordinates work across all other agents. Use this agent to break down complex tasks and delegate to specialized agents."
-name: Orchestrator
+name: _Orchestrator
 ---
 
 # Orchestrator Agent
