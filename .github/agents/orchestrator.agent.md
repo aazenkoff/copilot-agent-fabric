@@ -127,6 +127,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `game-design-documentation` | Game design docs: GDDs, mechanic specs, tuning tables, playtest plans, level briefs |
 | `luau` | Roblox Luau: typed scripting, ModuleScript architecture, RemoteEvent security, DataStore persistence |
 | `blender-python` | Blender Python API: add-ons, batch export pipelines, mesh/material validation using bpy |
+| `game-development` | Full PixiJS game-dev pipeline: coordinates design → architecture → implementation → backend → QA → PR across the full agent team |
 
 ## Workflow
 1. **Receive** the user's request.

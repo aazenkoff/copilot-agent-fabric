@@ -7,7 +7,7 @@ agents:
     file: .github/agents/orchestrator.agent.md
     description: Coordinate work across all agents
     category: meta
-    skills: [project-context]
+    skills: [project-context, game-development]
     status: active
     default: true
 
@@ -414,6 +414,12 @@ skills:
   - name: blender-python
     file: .github/skills/blender-python.skill.md
     description: Blender Python scripting for add-ons, asset automation, batch export workflows, and validation tools using bpy
+    category: game
+    status: active
+
+  - name: game-development
+    file: .github/skills/game-development.skill.md
+    description: Coordinate the full PixiJS game-development agent team to build, fix, and test a game end-to-end across design, architecture, implementation, backend, and QA
     category: game
     status: active
 
