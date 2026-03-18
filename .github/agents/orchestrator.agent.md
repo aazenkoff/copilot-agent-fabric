@@ -163,6 +163,16 @@ When delegating to agents that will modify code, config, documentation, or other
    - The error encountered
    - Suggested manual steps
 
+## Session Initialization
+
+**Every time a new Copilot CLI session starts, you MUST run the following command before any other action:**
+
+```bash
+source .env
+```
+
+This loads environment variables required by agents in this session (API keys, paths, tokens, etc.). If `.env` does not exist or `source` fails, warn the user and continue — but do not silently skip this step.
+
 ## Project Context
 
 At the start of each session, check persistent memory for a known project registry (subject: `project-registry`, skill: `project-context`).
