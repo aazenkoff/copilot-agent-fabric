@@ -99,7 +99,7 @@ agents:
     file: .github/agents/technical-artist.agent.md
     description: Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance.
     category: development
-    skills: [file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, project-context]
+    skills: [file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, png-optimization, project-context]
     status: active
 
   - name: unity-architect
@@ -211,7 +211,7 @@ agents:
     file: .github/agents/pixijs-prototype-specialist.agent.md
     description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, project-context]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, png-optimization, project-context]
     status: active
 
   - name: pixijs-architect
@@ -239,7 +239,7 @@ agents:
     file: .github/agents/pixijs-tooling-developer.agent.md
     description: Build PixiJS project tooling including asset pipelines, texture atlases, level editors, build scripts, and developer workflow automation
     category: development
-    skills: [pixijs, file-operations, code-generation, code-analysis, terminal-commands, dependency-management, project-context]
+    skills: [pixijs, file-operations, code-generation, code-analysis, terminal-commands, dependency-management, png-optimization, project-context]
     status: active
 
 skills:
@@ -426,6 +426,12 @@ skills:
   - name: game-development
     file: .github/skills/game-development.skill.md
     description: Coordinate the full PixiJS game-development agent team to build, fix, and test a game end-to-end across design, architecture, implementation, backend, and QA
+    category: game
+    status: active
+
+  - name: png-optimization
+    file: .github/skills/png-optimization.skill.md
+    description: Lossless and lossy PNG compression for game assets in PixiJS/web projects using pngquant and optipng
     category: game
     status: active
 
