@@ -413,7 +413,7 @@ skills:
 
   - name: game-design-documentation
     file: .github/skills/game-design-documentation.skill.md
-    description: Structured game design documentation including GDD outlines, mechanic specs, tuning tables, playtest checkpoints, and level design briefs
+    description: Structured game design documentation including GDD outlines, runtime-accurate mechanic specs, tuning tables, playtest checkpoints, and level design briefs
     category: game
     status: active
 
@@ -431,7 +431,7 @@ skills:
 
   - name: game-development
     file: .github/skills/game-development.skill.md
-    description: Coordinate the full PixiJS game-development agent team to build, fix, and test a game end-to-end across design, architecture, implementation, backend, and QA
+    description: Coordinate phased PixiJS game-development delivery across design, implementation, runtime validation, QA, and PR handoff
     category: game
     status: active
 
