@@ -148,8 +148,10 @@ When delegating to agents that will modify code, config, documentation, or other
 - PRs are left **open** for manual review/merge by the user — agents must **never** merge their own PRs
 - If a modifying agent completes without review evidence, delegate to `code-reviewer` yourself or perform a high-signal review pass
 - A dedicated `tester` validation pass is mandatory for all bug fixes and feature changes (not optional), even if the implementation agent already ran checks
+- For runtime/UI bugs, require live browser verification on the affected route/flow using DevTools console/network; CLI/unit tests alone are insufficient for runtime-only issues
 - Ensure changes are committed with conventional commit messages and Co-authored-by trailer
 - **Always report the PR URL** back to the user after the agent completes
+- Final report must include either captured browser console results for the target flow or an explicit blocker (e.g., required environment dependency unavailable)
 
 ## Error Handling & Recovery
 
@@ -167,7 +169,7 @@ When delegating to agents that will modify code, config, documentation, or other
    - Suggested manual steps
 
 ### Bug-Fix Delegation Chain
-- For bug fixes, explicitly run this sequence: `code-investigator` → implementation agent → `tester` → `code-reviewer`.
+- For bug fixes, explicitly run this sequence: `code-investigator` → implementation agent → `tester` → browser runtime verification (or tester-performed browser validation) with evidence → `code-reviewer`.
 
 ## Session Initialization
 
