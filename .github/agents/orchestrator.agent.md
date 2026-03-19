@@ -143,10 +143,11 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 
 When delegating to agents that will modify code, config, documentation, or other repo files:
 - Remind them to follow the full Code Quality Workflow before completing
-- Workflow: **Branch → Write → Code Review → Apply Feedback → Test → Commit + Push + PR → Complete**
+- Workflow: **Branch → Write → Code Review → Apply Feedback → Tester Validation → Commit + Push + PR → Complete**
 - Agents must create a `copilot/<type>/<slug>` branch, commit changes, push, and create a PR using `gh pr create`
 - PRs are left **open** for manual review/merge by the user — agents must **never** merge their own PRs
 - If a modifying agent completes without review evidence, delegate to `code-reviewer` yourself or perform a high-signal review pass
+- A dedicated `tester` validation pass is mandatory for all bug fixes and feature changes (not optional), even if the implementation agent already ran checks
 - Ensure changes are committed with conventional commit messages and Co-authored-by trailer
 - **Always report the PR URL** back to the user after the agent completes
 
@@ -164,6 +165,9 @@ When delegating to agents that will modify code, config, documentation, or other
    - What was attempted
    - The error encountered
    - Suggested manual steps
+
+### Bug-Fix Delegation Chain
+- For bug fixes, explicitly run this sequence: `code-investigator` → implementation agent → `tester` → `code-reviewer`.
 
 ## Session Initialization
 
