@@ -57,14 +57,14 @@ agents:
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-    skills: [file-operations, code-generation, terminal-commands, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
+    skills: [file-operations, code-generation, terminal-commands, safari-testing, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
     status: active
 
   - name: code-investigator
     file: .github/agents/code-investigator.agent.md
     description: Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports
     category: analysis
-    skills: [file-operations, terminal-commands, code-analysis, project-context]
+    skills: [file-operations, terminal-commands, code-analysis, safari-testing, project-context]
     status: active
 
   - name: game-audio-engineer
@@ -211,7 +211,7 @@ agents:
     file: .github/agents/pixijs-prototype-specialist.agent.md
     description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, png-optimization, project-context]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, safari-testing, terminal-commands, performance-optimization, openai-image-generation, png-optimization, project-context]
     status: active
 
   - name: pixijs-architect
@@ -366,6 +366,12 @@ skills:
   - name: testing-infrastructure
     file: .github/skills/testing-infrastructure.skill.md
     description: Test data management, fixtures, factories, Testcontainers, flakiness handling, and test pyramid strategy
+    category: testing
+    status: active
+
+  - name: safari-testing
+    file: .github/skills/safari-testing.skill.md
+    description: Safari and WebKit-focused QA for local web apps including MCP/browser automation checks, console-network diagnostics, canvas-first validation, and blocker reporting
     category: testing
     status: active
 

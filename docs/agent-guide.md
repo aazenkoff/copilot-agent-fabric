@@ -134,7 +134,7 @@ Skills are **not invoked directly** by users. Instead:
 | **Frontend** | frontend-frameworks, landing-page-creation, pixijs | React/Vue/Angular patterns plus landing-page creation and PixiJS game/prototype patterns for responsive, conversion-aware UI |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
-| **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
+| **Testing** | testing-infrastructure, safari-testing | Test data, fixtures, Testcontainers, test pyramid, and Safari/WebKit browser QA workflows |
 
 ## MCP Servers
 
@@ -157,6 +157,16 @@ MCP servers are external processes that expose tools to Copilot CLI. They enable
 - Web scraping and data extraction
 - Lighthouse audits for performance/accessibility
 - Screenshot capture and visual testing
+
+#### Safari MCP (Optional / Local)
+**Purpose**: Safari/WebKit-specific browser automation and QA on local macOS workflows when the machine has a Safari MCP server or equivalent Safari automation setup configured for the current Copilot CLI session
+
+**Use cases**:
+- Reproducing Safari-only UI or runtime bugs
+- Verifying local screen flows in Safari with screenshots
+- Inspecting console errors and failed network requests in Safari
+- Validating canvas-first apps where visual evidence matters more than DOM selectors
+- Checking `localhost` vs `127.0.0.1` origin behavior and related CORS/cookie issues
 
 #### Docker MCP
 **Purpose**: Container management and operations
@@ -196,6 +206,7 @@ MCP tools are available to all agents, but certain agents are better suited to l
 | MCP Server | Primary Agents | When to Use |
 |------------|----------------|-------------|
 | **Chrome DevTools** | Tester, Researcher | UI testing, web analysis, performance audits |
+| **Safari (optional/local)** | Tester, Code Investigator, PixiJS Prototype Specialist | Safari/WebKit flow verification, runtime diagnostics, screenshots, and canvas-first QA when a Safari automation workflow is configured |
 | **Docker** | DevOps, Tester | Container management, isolated environments |
 | **Figma** | PixiJS Prototype Specialist, Technical Artist, Code Writer, Documenter | Design-to-code, visual QA, asset extraction, diagram generation |
 
@@ -203,7 +214,7 @@ MCP tools are available to all agents, but certain agents are better suited to l
 
 - **Docker MCP**: See [Docker MCP Guide](docker-mcp-guide.md)
 - **Figma MCP**: See [Figma MCP Guide](figma-mcp-guide.md)
-- **Configuration**: MCP servers are configured in `~/.copilot/mcp-config.json`
+- **Configuration**: MCP servers are configured in `~/.copilot/mcp-config.json`; optional local servers such as Safari may also appear there when installed
 
 ## Using Prompt Templates
 
