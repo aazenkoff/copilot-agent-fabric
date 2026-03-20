@@ -43,6 +43,13 @@ This workspace is an **AI Agent Management Environment** — a structured system
 4. **Guardrails** — agents must operate within defined boundaries.
 5. **Idempotency** — repeated runs should produce consistent results.
 
+## Model Preferences
+
+When the orchestrator delegates work to **coding agents**, it must use `model: claude-sonnet-4.6`. This is the standard model for all code-writing, code-review, testing, and specialist implementation agents in this environment.
+
+- **Coding agents** (require `claude-sonnet-4.6`): `code-writer`, `code-reviewer`, `code-investigator`, `tester`, and all engine/platform specialists (`pixijs-*`, `unity-*`, `godot-*`, `unreal-*`, `blender-addon-engineer`, `roblox-systems-scripter`, `game-audio-engineer`, `technical-artist`)
+- **Non-coding agents** (no model override required): `researcher`, `documenter`, `game-designer`, `level-designer`, `narrative-designer`, `roblox-experience-designer`, `roblox-avatar-creator`
+
 ## Skill Design Principles
 1. **Reusability** — skills are shared building blocks any agent can use.
 2. **Atomicity** — each skill does one thing well.

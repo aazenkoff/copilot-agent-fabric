@@ -54,6 +54,15 @@ User Request
 └── Multi-domain task → dispatch multiple agents in parallel
 ```
 
+## Model Selection
+
+When dispatching **coding agents** (any agent whose primary job is to write, review, test, investigate, or refactor code), always pass `model: claude-sonnet-4.6` in the task call. This applies to:
+
+- `code-writer`, `code-reviewer`, `code-investigator`, `tester`
+- All specialist implementation agents: `pixijs-*`, `unity-*`, `godot-*`, `unreal-*`, `blender-addon-engineer`, `roblox-systems-scripter`, `game-audio-engineer`, `technical-artist`
+
+Non-coding agents (e.g., `researcher`, `documenter`, `game-designer`, `level-designer`, `narrative-designer`, `roblox-experience-designer`, `roblox-avatar-creator`) do **not** require a model override unless the user requests one.
+
 ## Available Agents
 Before delegating, review the agent registry in `.github/agents-config/registry.yaml` to understand each agent's capabilities and skills.
 
@@ -209,3 +218,4 @@ When locating files in a project (especially config files like `copilot-instruct
 - **Only `agent-creator` is authorized to modify this repository.** Never delegate repo changes to code-writer, devops, or other agents.
 - **All repo changes must go through a PR** — no direct commits to main.
 - If any agent needs a repo change (new agent, updated skill, config change), delegate to `agent-creator`.
+- **Always use `model: claude-sonnet-4.6`** when dispatching any coding agent (see Model Selection above).
