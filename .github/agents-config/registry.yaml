@@ -71,7 +71,7 @@ agents:
     file: .github/agents/game-audio-engineer.agent.md
     description: Design and implement interactive game audio systems, adaptive music, and runtime audio budgets.
     category: development
-    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, observability, audio-middleware, project-context]
+    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, observability, audio-middleware, elevenlabs-audio-generation, project-context]
     status: active
 
   - name: game-designer
@@ -378,6 +378,12 @@ skills:
   - name: openai-image-generation
     file: .github/skills/openai-image-generation.skill.md
     description: Generate game UI assets, concept art, and textures from text prompts using the OpenAI Images API (gpt-image-1 / DALL-E 3)
+    category: ai-generation
+    status: active
+
+  - name: elevenlabs-audio-generation
+    file: .github/skills/elevenlabs-audio-generation.skill.md
+    description: Generate short game-ready sound effects, UI tones, and bark-style voice assets from text prompts using the ElevenLabs Sound Generation API
     category: ai-generation
     status: active
 

@@ -132,6 +132,7 @@ Skills are **not invoked directly** by users. Instead:
 | **Data** | database-operations | Schema design, migrations, query optimization |
 | **API** | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | **Frontend** | frontend-frameworks, landing-page-creation, pixijs | React/Vue/Angular patterns plus landing-page creation and PixiJS game/prototype patterns for responsive, conversion-aware UI |
+| **AI Generation** | openai-image-generation, elevenlabs-audio-generation | Generate reusable prototype-ready visual and audio assets from prompts |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
 | **Testing** | testing-infrastructure, safari-testing | Test data, fixtures, Testcontainers, test pyramid, and Safari/WebKit browser QA workflows |
@@ -277,6 +278,8 @@ These templates describe **roles and workflow steps**. Use `/agent` to select th
 
 4. **Assign to agents**:
    Add the skill name to the `skills:` list of relevant agents in the registry
+
+Example: `.github/skills/elevenlabs-audio-generation.skill.md` shows the expected documentation depth for an API-backed skill: capabilities, repeatable workflow steps, validation checks, error handling, and clear boundaries on when not to use it.
 
 ### Skill Design Tips
 - A skill should describe a *capability*, not a *role*

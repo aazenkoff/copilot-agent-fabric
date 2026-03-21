@@ -77,7 +77,7 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `researcher` | Research best practices and solutions | `web-search`, `code-analysis` |
 | `tester` | Generate tests and validate behavior | `file-operations`, `code-generation`, `terminal-commands`, `safari-testing`, `git-workflow`, `database-operations`, `testing-infrastructure`, `performance-optimization`, `project-context` |
 | `code-investigator` | Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports | `file-operations`, `terminal-commands`, `code-analysis`, `safari-testing`, `project-context` |
-| `game-audio-engineer` | Design and implement interactive game audio systems, adaptive music, and runtime audio budgets. | `file-operations`, `code-analysis`, `code-generation`, `performance-optimization`, `terminal-commands`, `observability`, `project-context` |
+| `game-audio-engineer` | Design and implement interactive game audio systems, adaptive music, and runtime audio budgets. | `file-operations`, `code-analysis`, `code-generation`, `audio-middleware`, `elevenlabs-audio-generation`, `performance-optimization`, `terminal-commands`, `observability`, `project-context` |
 | `game-designer` | Shape core loops, mechanics, progression, and tuning into implementation-ready game design specifications. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `level-designer` | Design readable spaces, encounter flow, and pacing plans for levels, missions, and playable areas. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `narrative-designer` | Create interactive story structure, dialogue, lore, and consequence design that fits gameplay realities. | `file-operations`, `markdown-generation`, `code-analysis`, `project-context` |
@@ -130,6 +130,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `testing-infrastructure` | Test data, fixtures, Testcontainers, test pyramid |
 | `safari-testing` | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | `openai-image-generation` | Generate game-ready UI assets, textures, and concept art from prompts |
+| `elevenlabs-audio-generation` | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
 | `unity-scripting` | Unity C# scripting patterns: MonoBehaviour, ScriptableObjects, event channels, DI, testable components |
 | `godot-gdscript` | Godot 4 GDScript patterns: typed scripting, signals, scene composition, Resources |
 | `unreal-cpp` | Unreal C++ and Blueprints: UPROPERTY/UFUNCTION macros, GAS, component design, reflection |

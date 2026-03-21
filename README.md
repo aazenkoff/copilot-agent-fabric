@@ -122,7 +122,7 @@ The environment includes the core engineering agents plus a full specialist game
 | **Researcher** | Analysis | web-search, code-analysis |
 | **Tester** | Quality | file-operations, code-generation, terminal-commands, safari-testing, git-workflow, … |
 | **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, safari-testing, project-context |
-| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, … |
+| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, audio-middleware, elevenlabs-audio-generation, … |
 | **Game Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Level Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Narrative Designer** | Analysis | file-operations, markdown-generation, code-analysis, project-context |
@@ -171,6 +171,7 @@ The environment includes the core engineering agents plus a full specialist game
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
 | safari-testing | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
+| elevenlabs-audio-generation | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
 
 ## 📋 Code Quality Workflow
 
@@ -205,6 +206,7 @@ See [Docker MCP Guide](docs/docker-mcp-guide.md) and [Figma MCP Guide](docs/figm
 | [Agent Guide](docs/agent-guide.md) | How to select, use, create, and customize agents |
 | [Docker MCP Guide](docs/docker-mcp-guide.md) | Docker MCP server setup and reference |
 | [Figma MCP Guide](docs/figma-mcp-guide.md) | Figma MCP server setup and reference |
+| [PixiJS LLM Reference](docs/pixijs-llms-reference.md) | Agent-facing PixiJS v8 guidance with the official LLM docs link |
 
 ## 🎨 Customization
 
@@ -224,6 +226,8 @@ Or manually:
 2. Define capabilities and best practices
 3. Register in `.github/agents-config/registry.yaml`
 4. Assign to relevant agents
+
+Example: see `.github/skills/elevenlabs-audio-generation.skill.md` for a workflow-heavy skill that covers API setup, generation, validation, and error handling for reusable game-audio asset creation.
 
 See the [Agent Guide](docs/agent-guide.md) for detailed instructions.
 
