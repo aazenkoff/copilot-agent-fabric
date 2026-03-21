@@ -122,7 +122,7 @@ The environment includes the core engineering agents plus a full specialist game
 | **Researcher** | Analysis | web-search, code-analysis |
 | **Tester** | Quality | file-operations, code-generation, terminal-commands, git-workflow, database-operations, … |
 | **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, project-context |
-| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, … |
+| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, audio-middleware, elevenlabs-audio-generation, … |
 | **Game Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Level Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Narrative Designer** | Analysis | file-operations, markdown-generation, code-analysis, project-context |
@@ -170,6 +170,7 @@ The environment includes the core engineering agents plus a full specialist game
 | performance-optimization | Profiling, caching, load testing, benchmarking |
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
 | openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
+| elevenlabs-audio-generation | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
 
 ## 📋 Code Quality Workflow
 
@@ -222,6 +223,8 @@ Or manually:
 2. Define capabilities and best practices
 3. Register in `.github/agents-config/registry.yaml`
 4. Assign to relevant agents
+
+Example: see `.github/skills/elevenlabs-audio-generation.skill.md` for a workflow-heavy skill that covers API setup, generation, validation, and error handling for reusable game-audio asset creation.
 
 See the [Agent Guide](docs/agent-guide.md) for detailed instructions.
 
