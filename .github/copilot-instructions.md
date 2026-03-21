@@ -50,6 +50,16 @@ When the orchestrator delegates work to **coding agents**, it must use `model: c
 - **Coding agents** (require `claude-sonnet-4.6`): `code-writer`, `code-reviewer`, `code-investigator`, `tester`, and all engine/platform specialists (`pixijs-*`, `unity-*`, `godot-*`, `unreal-*`, `blender-addon-engineer`, `roblox-systems-scripter`, `game-audio-engineer`, `technical-artist`)
 - **Non-coding agents** (no model override required): `researcher`, `documenter`, `game-designer`, `level-designer`, `narrative-designer`, `roblox-experience-designer`, `roblox-avatar-creator`
 
+## PixiJS Reference
+
+For any PixiJS task in this environment, treat `docs/pixijs-llms-reference.md` as required local guidance. It points to the official PixiJS LLM reference at https://pixijs.com/llms-full.txt and summarizes the v8-specific rules agents should follow here.
+
+Before writing or reviewing PixiJS code:
+
+1. Read `docs/pixijs-llms-reference.md`.
+2. Prefer PixiJS v8 patterns such as async `Application` initialization, `app.canvas`, `Assets.load`, container-based scene organization, and ticker-driven updates.
+3. Do not guess older PixiJS APIs unless the target project already uses them.
+
 ## Skill Design Principles
 1. **Reusability** — skills are shared building blocks any agent can use.
 2. **Atomicity** — each skill does one thing well.
