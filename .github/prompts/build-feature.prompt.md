@@ -19,7 +19,7 @@ I need to implement a new feature: **{{FEATURE_NAME}}**. The tasks can be delega
 ## Steps
 1. **Code Investigator** — analyze the requirements and design the feature architecture.
 2. **Orchestrator (optional)** — coordinate the overall plan and route work to the right specialists.
-3. **Code Writer** or another suitable specialist — implement the feature on a `copilot/feat/<slug>` branch.
+3. **Framework/engine specialist** (for Unity gameplay or systems, use **Unity Gameplay Developer**) or **Code Writer** — implement the feature on a `copilot/feat/<slug>` branch.
 4. **Tester** — write tests for the new feature on the same branch.
 5. **Code Reviewer** — review the implementation.
 6. **Documenter** — update documentation.

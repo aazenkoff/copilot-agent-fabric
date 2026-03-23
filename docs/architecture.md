@@ -206,6 +206,7 @@ This cycle ensures all code meets quality standards before delivery.
 | **Chrome DevTools** | Browser automation and web testing | Page navigation, element interaction, performance profiling, Lighthouse audits |
 | **Docker** | Container management and operations | Command execution, file operations, process management inside containers |
 | **Figma** | Design-to-code workflows | Design context extraction, screenshots, Code Connect mapping, variable definitions, FigJam diagram generation |
+| **Unity MCP** | Live Unity Editor and runtime validation | Play mode control, scene inspection, console reads, runtime UI checks, and Unity instance routing |
 
 ### How MCP Servers Work
 
@@ -229,6 +230,7 @@ sequenceDiagram
 - **Chrome DevTools MCP**: UI testing, web scraping, performance audits, accessibility checks
 - **Docker MCP**: DevOps workflows, container debugging, isolated command execution, file operations in containers
 - **Figma MCP**: Design-to-code workflows, visual QA, asset extraction, Code Connect mapping, FigJam diagrams
+- **Unity MCP**: Unity gameplay/system validation, live scene inspection, console triage, and runtime UI binding checks on real editor state
 
 ### Configuration
 

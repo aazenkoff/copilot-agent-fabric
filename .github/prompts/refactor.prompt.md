@@ -22,6 +22,6 @@ The following area needs refactoring: **{{TARGET_AREA}}**
 ## Steps
 1. **Tester** — verify existing test coverage and add tests for uncovered code paths to establish a safety net.
 2. **Code Reviewer** — identify code smells (duplication, long methods, deep nesting, tight coupling) and produce a prioritized refactoring plan.
-3. **Code Writer** — implement the refactoring changes from the plan, one pattern at a time (extract method, rename, decompose, etc.).
+3. **Framework/engine specialist** (for Unity gameplay or systems, use **Unity Gameplay Developer**) or **Code Writer** — implement the refactoring changes from the plan, one pattern at a time (extract method, rename, decompose, etc.).
 4. **Tester** — verify all tests still pass after each refactoring step.
 5. **Code Reviewer** — perform a final review of the refactored code for quality, readability, and adherence to the plan.
