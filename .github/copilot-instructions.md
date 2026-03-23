@@ -6,6 +6,7 @@ This repository defines a custom **orchestrator** agent as the preferred coordin
 
 - Select **orchestrator** with `/agent` when you want one agent to coordinate specialist work.
 - Select a specialist directly with `/agent` for focused single-domain tasks.
+- For Unity implementation work, prefer Unity specialists over `code-writer`; use `unity-gameplay-developer` for gameplay/system work that should be validated live with Unity MCP.
 - Use `/fleet` when parallel subagent execution would help.
 - Use `@` to mention files and paths for context, not to invoke custom agents.
 

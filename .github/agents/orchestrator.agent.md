@@ -45,6 +45,7 @@ User Request
 ├── PixiJS shaders / GLSL / WebGL visual effects → pixijs-shader-developer
 ├── PixiJS asset pipeline / tooling / build automation → pixijs-tooling-developer
 ├── Art-tech pipeline / shaders / VFX / asset optimization → technical-artist
+├── Unity gameplay / systems / live Unity MCP validation → unity-gameplay-developer
 ├── Unity architecture / tooling / multiplayer / shaders → matching Unity specialist
 ├── Godot gameplay / multiplayer / shaders → matching Godot specialist
 ├── Unreal systems / multiplayer / technical art / world building → matching Unreal specialist
@@ -87,10 +88,11 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `pixijs-multiplayer-engineer` | Build PixiJS multiplayer game systems using WebSockets, Colyseus, or socket.io with reliable sync, client prediction, and latency-aware design. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
 | `pixijs-shader-developer` | Write GLSL/WebGL shaders and PixiJS Filter subclasses for visual effects, post-processing, and custom rendering in PixiJS games. | `pixijs`, `shader-programming`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
 | `pixijs-tooling-developer` | Build PixiJS project tooling including asset pipelines, texture atlases, level editors, build scripts, and developer workflow automation. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `dependency-management`, `project-context` |
-| `unity-architect` | Design scalable, data-driven Unity architectures with decoupled systems and clean prefab boundaries. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `testing-infrastructure`, `project-context` |
-| `unity-editor-tool-developer` | Build Unity editor tooling that automates repetitive work and enforces project standards. | `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `testing-infrastructure`, `project-context` |
-| `unity-multiplayer-engineer` | Implement authoritative, latency-aware Unity multiplayer systems with reliable sync and validation. | `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
-| `unity-shader-graph-artist` | Create reusable Unity materials and effects with Shader Graph while respecting render budgets. | `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
+| `unity-architect` | Design scalable, data-driven Unity architectures with decoupled systems and clean prefab boundaries. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `testing-infrastructure`, `unity-scripting`, `unity-mcp-validation`, `project-context` |
+| `unity-editor-tool-developer` | Build Unity editor tooling that automates repetitive work and enforces project standards. | `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `testing-infrastructure`, `unity-scripting`, `unity-mcp-validation`, `project-context` |
+| `unity-gameplay-developer` | Implement Unity gameplay and game systems with live editor/runtime validation using Unity MCP. | `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `testing-infrastructure`, `unity-scripting`, `unity-mcp-validation`, `project-context` |
+| `unity-multiplayer-engineer` | Implement authoritative, latency-aware Unity multiplayer systems with reliable sync and validation. | `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `unity-scripting`, `unity-mcp-validation`, `project-context` |
+| `unity-shader-graph-artist` | Create reusable Unity materials and effects with Shader Graph while respecting render budgets. | `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `unity-scripting`, `unity-mcp-validation`, `shader-programming`, `project-context` |
 | `godot-gameplay-scripter` | Implement typed, signal-driven Godot gameplay systems with clean scene composition. | `file-operations`, `code-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `godot-multiplayer-engineer` | Build Godot multiplayer systems with clear authority, RPC design, and sync reliability. | `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
 | `godot-shader-developer` | Author performant Godot shaders and effects for 2D and 3D projects. | `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `terminal-commands`, `project-context` |
@@ -132,6 +134,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `openai-image-generation` | Generate game-ready UI assets, textures, and concept art from prompts |
 | `elevenlabs-audio-generation` | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
 | `unity-scripting` | Unity C# scripting patterns: MonoBehaviour, ScriptableObjects, event channels, DI, testable components |
+| `unity-mcp-validation` | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and gameplay-vs-editor warning triage |
 | `godot-gdscript` | Godot 4 GDScript patterns: typed scripting, signals, scene composition, Resources |
 | `unreal-cpp` | Unreal C++ and Blueprints: UPROPERTY/UFUNCTION macros, GAS, component design, reflection |
 | `shader-programming` | Cross-platform shaders: GLSL/HLSL/ShaderLab, Shader Graph, Godot shaders, PixiJS Filters |
@@ -213,6 +216,7 @@ When locating files in a project (especially config files like `copilot-instruct
 ## Rules
 - **Before planning, ALWAYS check `.github/prompts/` for a matching prompt template. If one exists, follow its steps — do not improvise your own workflow.**
 - **Never perform a task yourself if a specialized agent exists for it.**
+- **Prefer Unity specialists over `code-writer` for Unity projects** — route gameplay and system implementation to `unity-gameplay-developer`, then use other Unity specialists for architecture, tooling, multiplayer, or shader work as needed.
 - Always explain your delegation plan before executing.
 - If an agent fails, retry once, then escalate to the user.
 - You are the gatekeeper — no code goes unreviewed, no task goes untracked.

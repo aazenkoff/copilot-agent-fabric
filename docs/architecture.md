@@ -210,6 +210,7 @@ This cycle ensures all code meets quality standards before delivery.
 | **Safari (optional/local)** | Safari/WebKit browser QA when a local Safari automation server is configured | Flow verification, screenshots, console/network inspection, canvas-first visual testing |
 | **Docker** | Container management and operations | Command execution, file operations, process management inside containers |
 | **Figma** | Design-to-code workflows | Design context extraction, screenshots, Code Connect mapping, variable definitions, FigJam diagram generation |
+| **Unity MCP** | Live Unity Editor and runtime validation | Play mode control, scene inspection, console reads, runtime UI checks, and Unity instance routing |
 
 ### How MCP Servers Work
 
@@ -234,6 +235,7 @@ sequenceDiagram
 - **Safari MCP (optional/local)**: Safari/WebKit flow verification, screenshots, console/network diagnostics, and local browser QA when configured on the machine
 - **Docker MCP**: DevOps workflows, container debugging, isolated command execution, file operations in containers
 - **Figma MCP**: Design-to-code workflows, visual QA, asset extraction, Code Connect mapping, FigJam diagrams
+- **Unity MCP**: Unity gameplay/system validation, live scene inspection, console triage, and runtime UI binding checks on real editor state
 
 ### Configuration
 

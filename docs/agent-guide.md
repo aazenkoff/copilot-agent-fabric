@@ -40,6 +40,12 @@ Write pytest tests for the email validator in @src/utils.py
 
 ```text
 /agent
+# select unity-gameplay-developer
+Implement and live-validate a Unity inventory interaction flow in @Assets/Scripts/Inventory/ using Unity MCP
+```
+
+```text
+/agent
 # select code-reviewer
 Review @src/auth/handler.py for security issues
 ```
@@ -97,7 +103,7 @@ This ensures consistent code quality across the codebase.
 
 ### How It Works
 
-1. A developer agent (code-writer, tester) writes code
+1. A developer agent (for example `unity-gameplay-developer` or `code-writer`) writes code
 2. The developer or coordinating agent requests a code review from the code-reviewer agent
 3. The code-reviewer analyzes the code and provides feedback (including structural improvements)
 4. The developer agent applies the suggested improvements
@@ -135,7 +141,8 @@ Skills are **not invoked directly** by users. Instead:
 | **AI Generation** | openai-image-generation, elevenlabs-audio-generation | Generate reusable prototype-ready visual and audio assets from prompts |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
-| **Testing** | testing-infrastructure, safari-testing | Test data, fixtures, Testcontainers, test pyramid, and Safari/WebKit browser QA workflows |
+| **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
+| **Game Engines** | unity-scripting, unity-mcp-validation | Unity implementation patterns plus practical Unity MCP live validation workflows |
 
 ## MCP Servers
 
@@ -200,6 +207,21 @@ MCP servers are external processes that expose tools to Copilot CLI. They enable
 - Maintaining design-code mappings with Code Connect
 - Creating architecture diagrams in FigJam
 
+#### Unity MCP
+**Purpose**: Live Unity Editor/runtime inspection and validation for gameplay, scenes, console state, and UI wiring
+
+**Capabilities**:
+- **Connectivity checks**: Verify the Unity bridge is connected to the right editor instance before trusting results
+- **Live validation**: Inspect play mode behavior, scenes, GameObjects, and components in the real editor
+- **Runtime UI checks**: Confirm bindings, targets, and active hierarchy state while the game is running
+- **Console triage**: Read Console output and separate editor/tooling warnings from gameplay regressions
+
+**Use cases**:
+- Realtime validation of Unity gameplay or system changes
+- Scene/prefab/reference verification after Unity feature work
+- Distinguishing non-blocking serializer/editor warnings from player-facing bugs
+- Confirming fixes against real merged `main`, not only batch-mode output
+
 ### How Agents Use MCP Servers
 
 MCP tools are available to all agents, but certain agents are better suited to leverage specific servers:
@@ -210,12 +232,14 @@ MCP tools are available to all agents, but certain agents are better suited to l
 | **Safari (optional/local)** | Tester, Code Investigator, PixiJS Prototype Specialist | Safari/WebKit flow verification, runtime diagnostics, screenshots, and canvas-first QA when a Safari automation workflow is configured |
 | **Docker** | DevOps, Tester | Container management, isolated environments |
 | **Figma** | PixiJS Prototype Specialist, Technical Artist, Code Writer, Documenter | Design-to-code, visual QA, asset extraction, diagram generation |
+| **Unity MCP** | Unity Gameplay Developer, Unity Editor Tool Developer, Unity Multiplayer Engineer, Unity Shader Graph Artist | Live Unity gameplay validation, scene inspection, console reads, and runtime UI verification |
 
 ### Learn More
 
 - **Docker MCP**: See [Docker MCP Guide](docker-mcp-guide.md)
 - **Figma MCP**: See [Figma MCP Guide](figma-mcp-guide.md)
-- **Configuration**: MCP servers are configured in `~/.copilot/mcp-config.json`; optional local servers such as Safari may also appear there when installed
+- **Unity MCP**: See the official docs at https://github.com/CoplayDev/unity-mcp
+- **Configuration**: MCP servers are configured in `~/.copilot/mcp-config.json`
 
 ## Using Prompt Templates
 

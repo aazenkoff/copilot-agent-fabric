@@ -106,28 +106,35 @@ agents:
     file: .github/agents/unity-architect.agent.md
     description: Design scalable, data-driven Unity architectures with decoupled systems and clean prefab boundaries.
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, unity-scripting, project-context]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
     status: active
 
   - name: unity-editor-tool-developer
     file: .github/agents/unity-editor-tool-developer.agent.md
     description: Build Unity editor tooling that automates repetitive work and enforces project standards.
     category: development
-    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, unity-scripting, project-context]
+    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
+    status: active
+
+  - name: unity-gameplay-developer
+    file: .github/agents/unity-gameplay-developer.agent.md
+    description: Implement Unity gameplay and game systems with live editor/runtime validation using Unity MCP.
+    category: development
+    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
     status: active
 
   - name: unity-multiplayer-engineer
     file: .github/agents/unity-multiplayer-engineer.agent.md
     description: Implement authoritative, latency-aware Unity multiplayer systems with reliable sync and validation.
     category: development
-    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, unity-scripting, project-context]
+    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
     status: active
 
   - name: unity-shader-graph-artist
     file: .github/agents/unity-shader-graph-artist.agent.md
     description: Create reusable Unity materials and effects with Shader Graph while respecting render budgets.
     category: development
-    skills: [file-operations, code-generation, code-analysis, performance-optimization, unity-scripting, shader-programming, project-context]
+    skills: [file-operations, code-generation, code-analysis, performance-optimization, unity-scripting, unity-mcp-validation, shader-programming, project-context]
     status: active
 
   - name: godot-gameplay-scripter
@@ -390,6 +397,12 @@ skills:
   - name: unity-scripting
     file: .github/skills/unity-scripting.skill.md
     description: Unity C# scripting patterns using MonoBehaviour, ScriptableObjects, event channels, dependency injection, and testable component design
+    category: game
+    status: active
+
+  - name: unity-mcp-validation
+    file: .github/skills/unity-mcp-validation.skill.md
+    description: Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and separating gameplay regressions from editor/tooling noise
     category: game
     status: active
 

@@ -25,6 +25,7 @@ ai-env-public0/
 │   │   ├── pixijs-prototype-specialist.agent.md
 │   │   ├── unity-architect.agent.md
 │   │   ├── unity-editor-tool-developer.agent.md
+│   │   ├── unity-gameplay-developer.agent.md
 │   │   ├── unity-multiplayer-engineer.agent.md
 │   │   ├── unity-shader-graph-artist.agent.md
 │   │   ├── godot-gameplay-scripter.agent.md
@@ -130,6 +131,7 @@ The environment includes the core engineering agents plus a full specialist game
 | **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, safari-testing, frontend-frameworks, … |
 | **Unity Architect** | Development | file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, … |
 | **Unity Editor Tool Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, … |
+| **Unity Gameplay Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, unity-scripting, unity-mcp-validation, … |
 | **Unity Multiplayer Engineer** | Development | file-operations, code-generation, code-analysis, api-design, performance-optimization, … |
 | **Unity Shader Graph Artist** | Development | file-operations, code-generation, code-analysis, performance-optimization, project-context |
 | **Godot Gameplay Scripter** | Development | file-operations, code-generation, code-analysis, testing-infrastructure, project-context |
@@ -171,7 +173,8 @@ The environment includes the core engineering agents plus a full specialist game
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
 | safari-testing | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
-| elevenlabs-audio-generation | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
+| unity-scripting | Unity C# gameplay and editor scripting patterns |
+| unity-mcp-validation | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and warning triage |
 
 ## 📋 Code Quality Workflow
 
@@ -195,8 +198,9 @@ This environment supports [Model Context Protocol (MCP)](https://modelcontextpro
 - **Safari MCP (optional/local)** — Safari/WebKit browser automation for local flow verification, screenshots, and console/network QA when configured in the active Copilot CLI environment
 - **Docker MCP** — Container management, isolated environments
 - **Figma MCP** — Design-to-code workflows, asset extraction, visual QA, Code Connect
+- **Unity MCP** — Live Unity Editor/runtime inspection, play mode validation, scene and UI checks, and console-driven gameplay verification
 
-See [Docker MCP Guide](docs/docker-mcp-guide.md) and [Figma MCP Guide](docs/figma-mcp-guide.md) for setup and usage. Optional local MCP servers such as Safari can be added via `~/.copilot/mcp-config.json` when available on the machine.
+See [Docker MCP Guide](docs/docker-mcp-guide.md), [Figma MCP Guide](docs/figma-mcp-guide.md), and the official [Unity MCP documentation](https://github.com/CoplayDev/unity-mcp) for setup and usage.
 
 ## 📖 Documentation
 
