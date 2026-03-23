@@ -48,6 +48,7 @@ graph TD
 
     subgraph MCP ["🔌 MCP Servers"]
         ChromeMCP[🌐 Chrome DevTools]
+        SafariMCP[🧭 Safari (Optional)]
         DockerMCP[🐳 Docker Server]
         FigmaMCP[🎨 Figma]
     end
@@ -67,6 +68,7 @@ graph TD
     Tester -.-> Terminal
     Tester -.-> TestInfra
     Tester -.-> PerfOpt
+    Tester -.-> SafariMCP
     Documenter -.-> MdGen
     DevOps -.-> Docker
     DevOps -.-> CICD
@@ -75,6 +77,7 @@ graph TD
     DevOps -.-> Observe
     Researcher -.-> WebSearch
     Researcher -.-> CodeAna
+    CodeInvestigator -.-> SafariMCP
     CodeWriter -.-> FigmaMCP
     Documenter -.-> FigmaMCP
 
@@ -204,6 +207,7 @@ This cycle ensures all code meets quality standards before delivery.
 | Server | Purpose | Tools Provided |
 |--------|---------|----------------|
 | **Chrome DevTools** | Browser automation and web testing | Page navigation, element interaction, performance profiling, Lighthouse audits |
+| **Safari (optional/local)** | Safari/WebKit browser QA when a local Safari automation server is configured | Flow verification, screenshots, console/network inspection, canvas-first visual testing |
 | **Docker** | Container management and operations | Command execution, file operations, process management inside containers |
 | **Figma** | Design-to-code workflows | Design context extraction, screenshots, Code Connect mapping, variable definitions, FigJam diagram generation |
 | **Unity MCP** | Live Unity Editor and runtime validation | Play mode control, scene inspection, console reads, runtime UI checks, and Unity instance routing |
@@ -228,13 +232,14 @@ sequenceDiagram
 ### When to Use MCP Servers
 
 - **Chrome DevTools MCP**: UI testing, web scraping, performance audits, accessibility checks
+- **Safari MCP (optional/local)**: Safari/WebKit flow verification, screenshots, console/network diagnostics, and local browser QA when configured on the machine
 - **Docker MCP**: DevOps workflows, container debugging, isolated command execution, file operations in containers
 - **Figma MCP**: Design-to-code workflows, visual QA, asset extraction, Code Connect mapping, FigJam diagrams
 - **Unity MCP**: Unity gameplay/system validation, live scene inspection, console triage, and runtime UI binding checks on real editor state
 
 ### Configuration
 
-MCP servers are configured in `~/.copilot/mcp-config.json`:
+MCP servers are configured in `~/.copilot/mcp-config.json`. Additional local servers such as Safari automation can be added there when available on the machine:
 
 ```json
 {

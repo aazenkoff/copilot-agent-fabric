@@ -138,6 +138,7 @@ Skills are **not invoked directly** by users. Instead:
 | **Data** | database-operations | Schema design, migrations, query optimization |
 | **API** | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | **Frontend** | frontend-frameworks, landing-page-creation, pixijs | React/Vue/Angular patterns plus landing-page creation and PixiJS game/prototype patterns for responsive, conversion-aware UI |
+| **AI Generation** | openai-image-generation, elevenlabs-audio-generation | Generate reusable prototype-ready visual and audio assets from prompts |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
 | **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
@@ -164,6 +165,16 @@ MCP servers are external processes that expose tools to Copilot CLI. They enable
 - Web scraping and data extraction
 - Lighthouse audits for performance/accessibility
 - Screenshot capture and visual testing
+
+#### Safari MCP (Optional / Local)
+**Purpose**: Safari/WebKit-specific browser automation and QA on local macOS workflows when the machine has a Safari MCP server or equivalent Safari automation setup configured for the current Copilot CLI session
+
+**Use cases**:
+- Reproducing Safari-only UI or runtime bugs
+- Verifying local screen flows in Safari with screenshots
+- Inspecting console errors and failed network requests in Safari
+- Validating canvas-first apps where visual evidence matters more than DOM selectors
+- Checking `localhost` vs `127.0.0.1` origin behavior and related CORS/cookie issues
 
 #### Docker MCP
 **Purpose**: Container management and operations
@@ -218,6 +229,7 @@ MCP tools are available to all agents, but certain agents are better suited to l
 | MCP Server | Primary Agents | When to Use |
 |------------|----------------|-------------|
 | **Chrome DevTools** | Tester, Researcher | UI testing, web analysis, performance audits |
+| **Safari (optional/local)** | Tester, Code Investigator, PixiJS Prototype Specialist | Safari/WebKit flow verification, runtime diagnostics, screenshots, and canvas-first QA when a Safari automation workflow is configured |
 | **Docker** | DevOps, Tester | Container management, isolated environments |
 | **Figma** | PixiJS Prototype Specialist, Technical Artist, Code Writer, Documenter | Design-to-code, visual QA, asset extraction, diagram generation |
 | **Unity MCP** | Unity Gameplay Developer, Unity Editor Tool Developer, Unity Multiplayer Engineer, Unity Shader Graph Artist | Live Unity gameplay validation, scene inspection, console reads, and runtime UI verification |
@@ -290,6 +302,8 @@ These templates describe **roles and workflow steps**. Use `/agent` to select th
 
 4. **Assign to agents**:
    Add the skill name to the `skills:` list of relevant agents in the registry
+
+Example: `.github/skills/elevenlabs-audio-generation.skill.md` shows the expected documentation depth for an API-backed skill: capabilities, repeatable workflow steps, validation checks, error handling, and clear boundaries on when not to use it.
 
 ### Skill Design Tips
 - A skill should describe a *capability*, not a *role*

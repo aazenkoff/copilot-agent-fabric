@@ -55,6 +55,15 @@ User Request
 └── Multi-domain task → dispatch multiple agents in parallel
 ```
 
+## Model Selection
+
+When dispatching **coding agents** (any agent whose primary job is to write, review, test, investigate, or refactor code), always pass `model: claude-sonnet-4.6` in the task call. This applies to:
+
+- `code-writer`, `code-reviewer`, `code-investigator`, `tester`
+- All specialist implementation agents: `pixijs-*`, `unity-*`, `godot-*`, `unreal-*`, `blender-addon-engineer`, `roblox-systems-scripter`, `game-audio-engineer`, `technical-artist`
+
+Non-coding agents (e.g., `researcher`, `documenter`, `game-designer`, `level-designer`, `narrative-designer`, `roblox-experience-designer`, `roblox-avatar-creator`) do **not** require a model override unless the user requests one.
+
 ## Available Agents
 Before delegating, review the agent registry in `.github/agents-config/registry.yaml` to understand each agent's capabilities and skills.
 
@@ -67,14 +76,14 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `documenter` | Generate and maintain documentation | `file-operations`, `markdown-generation`, `git-workflow`, `api-design` |
 | `devops` | CI/CD, infrastructure, and deployment | `file-operations`, `terminal-commands`, `docker`, `ci-cd`, `kubernetes`, `git-workflow`, `database-operations`, `observability`, `project-context` |
 | `researcher` | Research best practices and solutions | `web-search`, `code-analysis` |
-| `tester` | Generate tests and validate behavior | `file-operations`, `code-generation`, `terminal-commands`, `git-workflow`, `database-operations`, `testing-infrastructure`, `performance-optimization`, `project-context` |
-| `code-investigator` | Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports | `file-operations`, `terminal-commands`, `code-analysis`, `project-context` |
-| `game-audio-engineer` | Design and implement interactive game audio systems, adaptive music, and runtime audio budgets. | `file-operations`, `code-analysis`, `code-generation`, `performance-optimization`, `terminal-commands`, `observability`, `project-context` |
+| `tester` | Generate tests and validate behavior | `file-operations`, `code-generation`, `terminal-commands`, `safari-testing`, `git-workflow`, `database-operations`, `testing-infrastructure`, `performance-optimization`, `project-context` |
+| `code-investigator` | Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports | `file-operations`, `terminal-commands`, `code-analysis`, `safari-testing`, `project-context` |
+| `game-audio-engineer` | Design and implement interactive game audio systems, adaptive music, and runtime audio budgets. | `file-operations`, `code-analysis`, `code-generation`, `audio-middleware`, `elevenlabs-audio-generation`, `performance-optimization`, `terminal-commands`, `observability`, `project-context` |
 | `game-designer` | Shape core loops, mechanics, progression, and tuning into implementation-ready game design specifications. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `level-designer` | Design readable spaces, encounter flow, and pacing plans for levels, missions, and playable areas. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `narrative-designer` | Create interactive story structure, dialogue, lore, and consequence design that fits gameplay realities. | `file-operations`, `markdown-generation`, `code-analysis`, `project-context` |
 | `technical-artist` | Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance. | `file-operations`, `code-analysis`, `code-generation`, `landing-page-creation`, `performance-optimization`, `terminal-commands`, `openai-image-generation`, `project-context` |
-| `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `landing-page-creation`, `pixijs`, `api-design`, `testing-infrastructure`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `project-context` |
+| `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `landing-page-creation`, `pixijs`, `api-design`, `testing-infrastructure`, `safari-testing`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `project-context` |
 | `pixijs-architect` | Design scalable PixiJS game architectures with clean scene graphs, entity-component patterns, state machines, and asset management strategies. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
 | `pixijs-multiplayer-engineer` | Build PixiJS multiplayer game systems using WebSockets, Colyseus, or socket.io with reliable sync, client prediction, and latency-aware design. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
 | `pixijs-shader-developer` | Write GLSL/WebGL shaders and PixiJS Filter subclasses for visual effects, post-processing, and custom rendering in PixiJS games. | `pixijs`, `shader-programming`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
@@ -121,7 +130,9 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `observability` | Logging, metrics, distributed tracing, alerting |
 | `performance-optimization` | Profiling, caching, load testing, benchmarking |
 | `testing-infrastructure` | Test data, fixtures, Testcontainers, test pyramid |
+| `safari-testing` | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | `openai-image-generation` | Generate game-ready UI assets, textures, and concept art from prompts |
+| `elevenlabs-audio-generation` | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
 | `unity-scripting` | Unity C# scripting patterns: MonoBehaviour, ScriptableObjects, event channels, DI, testable components |
 | `unity-mcp-validation` | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and gameplay-vs-editor warning triage |
 | `godot-gdscript` | Godot 4 GDScript patterns: typed scripting, signals, scene composition, Resources |
@@ -146,12 +157,15 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 
 When delegating to agents that will modify code, config, documentation, or other repo files:
 - Remind them to follow the full Code Quality Workflow before completing
-- Workflow: **Branch → Write → Code Review → Apply Feedback → Test → Commit + Push + PR → Complete**
+- Workflow: **Branch → Write → Code Review → Apply Feedback → Tester Validation → Commit + Push + PR → Complete**
 - Agents must create a `copilot/<type>/<slug>` branch, commit changes, push, and create a PR using `gh pr create`
 - PRs are left **open** for manual review/merge by the user — agents must **never** merge their own PRs
 - If a modifying agent completes without review evidence, delegate to `code-reviewer` yourself or perform a high-signal review pass
+- A dedicated `tester` validation pass is mandatory for all bug fixes and feature changes (not optional), even if the implementation agent already ran checks
+- For runtime/UI bugs, require live browser verification on the affected route/flow using DevTools console/network; CLI/unit tests alone are insufficient for runtime-only issues
 - Ensure changes are committed with conventional commit messages and Co-authored-by trailer
 - **Always report the PR URL** back to the user after the agent completes
+- Final report must include either captured browser console results for the target flow or an explicit blocker (e.g., required environment dependency unavailable)
 
 ## Error Handling & Recovery
 
@@ -167,6 +181,9 @@ When delegating to agents that will modify code, config, documentation, or other
    - What was attempted
    - The error encountered
    - Suggested manual steps
+
+### Bug-Fix Delegation Chain
+- For bug fixes, explicitly run this sequence: `code-investigator` → implementation agent → `tester` → browser runtime verification (or tester-performed browser validation) with evidence → `code-reviewer`.
 
 ## Session Initialization
 
@@ -206,3 +223,4 @@ When locating files in a project (especially config files like `copilot-instruct
 - **Only `agent-creator` is authorized to modify this repository.** Never delegate repo changes to code-writer, devops, or other agents.
 - **All repo changes must go through a PR** — no direct commits to main.
 - If any agent needs a repo change (new agent, updated skill, config change), delegate to `agent-creator`.
+- **Always use `model: claude-sonnet-4.6`** when dispatching any coding agent (see Model Selection above).

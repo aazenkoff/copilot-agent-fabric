@@ -121,14 +121,14 @@ The environment includes the core engineering agents plus a full specialist game
 | **Documenter** | Documentation | file-operations, markdown-generation, git-workflow, api-design |
 | **DevOps** | Operations | file-operations, terminal-commands, docker, ci-cd, kubernetes, … |
 | **Researcher** | Analysis | web-search, code-analysis |
-| **Tester** | Quality | file-operations, code-generation, terminal-commands, git-workflow, database-operations, … |
-| **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, project-context |
-| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, … |
+| **Tester** | Quality | file-operations, code-generation, terminal-commands, safari-testing, git-workflow, … |
+| **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, safari-testing, project-context |
+| **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, audio-middleware, elevenlabs-audio-generation, … |
 | **Game Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Level Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Narrative Designer** | Analysis | file-operations, markdown-generation, code-analysis, project-context |
 | **Technical Artist** | Development | file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, … |
-| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, … |
+| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, safari-testing, frontend-frameworks, … |
 | **Unity Architect** | Development | file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, … |
 | **Unity Editor Tool Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, … |
 | **Unity Gameplay Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, unity-scripting, unity-mcp-validation, … |
@@ -171,6 +171,7 @@ The environment includes the core engineering agents plus a full specialist game
 | observability | Logging, metrics, distributed tracing, alerting |
 | performance-optimization | Profiling, caching, load testing, benchmarking |
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
+| safari-testing | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
 | unity-scripting | Unity C# gameplay and editor scripting patterns |
 | unity-mcp-validation | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and warning triage |
@@ -191,9 +192,10 @@ See [Architecture Guide](docs/architecture.md#code-quality-workflow) for the det
 
 ## 🔌 MCP Server Support
 
-This environment supports [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers for extended capabilities:
+This environment supports [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers for extended capabilities and can also use additional locally configured browser automation workflows:
 
 - **Chrome DevTools MCP** — Browser automation, UI testing, performance audits
+- **Safari MCP (optional/local)** — Safari/WebKit browser automation for local flow verification, screenshots, and console/network QA when configured in the active Copilot CLI environment
 - **Docker MCP** — Container management, isolated environments
 - **Figma MCP** — Design-to-code workflows, asset extraction, visual QA, Code Connect
 - **Unity MCP** — Live Unity Editor/runtime inspection, play mode validation, scene and UI checks, and console-driven gameplay verification
@@ -208,6 +210,7 @@ See [Docker MCP Guide](docs/docker-mcp-guide.md), [Figma MCP Guide](docs/figma-m
 | [Agent Guide](docs/agent-guide.md) | How to select, use, create, and customize agents |
 | [Docker MCP Guide](docs/docker-mcp-guide.md) | Docker MCP server setup and reference |
 | [Figma MCP Guide](docs/figma-mcp-guide.md) | Figma MCP server setup and reference |
+| [PixiJS LLM Reference](docs/pixijs-llms-reference.md) | Agent-facing PixiJS v8 guidance with the official LLM docs link |
 
 ## 🎨 Customization
 
@@ -227,6 +230,8 @@ Or manually:
 2. Define capabilities and best practices
 3. Register in `.github/agents-config/registry.yaml`
 4. Assign to relevant agents
+
+Example: see `.github/skills/elevenlabs-audio-generation.skill.md` for a workflow-heavy skill that covers API setup, generation, validation, and error handling for reusable game-audio asset creation.
 
 See the [Agent Guide](docs/agent-guide.md) for detailed instructions.
 

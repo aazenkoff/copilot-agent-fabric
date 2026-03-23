@@ -57,21 +57,21 @@ agents:
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-    skills: [file-operations, code-generation, terminal-commands, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
+    skills: [file-operations, code-generation, terminal-commands, safari-testing, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
     status: active
 
   - name: code-investigator
     file: .github/agents/code-investigator.agent.md
     description: Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports
     category: analysis
-    skills: [file-operations, terminal-commands, code-analysis, project-context]
+    skills: [file-operations, terminal-commands, code-analysis, safari-testing, project-context]
     status: active
 
   - name: game-audio-engineer
     file: .github/agents/game-audio-engineer.agent.md
     description: Design and implement interactive game audio systems, adaptive music, and runtime audio budgets.
     category: development
-    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, observability, audio-middleware, project-context]
+    skills: [file-operations, code-analysis, code-generation, performance-optimization, terminal-commands, observability, audio-middleware, elevenlabs-audio-generation, project-context]
     status: active
 
   - name: game-designer
@@ -99,7 +99,7 @@ agents:
     file: .github/agents/technical-artist.agent.md
     description: Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance.
     category: development
-    skills: [file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, project-context]
+    skills: [file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, png-optimization, project-context]
     status: active
 
   - name: unity-architect
@@ -218,7 +218,7 @@ agents:
     file: .github/agents/pixijs-prototype-specialist.agent.md
     description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, terminal-commands, performance-optimization, openai-image-generation, project-context]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, safari-testing, terminal-commands, performance-optimization, openai-image-generation, png-optimization, project-context]
     status: active
 
   - name: pixijs-architect
@@ -246,7 +246,7 @@ agents:
     file: .github/agents/pixijs-tooling-developer.agent.md
     description: Build PixiJS project tooling including asset pipelines, texture atlases, level editors, build scripts, and developer workflow automation
     category: development
-    skills: [pixijs, file-operations, code-generation, code-analysis, terminal-commands, dependency-management, project-context]
+    skills: [pixijs, file-operations, code-generation, code-analysis, terminal-commands, dependency-management, png-optimization, project-context]
     status: active
 
 skills:
@@ -376,9 +376,21 @@ skills:
     category: testing
     status: active
 
+  - name: safari-testing
+    file: .github/skills/safari-testing.skill.md
+    description: Safari and WebKit-focused QA for local web apps including MCP/browser automation checks, console-network diagnostics, canvas-first validation, and blocker reporting
+    category: testing
+    status: active
+
   - name: openai-image-generation
     file: .github/skills/openai-image-generation.skill.md
     description: Generate game UI assets, concept art, and textures from text prompts using the OpenAI Images API (gpt-image-1 / DALL-E 3)
+    category: ai-generation
+    status: active
+
+  - name: elevenlabs-audio-generation
+    file: .github/skills/elevenlabs-audio-generation.skill.md
+    description: Generate short game-ready sound effects, UI tones, and bark-style voice assets from text prompts using the ElevenLabs Sound Generation API
     category: ai-generation
     status: active
 
@@ -420,7 +432,7 @@ skills:
 
   - name: game-design-documentation
     file: .github/skills/game-design-documentation.skill.md
-    description: Structured game design documentation including GDD outlines, mechanic specs, tuning tables, playtest checkpoints, and level design briefs
+    description: Structured game design documentation including GDD outlines, runtime-accurate mechanic specs, tuning tables, playtest checkpoints, and level design briefs
     category: game
     status: active
 
@@ -438,7 +450,13 @@ skills:
 
   - name: game-development
     file: .github/skills/game-development.skill.md
-    description: Coordinate the full PixiJS game-development agent team to build, fix, and test a game end-to-end across design, architecture, implementation, backend, and QA
+    description: Coordinate phased PixiJS game-development delivery across design, implementation, runtime validation, QA, and PR handoff
+    category: game
+    status: active
+
+  - name: png-optimization
+    file: .github/skills/png-optimization.skill.md
+    description: Lossless and lossy PNG compression for game assets in PixiJS/web projects using pngquant and optipng
     category: game
     status: active
 
