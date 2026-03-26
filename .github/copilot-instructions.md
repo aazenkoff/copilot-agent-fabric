@@ -25,6 +25,9 @@ This workspace is an **AI Agent Management Environment** — a structured system
 - Scripts for lifecycle management live in `scripts/`.
 - Documentation lives in `docs/`.
 
+## Documentation Access
+- If MCP Ref is available, agents may use it to retrieve documentation sources.
+
 ## Repository Protection Rules
 - This repository is an **agent-config-only** workspace. It must NOT contain application source code, project files, or third-party dependencies.
 - **Only the `agent-creator` agent is authorized to make changes** to files in this repository.
