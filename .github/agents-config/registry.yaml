@@ -57,7 +57,7 @@ agents:
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-    skills: [file-operations, code-generation, terminal-commands, safari-testing, git-workflow, database-operations, testing-infrastructure, performance-optimization, project-context]
+    skills: [file-operations, code-generation, terminal-commands, safari-testing, git-workflow, database-operations, testing-infrastructure, performance-optimization, unity-game-testing, project-context]
     status: active
 
   - name: code-investigator
@@ -106,7 +106,7 @@ agents:
     file: .github/agents/unity-architect.agent.md
     description: Design scalable, data-driven Unity architectures with decoupled systems and clean prefab boundaries.
     category: development
-    skills: [file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
+    skills: [file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, unity-scripting, unity-mcp-validation, unity-game-testing, project-context]
     status: active
 
   - name: unity-editor-tool-developer
@@ -120,14 +120,14 @@ agents:
     file: .github/agents/unity-gameplay-developer.agent.md
     description: Implement Unity gameplay and game systems with live editor/runtime validation using Unity MCP.
     category: development
-    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
+    skills: [file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, unity-scripting, unity-mcp-validation, unity-game-testing, project-context]
     status: active
 
   - name: unity-multiplayer-engineer
     file: .github/agents/unity-multiplayer-engineer.agent.md
     description: Implement authoritative, latency-aware Unity multiplayer systems with reliable sync and validation.
     category: development
-    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, unity-scripting, unity-mcp-validation, project-context]
+    skills: [file-operations, code-generation, code-analysis, api-design, performance-optimization, testing-infrastructure, unity-scripting, unity-mcp-validation, unity-game-testing, project-context]
     status: active
 
   - name: unity-shader-graph-artist
@@ -403,6 +403,12 @@ skills:
   - name: unity-mcp-validation
     file: .github/skills/unity-mcp-validation.skill.md
     description: Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and separating gameplay regressions from editor/tooling noise
+    category: game
+    status: active
+
+  - name: unity-game-testing
+    file: .github/skills/unity-game-testing.skill.md
+    description: Structured Unity playtesting workflows for play mode validation, checkpoint-based gameplay coverage, console triage, screenshots, and blocker reporting
     category: game
     status: active
 
