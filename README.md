@@ -175,6 +175,7 @@ The environment includes the core engineering agents plus a full specialist game
 | openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
 | unity-scripting | Unity C# gameplay and editor scripting patterns |
 | unity-mcp-validation | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and warning triage |
+| mempalace-memory | Query and store persistent project knowledge in MemPalace for cross-session memory |
 
 ## 📋 Code Quality Workflow
 
@@ -199,6 +200,7 @@ This environment supports [Model Context Protocol (MCP)](https://modelcontextpro
 - **Docker MCP** — Container management, isolated environments
 - **Figma MCP** — Design-to-code workflows, asset extraction, visual QA, Code Connect
 - **Unity MCP** — Live Unity Editor/runtime inspection, play mode validation, scene and UI checks, and console-driven gameplay verification
+- **MemPalace MCP** — Persistent cross-session memory for agents using semantic search, knowledge graph, and session diary
 
 See [Docker MCP Guide](docs/docker-mcp-guide.md), [Figma MCP Guide](docs/figma-mcp-guide.md), and the official [Unity MCP documentation](https://github.com/CoplayDev/unity-mcp) for setup and usage.
 
@@ -211,6 +213,7 @@ See [Docker MCP Guide](docs/docker-mcp-guide.md), [Figma MCP Guide](docs/figma-m
 | [Docker MCP Guide](docs/docker-mcp-guide.md) | Docker MCP server setup and reference |
 | [Figma MCP Guide](docs/figma-mcp-guide.md) | Figma MCP server setup and reference |
 | [PixiJS LLM Reference](docs/pixijs-llms-reference.md) | Agent-facing PixiJS v8 guidance with the official LLM docs link |
+| [MemPalace Guide](docs/mempalace-guide.md) | How agents use MemPalace for persistent cross-session memory |
 
 ## 🎨 Customization
 

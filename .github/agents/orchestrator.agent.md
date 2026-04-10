@@ -144,6 +144,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `luau` | Roblox Luau: typed scripting, ModuleScript architecture, RemoteEvent security, DataStore persistence |
 | `blender-python` | Blender Python API: add-ons, batch export pipelines, mesh/material validation using bpy |
 | `game-development` | Full PixiJS game-dev pipeline: coordinates design → architecture → implementation → backend → QA → PR across the full agent team |
+| `mempalace-memory` | Query and store persistent project knowledge in MemPalace for cross-session memory |
 
 ## Workflow
 1. **Receive** the user's request.
@@ -195,6 +196,16 @@ source .env
 ```
 
 This loads environment variables required by agents in this session (API keys, paths, tokens, etc.). If `.env` does not exist or `source` fails, warn the user and continue — but do not silently skip this step.
+
+### MemPalace Wake-Up
+
+After loading environment variables, check if MemPalace MCP is available by calling `mempalace_status`. If available:
+
+1. Call `mempalace_diary_read(agent_name="orchestrator", last_n=3)` to recall recent session history.
+2. When delegating tasks, instruct agents to use the `mempalace-memory` skill — search before acting, store after learning.
+3. At session end, call `mempalace_diary_write` to record what happened.
+
+If MemPalace is not available (tool call fails), continue without it — it's an enhancement, not a requirement.
 
 ## Project Context
 

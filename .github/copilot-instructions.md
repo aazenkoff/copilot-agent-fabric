@@ -28,6 +28,16 @@ This workspace is an **AI Agent Management Environment** — a structured system
 ## Documentation Access
 - If MCP Ref is available, agents may use it to retrieve documentation sources.
 
+## MemPalace (Persistent Memory)
+
+Agents with the `mempalace-memory` skill have access to cross-session persistent memory via the MemPalace MCP server. See `docs/mempalace-guide.md` for the full integration guide and `.github/skills/mempalace-memory.skill.md` for the skill definition.
+
+**Quick protocol:**
+1. **Before starting work** — call `mempalace_search` with task-relevant keywords.
+2. **After significant work** — call `mempalace_add_drawer` to store findings.
+3. **For entity relationships** — use `mempalace_kg_query` / `mempalace_kg_add`.
+4. **At session end** — call `mempalace_diary_write` to record what happened.
+
 ## Repository Protection Rules
 - This repository is an **agent-config-only** workspace. It must NOT contain application source code, project files, or third-party dependencies.
 - **Only the `agent-creator` agent is authorized to make changes** to files in this repository.
