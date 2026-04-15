@@ -28,12 +28,29 @@ graph TB
     O -->|search / diary| MP
 ```
 
-## How It Works
+## How It Works — Complete Lifecycle
 
-1. **Before starting a task**, agents call `mempalace_search` to check for existing knowledge (past bug fixes, architecture decisions, gotchas).
-2. **During work**, agents call `mempalace_kg_query` to understand entity relationships.
-3. **After completing significant work**, agents call `mempalace_add_drawer` to store findings and `mempalace_kg_add` for new relationships.
-4. **At session end**, agents call `mempalace_diary_write` to record a summary.
+Agents with the `mempalace-memory` skill follow a three-phase protocol. See `.github/skills/mempalace-memory.skill.md` for the full specification.
+
+### Session Start (automatic)
+1. `mempalace_status` → confirm connectivity, see palace overview
+2. `mempalace_diary_read(last_n=5)` → recall recent session history
+3. `mempalace_kg_query(entity=<agent-name>)` → load competency lessons for the task domain
+4. Detect project context → load project registry and `copilot-instructions.md`
+
+### During Work
+- **Memory-first**: `mempalace_search` (wing+room filtered) before reading source files
+- **KG queries** for entity facts, relationships, and blockers
+- **Grep fallback** when all search results have similarity < 0.3
+- Store significant findings immediately via `mempalace_add_drawer`
+
+### Session End (6-step checklist)
+1. **Diary write** — natural language summary (never AAAK format)
+2. **KG add** — new facts + relationships (`part_of`, `calls`, `blocks`, `worked_on_in`)
+3. **KG invalidate** — stale facts discovered during the session
+4. **Contradiction check** — query singleton predicates, resolve conflicts
+5. **Competency update** — store lessons learned + adjust competency level if warranted
+6. **Session-index drawer** — NL summary in `mempalace_sessions/session-index`
 
 ## Palace Structure
 
@@ -113,6 +130,22 @@ ScaryHotel → reimplements → Tower Defense
 Query with `mempalace_kg_query(entity="Tower Defense")` to see all relationships.
 
 **KG naming rules:** Use kebab-case identifiers. No parentheses, backslashes, or special characters.
+
+### Competency Tracking
+
+The KG tracks agent learning across sessions:
+
+| Predicate | Purpose | Example |
+|-----------|---------|---------|
+| `competency_level` | Current skill level (singleton — one per domain) | `proficient-unity-urp` |
+| `learned_lesson` | Specific insight gained | `avoid-manual-cleanup-on-scene-reload` |
+| `common_mistake` | Repeated error to watch for | `forgetting-navmesh-invalidate-after-door-destroy` |
+
+Levels: `novice` → `intermediate` → `proficient` → `expert`. See the skill file for full details.
+
+### Session Index
+
+Session summaries are stored as drawers in wing `mempalace_sessions`, room `session-index`. This makes past sessions discoverable via semantic search across all projects and agents.
 
 ## Adding New Knowledge
 

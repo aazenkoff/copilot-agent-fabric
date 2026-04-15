@@ -199,11 +199,16 @@ This loads environment variables required by agents in this session (API keys, p
 
 ### MemPalace Wake-Up
 
-After loading environment variables, check if MemPalace MCP is available by calling `mempalace_status`. If available:
+After loading environment variables, check if MemPalace MCP is available by calling `mempalace_status`. If available, run the full session-start protocol:
 
-1. Call `mempalace_diary_read(agent_name="orchestrator", last_n=3)` to recall recent session history.
-2. When delegating tasks, instruct agents to use the `mempalace-memory` skill — search before acting, store after learning.
-3. At session end, call `mempalace_diary_write` to record what happened.
+1. Call `mempalace_status()` to confirm connectivity and see the palace overview.
+2. Call `mempalace_diary_read(agent_name="orchestrator", last_n=5)` to recall recent session history.
+3. Call `mempalace_kg_query(entity="orchestrator")` to load competency lessons and common mistakes for the task domain.
+4. Detect project context — check the project registry (see **Project Context** below) and load the target project's `copilot-instructions.md`.
+5. When delegating tasks, instruct agents to use the `mempalace-memory` skill — follow the full lifecycle protocol (search before acting, store after learning, complete the 6-step session-end checklist).
+6. At session end, complete the 6-step checklist yourself: diary write (natural language, never AAAK), KG add/invalidate, contradiction check, competency update, and session-index drawer.
+
+See `.github/skills/mempalace-memory.skill.md` for the complete lifecycle specification.
 
 If MemPalace is not available (tool call fails), continue without it — it's an enhancement, not a requirement.
 
