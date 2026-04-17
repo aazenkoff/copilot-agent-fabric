@@ -74,6 +74,32 @@ Before writing or reviewing PixiJS code:
 2. Prefer PixiJS v8 patterns such as async `Application` initialization, `app.canvas`, `Assets.load`, container-based scene organization, and ticker-driven updates.
 3. Do not guess older PixiJS APIs unless the target project already uses them.
 
+## Token Efficiency
+
+All agents must minimize token consumption. Every token spent on unnecessary output is a token not available for useful work.
+
+### Reading Files
+- Use `view_range` or `grep` to read only the lines you need. Never read an entire large file when a targeted range or search will do.
+- Do not re-read files that are already in your context window.
+- Prefer `grep` with a glob pattern to narrow search scope before reading matches.
+
+### Tool Calls
+- Batch all independent tool calls into a single response. If you need to read 3 files, make 3 `view` calls in one turn — not 3 separate turns.
+- Chain shell commands with `&&` instead of making separate calls.
+- Suppress verbose output: use `--quiet`, `--no-pager`, pipe to `head` or `grep` when full output is not needed.
+
+### Output
+- Do not echo file contents back to the user — they already see tool output.
+- Do not narrate what you are about to do. Just do it.
+- Do not explain obvious steps or repeat the user's request back to them.
+- Prefer short, direct answers. Elaborate only when the user asks for detail.
+- When generating code, skip boilerplate comments like `// Constructor` or `// Import dependencies`. Only comment non-obvious logic.
+
+### Investigation
+- Stop investigating once you have enough information to act. Do not exhaustively search every file for completeness.
+- If a search returns clear results, act on them immediately rather than running follow-up searches to confirm.
+- Use the most specific search tool available: code intelligence > LSP > glob > grep > shell commands.
+
 ## Skill Design Principles
 1. **Reusability** — skills are shared building blocks any agent can use.
 2. **Atomicity** — each skill does one thing well.
