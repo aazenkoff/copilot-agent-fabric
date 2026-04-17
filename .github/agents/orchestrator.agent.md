@@ -145,6 +145,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `blender-python` | Blender Python API: add-ons, batch export pipelines, mesh/material validation using bpy |
 | `game-development` | Full PixiJS game-dev pipeline: coordinates design → architecture → implementation → backend → QA → PR across the full agent team |
 | `mempalace-memory` | Query and store persistent project knowledge in MemPalace for cross-session memory |
+| `disciplined-coding` | Behavioral guidelines enforcing deliberate thinking, simplicity, surgical edits, and verifiable outcomes |
 
 ## Workflow
 1. **Receive** the user's request.
