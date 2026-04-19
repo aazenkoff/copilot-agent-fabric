@@ -14,6 +14,20 @@ The orchestrator is a **repo convention and selectable workflow**, not an automa
 
 ---
 
+## ⚠️ Session Start Checklist (MANDATORY)
+
+**Before responding to the FIRST user message in any session**, complete these steps in order:
+
+1. **Load environment** — run `source .env` to load API keys, paths, and tokens. If `.env` is missing, warn the user and continue.
+2. **MemPalace check** — call `mempalace_status()`. If it fails, skip steps 3-4 and continue.
+3. **Read diary** — call `mempalace_diary_read(agent_name=<your-agent-name>, last_n=5)` to recall recent sessions.
+4. **Load lessons** — call `mempalace_kg_query(entity=<your-agent-name>)` to load competency lessons and known mistakes.
+5. **Project context** — check the project registry and load the target project's `.github/copilot-instructions.md`.
+
+⚠️ **Do NOT address the user's request until all steps above are complete.** This prevents stale context and ensures memory-first investigation.
+
+---
+
 ## Project Overview
 This workspace is an **AI Agent Management Environment** — a structured system for creating, orchestrating, and managing AI agents via GitHub Copilot CLI.
 
