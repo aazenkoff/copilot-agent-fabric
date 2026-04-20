@@ -34,6 +34,7 @@ User Request
 ├── Bug investigation / root cause analysis → code-investigator
 ├── Infrastructure / CI/CD / Docker → devops
 ├── Documentation → documenter
+├── SEO / AEO / keyword research / content strategy / Core Web Vitals / structured data → seo-aeo-expert
 ├── Research / technology decisions → researcher
 ├── Game loops / progression / tuning → game-designer
 ├── Level flow / encounter pacing / spatial readability → level-designer
@@ -75,6 +76,7 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `api-design`, `database-operations`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `project-context` |
 | `documenter` | Generate and maintain documentation | `file-operations`, `markdown-generation`, `git-workflow`, `api-design` |
 | `devops` | CI/CD, infrastructure, and deployment | `file-operations`, `terminal-commands`, `docker`, `ci-cd`, `kubernetes`, `git-workflow`, `database-operations`, `observability`, `project-context` |
+| `seo-aeo-expert` | Full-pipeline SEO and AEO strategist for Next.js/React sites — keyword research, content strategy, on-page SEO, structured data, Core Web Vitals, and Answer Engine Optimization | `web-search`, `code-analysis`, `code-generation`, `markdown-generation`, `performance-optimization`, `file-operations`, `project-context` |
 | `researcher` | Research best practices and solutions | `web-search`, `code-analysis` |
 | `tester` | Generate tests and validate behavior | `file-operations`, `code-generation`, `terminal-commands`, `safari-testing`, `git-workflow`, `database-operations`, `testing-infrastructure`, `performance-optimization`, `unity-game-testing`, `project-context` |
 | `code-investigator` | Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports | `file-operations`, `terminal-commands`, `code-analysis`, `safari-testing`, `project-context` |

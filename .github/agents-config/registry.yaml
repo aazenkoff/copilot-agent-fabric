@@ -46,6 +46,13 @@ agents:
     skills: [file-operations, terminal-commands, docker, ci-cd, kubernetes, git-workflow, database-operations, observability, project-context]
     status: active
 
+  - name: seo-aeo-expert
+    file: .github/agents/seo-aeo-expert.agent.md
+    description: Full-pipeline SEO and AEO strategist for Next.js/React sites — keyword research, content strategy, on-page SEO, structured data, Core Web Vitals, and Answer Engine Optimization
+    category: marketing
+    skills: [web-search, code-analysis, code-generation, markdown-generation, performance-optimization, file-operations, project-context]
+    status: active
+
   - name: researcher
     file: .github/agents/researcher.agent.md
     description: Research best practices and solutions
