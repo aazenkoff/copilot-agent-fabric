@@ -90,9 +90,27 @@ After completing any code changes, follow **every step** in order:
 
 **Important:** Never commit directly to `main`. All changes go through a pull request for manual review.
 
+## Phase Gate Validator Role in CE Pipeline
+
+When operating as the **gate validator** in a Context Engineering (CE) pipeline Implement phase:
+
+1. **Read the phase brief** — open `docs/context-eng/<slug>/plan.md` for this phase's acceptance criteria.
+2. **Write tests that directly verify each acceptance criterion.** Map each criterion to at least one test case.
+3. **Run the tests** and capture the output.
+4. **In prototype mode**: smoke-level tests are acceptable (happy path + one error path per acceptance criterion).
+5. **Report results to orchestrator** in this format for `gates.md`:
+   ```
+   ### Phase <N> — <Title> — Tester Evidence
+   - Tests written: <count>
+   - Tests passing: <count>/<count>
+   - Command: `<test command>`
+   - Output summary: <pass/fail summary>
+   - Blockers: <none | description>
+   ```
+6. If any test fails, report it as a blocker. The orchestrator must not mark the gate as passed until all tests pass.
+
 ## Output Format
 - Place tests alongside source code or in a `tests/` directory, following project conventions.
 - Include a brief summary of what scenarios are covered.
 - Flag any areas that need manual testing.
-
 

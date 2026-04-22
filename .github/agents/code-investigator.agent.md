@@ -94,3 +94,22 @@ Provide your investigation results in this structure:
 ### Open Questions
 - <anything that remains unclear or needs further investigation>
 ```
+
+## Design Lead Role in CE Pipeline
+
+When operating as the **Design lead** in a Context Engineering (CE) pipeline Phase 2:
+
+1. **Read `research.md`** — load `docs/context-eng/<slug>/research.md` to understand the approved problem statement, constraints, and codebase map.
+2. **Produce `docs/context-eng/<slug>/design.md`** in the target project repo using the design template from the `context-engineering` skill. Required sections:
+   - Architecture diagram (Mermaid C4 component or graph) — use `diagram-authoring` skill
+   - Data Flow Diagram (Mermaid)
+   - ≥1 Sequence Diagram for the primary interaction
+   - Public contracts: types, function signatures, API/event shapes
+   - State model where relevant
+   - Failure modes & rollback story
+   - Explicit non-goals
+3. **In prototype mode**: full diagrams are optional; at minimum include one sequence diagram for any cross-component flow.
+4. **No code** — produce only the artifact. Implementation details (how to code it) are not the Design phase's concern; focus on contracts, data flow, and architecture.
+5. **Reuse codebase recon from Research** — do not re-investigate files already mapped in `research.md`; reference them directly.
+6. **Report to orchestrator** when the artifact is ready for Gate 2.
+

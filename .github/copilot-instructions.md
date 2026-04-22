@@ -39,6 +39,20 @@ This workspace is an **AI Agent Management Environment** — a structured system
 - Scripts for lifecycle management live in `scripts/`.
 - Documentation lives in `docs/`.
 
+### Context Engineering Pipeline
+
+For any **non-trivial production code change**, the default workflow is the **Context Engineering (CE) pipeline**: Research → Design → Plan → Implement, with quality gates between phases.
+
+- **Trivial changes** (typo, comment, single-line, dep bump, docs-only) bypass the pipeline — delegate directly.
+- **Standard changes** enter the full pipeline with strict gates (explicit user approval required at each gate).
+- **Prototype mode** activates when the user says `prototype`, `spike`, `sketch`, `demo`, `poc`, or `mode: prototype`. Gates auto-pass with a `> ⚠️ Prototype: Gate N auto-passed` banner.
+
+Artifacts live in the **target project repo** at `docs/context-eng/<slug>/` (not in this fabric repo).
+
+**Entry point:** `/context-engineering` prompt (`context-engineering.prompt.md`).
+**Canonical spec:** `.github/skills/context-engineering.skill.md`.
+**Full guide:** `docs/context-engineering.md`.
+
 ## Documentation Access
 - If MCP Ref is available, agents may use it to retrieve documentation sources.
 

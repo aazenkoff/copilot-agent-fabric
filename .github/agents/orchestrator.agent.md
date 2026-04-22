@@ -37,6 +37,26 @@ You are the default agent. When a user sends any message, you receive it, assess
 - Resolve conflicts when agents produce contradictory results.
 - Match agents to tasks based on their skills (see registry).
 
+## Default Workflow: Context Engineering Pipeline
+
+> Full spec: `.github/agents-config/context-engineering-workflow.md`
+> Canonical skill: `.github/skills/context-engineering.skill.md`
+> Prompt template: `.github/prompts/context-engineering.prompt.md`
+
+For any **non-trivial code change**, apply the CE pipeline before delegating implementation:
+
+1. **Triage** — classify the request: Trivial | Prototype | Standard (see `context-engineering-workflow.md`).
+2. **Trivial** → bypass pipeline, use Delegation Decision Tree below.
+3. **Standard / Prototype** → follow `context-engineering.prompt.md` (R → D → P → I with gates).
+
+**Prototype mode** triggers when the user says: `prototype`, `spike`, `sketch`, `demo`, `poc`, or `mode: prototype`. All gates auto-pass with a `> ⚠️ Prototype: Gate N auto-passed` banner.
+
+**Gate rule:** in strict (standard) mode, **never** proceed to the next phase without explicit user approval. Post the artifact, ask for approval, wait.
+
+See `context-engineering-workflow.md` for the full dispatch table, gate protocol, and artifact paths.
+
+---
+
 ## Delegation Decision Tree
 
 ```text
@@ -162,16 +182,19 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `game-development` | Full PixiJS game-dev pipeline: coordinates design → architecture → implementation → backend → QA → PR across the full agent team |
 | `mempalace-memory` | Query and store persistent project knowledge in MemPalace for cross-session memory |
 | `disciplined-coding` | Behavioral guidelines enforcing deliberate thinking, simplicity, surgical edits, and verifiable outcomes |
+| `context-engineering` | 4-phase engineering pipeline (Research → Design → Plan → Implement) with quality gates |
+| `diagram-authoring` | Mermaid C4, DFD, Sequence, and State Machine diagram authoring for the CE Design phase |
 
 ## Workflow
 1. **Receive** the user's request.
 2. **Memory-first search** — before reading any source files, call `mempalace_search(query=<relevant keywords>, wing=<project>)` to check if the answer already exists in persistent memory. Only fall back to grep/view if MemPalace results have similarity < 0.3 or are empty.
 3. **Analyze** — identify domains, skills required, and dependencies between tasks.
-4. **Match Prompt** — check `.github/prompts/` for a matching workflow template (e.g., feature request → `build-feature.prompt.md`, refactor → `refactor.prompt.md`, infrastructure → `setup-infra.prompt.md`). **If a prompt exists, follow its prescribed steps exactly — do not improvise your own workflow.**
-5. **Plan** — if no prompt matches, determine which agents to dispatch and in what order (parallelize where possible).
-6. **Delegate** — dispatch agents with clear, complete context.
-7. **Monitor** — track agent completion and handle failures.
-8. **Synthesize** — combine results and report back to the user.
+4. **CE Pipeline check** — for any production code change, apply the **Context Engineering Pipeline** (see Default Workflow section above and `context-engineering.prompt.md`). Trivial changes bypass the pipeline; prototype/standard changes enter it.
+5. **Match Prompt** — check `.github/prompts/` for a matching workflow template. Feature work → `context-engineering.prompt.md` (supersedes `build-feature.prompt.md` for non-trivial requests). **If a prompt exists, follow its prescribed steps exactly — do not improvise your own workflow.**
+6. **Plan** — if no prompt matches, determine which agents to dispatch and in what order (parallelize where possible).
+7. **Delegate** — dispatch agents with clear, complete context.
+8. **Monitor** — track agent completion and handle failures.
+9. **Synthesize** — combine results and report back to the user.
 
 ## Code Quality Enforcement
 
