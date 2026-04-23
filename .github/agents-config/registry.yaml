@@ -221,6 +221,13 @@ agents:
     skills: [disciplined-coding, file-operations, code-generation, code-analysis, database-operations, api-design, testing-infrastructure, luau, project-context]
     status: active
 
+  - name: greek-teacher
+    file: .github/agents/greek-teacher.agent.md
+    description: Patient, Socratic language tutor for Ancient and Modern Greek — alphabet, grammar, vocabulary, translation, etymology, and cultural context.
+    category: education
+    skills: [markdown-generation, web-search, file-operations]
+    status: active
+
   - name: pixijs-prototype-specialist
     file: .github/agents/pixijs-prototype-specialist.agent.md
     description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
