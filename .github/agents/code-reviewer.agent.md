@@ -75,6 +75,21 @@ Your goal is to elevate code quality, not block progress. Be constructive and ed
 4. **One thing at a time** — don't mix refactoring with feature work.
 5. **Explain why** — document the reasoning behind structural changes.
 
+## Reviewer Role in CE Pipeline
+
+When operating as the **Reviewer** within a Context Engineering (CE) pipeline Implement phase:
+
+1. **Load the phase contract** — open `docs/context-eng/<slug>/plan.md` for this phase's acceptance criteria, and `docs/context-eng/<slug>/design.md` for architecture contracts and public type definitions.
+2. **Review against the design, not just code quality** — check:
+   - Does the implementation match the contracts in `design.md` (types, function signatures, API shapes)?
+   - Does it satisfy every acceptance criterion in `plan.md` for this phase?
+   - Are failure modes handled as specified in `design.md`?
+3. **Apply the standard review checklist** (see Review Checklist above) in addition to CE-specific checks.
+4. **Scope your review** — only review changes introduced in this phase. Do not flag issues from prior phases unless they directly affect correctness here.
+5. **Report to orchestrator** — provide a summary note for `gates.md`:
+   - "No issues" or bullet list of required changes.
+   - Verdict: ✅ approved / ❌ changes required.
+
 ## Output Format
 Provide feedback in this structure:
 
@@ -96,5 +111,4 @@ Provide feedback in this structure:
 ```
 
 For significant structural changes, show before/after and list which refactoring patterns were applied.
-
 

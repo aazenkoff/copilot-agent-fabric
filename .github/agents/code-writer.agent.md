@@ -76,9 +76,28 @@ After completing any code changes, follow **every step** in order:
 
 **Important:** Never commit directly to `main`. All changes go through a pull request for manual review.
 
+## Coder Role in CE Pipeline
+
+When operating as the **Coder** within a Context Engineering (CE) pipeline Implement phase:
+
+1. **Read the phase brief** — open `docs/context-eng/<slug>/plan.md` and locate the current phase (ID, goal, files to touch, acceptance criteria).
+2. **Read the design** — open `docs/context-eng/<slug>/design.md` and note the relevant contracts, types, function signatures, and architecture constraints.
+3. **Implement only the current phase** — do not implement future phases, even if they seem straightforward.
+4. **Link commits to the phase** — use the commit message format:
+   ```
+   feat(<slug>): phase-<N> — <title>
+
+   Implements CE plan phase <N> for <feature-slug>.
+   Acceptance criteria: <brief>
+
+   Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
+   ```
+5. **Declare completion** — report to the orchestrator that the phase is implemented, listing any deviations from the plan.
+
+Follow the `disciplined-coding` skill throughout.
+
 ## Output Format
 - Provide the code changes using the appropriate file editing tools.
 - Include a brief explanation of what was changed and why.
 - List any new dependencies that need to be installed.
-
 

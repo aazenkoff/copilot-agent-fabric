@@ -176,6 +176,19 @@ The environment includes the core engineering agents plus a full specialist game
 | unity-scripting | Unity C# gameplay and editor scripting patterns |
 | unity-mcp-validation | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and warning triage |
 | mempalace-memory | Query and store persistent project knowledge in MemPalace for cross-session memory |
+| context-engineering | 4-phase engineering pipeline (Research → Design → Plan → Implement) with quality gates |
+| diagram-authoring | Mermaid C4, DFD, Sequence, and State Machine diagram authoring |
+
+## 🏗️ Context Engineering Pipeline
+
+For any non-trivial production code change, this environment uses a **Context Engineering pipeline** that enforces Research → Design → Plan phases before implementation. Quality gates between phases require explicit user approval (standard mode) or auto-pass with a warning banner (prototype mode).
+
+See **[docs/context-engineering.md](docs/context-engineering.md)** for the full guide, including:
+- When the pipeline triggers vs. when it's bypassed
+- Prototype mode escape hatch
+- Artifact layout (`docs/context-eng/<slug>/`)
+- Gate semantics
+- A worked example (rate-limiting feature)
 
 ## 📋 Code Quality Workflow
 
