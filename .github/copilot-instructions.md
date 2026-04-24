@@ -71,13 +71,6 @@ Agents with the `mempalace-memory` skill have access to cross-session persistent
 4. **Guardrails** — agents must operate within defined boundaries.
 5. **Idempotency** — repeated runs should produce consistent results.
 
-## Model Preferences
-
-When the orchestrator delegates work to **coding agents**, it must use `model: claude-sonnet-4.6`. This is the standard model for all code-writing, code-review, testing, and specialist implementation agents in this environment.
-
-- **Coding agents** (require `claude-sonnet-4.6`): `code-writer`, `code-reviewer`, `code-investigator`, `tester`, and all engine/platform specialists (`pixijs-*`, `unity-*`, `godot-*`, `unreal-*`, `blender-addon-engineer`, `roblox-systems-scripter`, `game-audio-engineer`, `technical-artist`)
-- **Non-coding agents** (no model override required): `researcher`, `documenter`, `game-designer`, `level-designer`, `narrative-designer`, `roblox-experience-designer`, `roblox-avatar-creator`
-
 ## PixiJS Reference
 
 For any PixiJS task in this environment, treat `docs/pixijs-llms-reference.md` as required local guidance. It points to the official PixiJS LLM reference at https://pixijs.com/llms-full.txt and summarizes the v8-specific rules agents should follow here.
