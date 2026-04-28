@@ -13,7 +13,7 @@ The upstream content was adapted into this repo's flat `.github/skills/<slug>.sk
 | `diagnose` | Imported | Strong debugging loop that complements existing code-analysis/testing skills. |
 | `domain-model` | Imported | Useful planning/domain-language workflow; adapted docs references to local project conventions. |
 | `edit-article` | Imported | Fits documenter workflows and markdown-generation without conflicting with existing skills. |
-| `git-guardrails-claude-code` | Skipped | Claude Code hook installation and bundled shell behavior are tool-specific and conflict with this repo's Copilot CLI boundary. |
+| `git guardrails hook skill` | Skipped | Editor-specific hook installation and bundled shell behavior are tool-specific and conflict with this repo's Copilot CLI boundary. |
 | `github-triage` | Imported | Fits GitHub issue management workflows; adapted to require maintainer approval before state mutation. |
 | `grill-me` | Imported | General plan stress-testing workflow with no dependency. |
 | `improve-codebase-architecture` | Imported | Complements code review/refactor planning by focusing on deep modules, seams, and locality. |
@@ -58,4 +58,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
