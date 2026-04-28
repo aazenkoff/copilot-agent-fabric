@@ -7,7 +7,7 @@ agents:
     file: .github/agents/orchestrator.agent.md
     description: Coordinate work across all agents
     category: meta
-    skills: [project-context, game-development, mempalace-memory]
+    skills: [project-context, game-development, mempalace-memory, to-prd, to-issues, github-triage, qa]
     status: active
     default: true
 
@@ -15,28 +15,28 @@ agents:
     file: .github/agents/agent-creator.agent.md
     description: Create and manage new agents
     category: meta
-    skills: []
+    skills: [write-a-skill]
     status: active
 
   - name: code-writer
     file: .github/agents/code-writer.agent.md
     description: Write production-quality code
     category: development
-    skills: [disciplined-coding, file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, openai-image-generation, project-context, mempalace-memory]
+    skills: [disciplined-coding, file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, openai-image-generation, project-context, mempalace-memory, tdd, design-an-interface]
     status: active
 
   - name: code-reviewer
     file: .github/agents/code-reviewer.agent.md
     description: Review code for quality, security, and structure; suggest and apply refactoring improvements
     category: quality
-    skills: [disciplined-coding, file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, project-context, mempalace-memory]
+    skills: [disciplined-coding, file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, project-context, mempalace-memory, improve-codebase-architecture, request-refactor-plan, design-an-interface]
     status: active
 
   - name: documenter
     file: .github/agents/documenter.agent.md
     description: Generate and maintain documentation
     category: documentation
-    skills: [file-operations, markdown-generation, git-workflow, api-design]
+    skills: [file-operations, markdown-generation, git-workflow, api-design, edit-article, to-prd, ubiquitous-language]
     status: active
 
   - name: devops
@@ -57,21 +57,21 @@ agents:
     file: .github/agents/researcher.agent.md
     description: Research best practices and solutions
     category: analysis
-    skills: [web-search, code-analysis]
+    skills: [web-search, code-analysis, zoom-out]
     status: active
 
   - name: tester
     file: .github/agents/tester.agent.md
     description: Generate tests and validate behavior
     category: quality
-    skills: [disciplined-coding, file-operations, code-generation, terminal-commands, safari-testing, git-workflow, database-operations, testing-infrastructure, performance-optimization, unity-game-testing, project-context, mempalace-memory]
+    skills: [disciplined-coding, file-operations, code-generation, terminal-commands, safari-testing, git-workflow, database-operations, testing-infrastructure, performance-optimization, unity-game-testing, project-context, mempalace-memory, tdd, diagnose, qa]
     status: active
 
   - name: code-investigator
     file: .github/agents/code-investigator.agent.md
     description: Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports
     category: analysis
-    skills: [disciplined-coding, file-operations, terminal-commands, code-analysis, safari-testing, project-context, mempalace-memory]
+    skills: [disciplined-coding, file-operations, terminal-commands, code-analysis, safari-testing, project-context, mempalace-memory, diagnose, triage-issue, zoom-out]
     status: active
 
   - name: game-audio-engineer
@@ -106,7 +106,7 @@ agents:
     file: .github/agents/technical-artist.agent.md
     description: Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance.
     category: development
-    skills: [disciplined-coding, file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, pixijs, shader-programming, png-optimization, project-context]
+    skills: [disciplined-coding, file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, terminal-commands, openai-image-generation, reference-based-image-generation, pixijs, shader-programming, png-optimization, project-context]
     status: active
 
   - name: unity-architect
@@ -225,7 +225,7 @@ agents:
     file: .github/agents/pixijs-prototype-specialist.agent.md
     description: Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts.
     category: development
-    skills: [disciplined-coding, file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, safari-testing, terminal-commands, performance-optimization, openai-image-generation, png-optimization, project-context]
+    skills: [disciplined-coding, file-operations, code-generation, code-analysis, dependency-management, frontend-frameworks, landing-page-creation, pixijs, api-design, testing-infrastructure, safari-testing, terminal-commands, performance-optimization, openai-image-generation, reference-based-image-generation, png-optimization, project-context]
     status: active
 
   - name: pixijs-architect
@@ -395,6 +395,12 @@ skills:
     category: ai-generation
     status: active
 
+  - name: reference-based-image-generation
+    file: .github/skills/reference-based-image-generation.skill.md
+    description: Generate visually consistent image sets by creating a reference image first, then using it as input context for derivative frames and variants
+    category: ai-generation
+    status: active
+
   - name: elevenlabs-audio-generation
     file: .github/skills/elevenlabs-audio-generation.skill.md
     description: Generate short game-ready sound effects, UI tones, and bark-style voice assets from text prompts using the ElevenLabs Sound Generation API
@@ -483,6 +489,108 @@ skills:
     file: .github/skills/disciplined-coding.skill.md
     description: Behavioral guidelines enforcing deliberate thinking, simplicity, surgical edits, and verifiable outcomes
     category: core
+    status: active
+
+  - name: caveman
+    file: .github/skills/caveman.skill.md
+    description: Ultra-compressed communication mode for terse, accurate technical responses when the user asks for brevity or caveman mode
+    category: core
+    status: active
+
+  - name: design-an-interface
+    file: .github/skills/design-an-interface.skill.md
+    description: Generate and compare multiple radically different interface designs for a module before implementation
+    category: development
+    status: active
+
+  - name: diagnose
+    file: .github/skills/diagnose.skill.md
+    description: Disciplined diagnosis loop for hard bugs and performance regressions
+    category: quality
+    status: active
+
+  - name: domain-model
+    file: .github/skills/domain-model.skill.md
+    description: Stress-test plans against domain language, existing context docs, and ADRs while refining terminology and decisions
+    category: analysis
+    status: active
+
+  - name: edit-article
+    file: .github/skills/edit-article.skill.md
+    description: Edit article drafts by restructuring sections, improving dependency order, and tightening prose
+    category: documentation
+    status: active
+
+  - name: github-triage
+    file: .github/skills/github-triage.skill.md
+    description: Triage GitHub issues through labels, recommendations, issue comments, and maintainer-approved state transitions
+    category: quality
+    status: active
+
+  - name: grill-me
+    file: .github/skills/grill-me.skill.md
+    description: Interview the user relentlessly about a plan or design, one question at a time, until shared understanding is reached
+    category: analysis
+    status: active
+
+  - name: improve-codebase-architecture
+    file: .github/skills/improve-codebase-architecture.skill.md
+    description: Find codebase deepening opportunities that improve locality, leverage, testability, and AI navigability
+    category: quality
+    status: active
+
+  - name: qa
+    file: .github/skills/qa.skill.md
+    description: Run conversational QA sessions where user-reported bugs are clarified, scoped, and filed as durable GitHub issues
+    category: testing
+    status: active
+
+  - name: request-refactor-plan
+    file: .github/skills/request-refactor-plan.skill.md
+    description: Create a detailed refactor plan broken into tiny safe commits and capture it as a GitHub issue or planning artifact
+    category: analysis
+    status: active
+
+  - name: tdd
+    file: .github/skills/tdd.skill.md
+    description: Test-driven development using vertical red-green-refactor cycles that test observable behavior through public interfaces
+    category: testing
+    status: active
+
+  - name: to-issues
+    file: .github/skills/to-issues.skill.md
+    description: Break a plan, spec, or PRD into independently grabbable GitHub issues using vertical tracer-bullet slices
+    category: analysis
+    status: active
+
+  - name: to-prd
+    file: .github/skills/to-prd.skill.md
+    description: Synthesize conversation and codebase context into a product requirements document and optionally file it as a GitHub issue
+    category: documentation
+    status: active
+
+  - name: triage-issue
+    file: .github/skills/triage-issue.skill.md
+    description: Investigate a bug or issue, identify root cause, and produce a TDD-based GitHub issue or fix plan
+    category: quality
+    status: active
+
+  - name: ubiquitous-language
+    file: .github/skills/ubiquitous-language.skill.md
+    description: Extract and maintain a DDD-style ubiquitous language glossary from conversation and codebase context
+    category: documentation
+    status: active
+
+  - name: write-a-skill
+    file: .github/skills/write-a-skill.skill.md
+    description: Create reusable agent skills with clear triggers, concise instructions, progressive disclosure, and optional reference resources
+    category: core
+    status: active
+
+  - name: zoom-out
+    file: .github/skills/zoom-out.skill.md
+    description: Give a higher-level map of unfamiliar code areas, relevant modules, callers, and how pieces fit together
+    category: analysis
     status: active
 
 categories:

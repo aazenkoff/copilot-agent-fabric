@@ -130,18 +130,19 @@ Skills are **not invoked directly** by users. Instead:
 | Category | Skills | Purpose |
 |----------|--------|---------|
 | **Core** | file-operations, terminal-commands | Foundational capabilities every agent can use |
-| **Development** | code-generation, code-analysis, dependency-management | Building and understanding code |
-| **Quality** | security-audit | Ensuring security and compliance |
-| **Documentation** | markdown-generation | Creating well-structured docs |
+| **Development** | code-generation, code-analysis, dependency-management, design-an-interface | Building and understanding code and module interfaces |
+| **Quality** | security-audit, diagnose, github-triage, improve-codebase-architecture, triage-issue | Ensuring security, maintainability, and issue quality |
+| **Documentation** | markdown-generation, edit-article, to-prd, ubiquitous-language | Creating well-structured docs, PRDs, articles, and domain glossaries |
 | **Operations** | docker, ci-cd | Infrastructure and deployment |
 | **Research** | web-search | Information gathering |
 | **Data** | database-operations | Schema design, migrations, query optimization |
 | **API** | api-design | REST/GraphQL patterns, OpenAPI, versioning |
 | **Frontend** | frontend-frameworks, landing-page-creation, pixijs | React/Vue/Angular patterns plus landing-page creation and PixiJS game/prototype patterns for responsive, conversion-aware UI |
-| **AI Generation** | openai-image-generation, elevenlabs-audio-generation | Generate reusable prototype-ready visual and audio assets from prompts |
+| **AI Generation** | openai-image-generation, reference-based-image-generation, elevenlabs-audio-generation | Generate reusable prototype-ready visual and audio assets from prompts and references |
 | **Observability** | observability | Logging, metrics, distributed tracing, alerting |
 | **Performance** | performance-optimization | Profiling, caching, load testing, benchmarking |
-| **Testing** | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
+| **Testing** | testing-infrastructure, tdd, qa | Test data, fixtures, Testcontainers, test pyramid, TDD, and QA issue capture |
+| **Planning & Analysis** | domain-model, grill-me, request-refactor-plan, to-issues, zoom-out | Domain modeling, plan stress-testing, refactor planning, issue slicing, and codebase orientation |
 | **Game Engines** | unity-scripting, unity-mcp-validation | Unity implementation patterns plus practical Unity MCP live validation workflows |
 
 ## MCP Servers

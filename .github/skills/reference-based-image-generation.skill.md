@@ -19,6 +19,8 @@ Use this skill instead of plain `openai-image-generation` when:
 
 ## Workflow
 
+Before uploading any local or reference image to an external API, get explicit user approval for that upload. The user must confirm the asset is non-sensitive, authorized for third-party processing, and is not a private screenshot, credential-bearing image, personal image without consent, or copyrighted third-party asset without the necessary rights or consent.
+
 ### Pass 1 — Generate the Reference Image
 
 Create a single, high-quality image of the subject. This image is **not used in the final product** — it exists solely as a visual anchor.

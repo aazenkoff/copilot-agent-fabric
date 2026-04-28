@@ -118,7 +118,7 @@ If the result doesn't match expectations:
 
 | Error | Cause | Fix |
 |-------|-------|-----|
-| `AuthenticationError` | `OPENAI_API_KEY` not set or invalid | Set `export OPENAI_API_KEY=sk-...` or add to `.env` and load with `python-dotenv` |
+| `AuthenticationError` | `OPENAI_API_KEY` not set or invalid | Configure `OPENAI_API_KEY` through an approved secret manager or local untracked env file loaded safely with a dotenv library; use placeholders only in examples and never paste real keys into chat, logs, commits, or sample commands |
 | `BadRequestError` (content policy) | Prompt rejected for policy violation | Rephrase — avoid specific references to violence, real persons, or explicit content |
 | `RateLimitError` | Too many requests in a short window | Add `time.sleep(1)` between calls in batch loops |
 | `openai.APIConnectionError` | No internet or proxy issue | Check network connectivity and proxy settings |
