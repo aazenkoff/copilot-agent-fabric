@@ -18,7 +18,7 @@ The orchestrator is a **repo convention and selectable workflow**, not an automa
 
 **Before responding to the FIRST user message in any session**, complete these steps in order:
 
-1. **Load environment** — run `source .env` to load API keys, paths, and tokens. If `.env` is missing, warn the user and continue.
+1. **Prepare environment safely** — make required API keys, paths, and tokens available through an approved secret manager, CLI-provided environment, or safe/allowlisted dotenv loader. Treat project-local env files as untrusted shell input unless a maintainer has vetted them; do not shell-source arbitrary `.env` content. If required values are unavailable, warn the user and continue without printing or persisting secret values.
 2. **MemPalace check** — call `mempalace_status()`. If it fails, skip steps 3-4 and continue.
 3. **Read diary** — call `mempalace_diary_read(agent_name=<your-agent-name>, last_n=5)` to recall recent sessions.
 4. **Load lessons** — call `mempalace_kg_query(entity=<your-agent-name>)` to load competency lessons and known mistakes.

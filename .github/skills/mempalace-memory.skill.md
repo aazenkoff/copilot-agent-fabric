@@ -71,7 +71,7 @@ Run these steps at the beginning of every session, before any task work:
 ```text
 SESSION START
 │
-├─ 1. source .env                          (orchestrator loads env vars)
+├─ 1. Prepare env safely                   (orchestrator loads vetted env vars)
 ├─ 2. mempalace_status                     → palace overview
 ├─ 3. mempalace_diary_read(last_n=5)       → last 5 session diaries
 ├─ 4. mempalace_kg_query(entity=<agent>)   → competency lessons for task domain
@@ -80,7 +80,7 @@ SESSION START
 
 **Step-by-step:**
 
-1. **Load environment** — the orchestrator runs `source .env` to load API keys and paths. Individual agents skip this step (orchestrator handles it).
+1. **Load environment safely** — the orchestrator makes API keys and paths available through an approved secret manager, CLI-provided environment, or safe/allowlisted dotenv loading. Project-local env files are untrusted shell input unless vetted, so individual agents must not execute arbitrary env-file shell content.
 2. **Palace overview** — call `mempalace_status()` to confirm connectivity and see what wings/rooms exist.
 3. **Read recent diaries** — call `mempalace_diary_read(agent_name=<your-agent-name>, last_n=5)` to recall what you did in recent sessions. Look for unfinished work, known blockers, or context that's relevant to the current task.
 4. **Query competency** — call `mempalace_kg_query(entity=<your-agent-name>)` to retrieve your `learned_lesson`, `common_mistake`, and `competency_level` facts for the task domain. Apply these lessons proactively.

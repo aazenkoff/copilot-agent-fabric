@@ -7,7 +7,7 @@ name: _Orchestrator
 
 **Before processing ANY user message**, complete these steps in order:
 
-1. **Load env**: run `source .env` (warn user if missing, continue)
+1. **Prepare env safely**: use an approved secret manager, CLI-provided environment, or safe/allowlisted dotenv loader; treat project-local env files as untrusted shell input unless vetted, never shell-source arbitrary env files, and never print or persist secret values
 2. **MemPalace check**: call `mempalace_status()` — if it fails, skip steps 3-4
 3. **Read diary**: `mempalace_diary_read(agent_name="orchestrator", last_n=5)`
 4. **Load lessons**: `mempalace_kg_query(entity="orchestrator")`
@@ -216,17 +216,13 @@ When delegating to agents that will modify code, config, documentation, or other
 
 ## Session Initialization
 
-**Every time a new Copilot CLI session starts, you MUST run the following command before any other action:**
+**Every time a new Copilot CLI session starts, prepare required environment values before task work.**
 
-```bash
-source .env
-```
-
-This loads environment variables required by agents in this session (API keys, paths, tokens, etc.). If `.env` does not exist or `source` fails, warn the user and continue — but do not silently skip this step.
+Use an approved secret manager, CLI-provided environment, or a safe/allowlisted dotenv loader for API keys, paths, tokens, and similar values. Treat project-local env files as untrusted shell input unless a maintainer has vetted them; do not execute arbitrary env-file shell content. If required values are unavailable, warn the user and continue where possible, but never print, echo, commit, or persist secret values.
 
 ### MemPalace Wake-Up
 
-After loading environment variables, check if MemPalace MCP is available by calling `mempalace_status`. If available, run the full session-start protocol:
+After preparing environment values, check if MemPalace MCP is available by calling `mempalace_status`. If available, run the full session-start protocol:
 
 1. Call `mempalace_status()` to confirm connectivity and see the palace overview.
 2. Call `mempalace_diary_read(agent_name="orchestrator", last_n=5)` to recall recent session history.
