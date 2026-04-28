@@ -114,21 +114,21 @@ The environment includes the core engineering agents plus a full specialist game
 
 | Agent | Category | Key Skills |
 |-------|----------|------------|
-| **Orchestrator** | Meta | project-context |
-| **Agent Creator** | Meta | — |
-| **Code Writer** | Development | file-operations, code-generation, dependency-management, landing-page-creation, git-workflow, … |
-| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, code-generation, landing-page-creation, … |
-| **Documenter** | Documentation | file-operations, markdown-generation, git-workflow, api-design |
+| **Orchestrator** | Meta | project-context, game-development, to-prd, to-issues, github-triage, … |
+| **Agent Creator** | Meta | write-a-skill |
+| **Code Writer** | Development | file-operations, code-generation, dependency-management, landing-page-creation, tdd, … |
+| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, improve-codebase-architecture, request-refactor-plan, … |
+| **Documenter** | Documentation | file-operations, markdown-generation, edit-article, to-prd, ubiquitous-language, … |
 | **DevOps** | Operations | file-operations, terminal-commands, docker, ci-cd, kubernetes, … |
-| **Researcher** | Analysis | web-search, code-analysis |
-| **Tester** | Quality | file-operations, code-generation, terminal-commands, safari-testing, git-workflow, … |
-| **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, safari-testing, project-context |
+| **Researcher** | Analysis | web-search, code-analysis, zoom-out |
+| **Tester** | Quality | file-operations, code-generation, terminal-commands, testing-infrastructure, tdd, diagnose, … |
+| **Code Investigator** | Analysis | file-operations, terminal-commands, code-analysis, diagnose, triage-issue, … |
 | **Game Audio Engineer** | Development | file-operations, code-analysis, code-generation, audio-middleware, elevenlabs-audio-generation, … |
 | **Game Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Level Designer** | Analysis | file-operations, markdown-generation, code-analysis, testing-infrastructure, project-context |
 | **Narrative Designer** | Analysis | file-operations, markdown-generation, code-analysis, project-context |
-| **Technical Artist** | Development | file-operations, code-analysis, code-generation, landing-page-creation, performance-optimization, … |
-| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, dependency-management, safari-testing, frontend-frameworks, … |
+| **Technical Artist** | Development | file-operations, code-analysis, code-generation, openai-image-generation, reference-based-image-generation, … |
+| **PixiJS Prototype Specialist** | Development | file-operations, code-generation, code-analysis, openai-image-generation, reference-based-image-generation, … |
 | **Unity Architect** | Development | file-operations, code-generation, code-analysis, dependency-management, testing-infrastructure, … |
 | **Unity Editor Tool Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, testing-infrastructure, … |
 | **Unity Gameplay Developer** | Development | file-operations, code-generation, code-analysis, terminal-commands, unity-scripting, unity-mcp-validation, … |
@@ -173,9 +173,27 @@ The environment includes the core engineering agents plus a full specialist game
 | testing-infrastructure | Test data, fixtures, Testcontainers, test pyramid |
 | safari-testing | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | openai-image-generation | Generate game UI assets, concept art, and textures from prompts |
+| reference-based-image-generation | Generate visually consistent image sets from a reference image and derivative prompts |
 | unity-scripting | Unity C# gameplay and editor scripting patterns |
 | unity-mcp-validation | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and warning triage |
 | mempalace-memory | Query and store persistent project knowledge in MemPalace for cross-session memory |
+| caveman | Ultra-compressed communication mode for terse, accurate technical responses |
+| design-an-interface | Generate and compare multiple radically different interface designs before implementation |
+| diagnose | Disciplined feedback-loop-first debugging for bugs and performance regressions |
+| domain-model | Stress-test plans against domain language, context docs, and ADRs |
+| edit-article | Restructure and tighten article drafts while preserving dependency order |
+| github-triage | Triage GitHub issues with label states, recommendations, and maintainer-approved updates |
+| grill-me | Stress-test a plan or design through one-question-at-a-time interviewing |
+| improve-codebase-architecture | Find deepening opportunities that improve locality, leverage, and testability |
+| qa | Run conversational QA sessions and file durable user-focused GitHub issues |
+| request-refactor-plan | Plan refactors as tiny safe commits with scope and testing decisions |
+| tdd | Drive implementation with vertical red-green-refactor cycles and behavior tests |
+| to-issues | Convert plans and PRDs into independently grabbable vertical-slice issues |
+| to-prd | Synthesize conversation and codebase context into a product requirements document |
+| triage-issue | Investigate a bug and produce a root-cause issue with a TDD fix plan |
+| ubiquitous-language | Extract and maintain a DDD-style domain glossary |
+| write-a-skill | Create reusable skills using local structure, triggers, and registry conventions |
+| zoom-out | Map unfamiliar code areas at a higher abstraction level |
 
 ## 📋 Code Quality Workflow
 

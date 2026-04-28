@@ -75,22 +75,22 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 
 | Agent | Purpose | Key Skills |
 |-------|---------|------------|
-| `orchestrator` | Coordinate work across all agents | `project-context` |
-| `agent-creator` | Create and manage new agents | — |
-| `code-writer` | Write production-quality code | `file-operations`, `code-generation`, `dependency-management`, `git-workflow`, `database-operations`, `api-design`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `openai-image-generation`, `project-context` |
-| `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `api-design`, `database-operations`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `project-context` |
-| `documenter` | Generate and maintain documentation | `file-operations`, `markdown-generation`, `git-workflow`, `api-design` |
+| `orchestrator` | Coordinate work across all agents | `project-context`, `game-development`, `to-prd`, `to-issues`, `github-triage`, `qa` |
+| `agent-creator` | Create and manage new agents | `write-a-skill` |
+| `code-writer` | Write production-quality code | `file-operations`, `code-generation`, `dependency-management`, `git-workflow`, `database-operations`, `api-design`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `openai-image-generation`, `project-context`, `tdd`, `design-an-interface` |
+| `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `api-design`, `database-operations`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `project-context`, `improve-codebase-architecture`, `request-refactor-plan`, `design-an-interface` |
+| `documenter` | Generate and maintain documentation | `file-operations`, `markdown-generation`, `git-workflow`, `api-design`, `edit-article`, `to-prd`, `ubiquitous-language` |
 | `devops` | CI/CD, infrastructure, and deployment | `file-operations`, `terminal-commands`, `docker`, `ci-cd`, `kubernetes`, `git-workflow`, `database-operations`, `observability`, `project-context` |
 | `seo-aeo-expert` | Full-pipeline SEO and AEO strategist for Next.js/React sites — keyword research, content strategy, on-page SEO, structured data, Core Web Vitals, and Answer Engine Optimization | `web-search`, `code-analysis`, `code-generation`, `markdown-generation`, `performance-optimization`, `file-operations`, `project-context` |
-| `researcher` | Research best practices and solutions | `web-search`, `code-analysis` |
-| `tester` | Generate tests and validate behavior | `file-operations`, `code-generation`, `terminal-commands`, `safari-testing`, `git-workflow`, `database-operations`, `testing-infrastructure`, `performance-optimization`, `unity-game-testing`, `project-context` |
-| `code-investigator` | Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports | `file-operations`, `terminal-commands`, `code-analysis`, `safari-testing`, `project-context` |
+| `researcher` | Research best practices and solutions | `web-search`, `code-analysis`, `zoom-out` |
+| `tester` | Generate tests and validate behavior | `file-operations`, `code-generation`, `terminal-commands`, `safari-testing`, `git-workflow`, `database-operations`, `testing-infrastructure`, `performance-optimization`, `unity-game-testing`, `project-context`, `tdd`, `diagnose`, `qa` |
+| `code-investigator` | Investigate code problems, bugs, and unexpected behavior; produce root-cause analysis reports | `file-operations`, `terminal-commands`, `code-analysis`, `safari-testing`, `project-context`, `diagnose`, `triage-issue`, `zoom-out` |
 | `game-audio-engineer` | Design and implement interactive game audio systems, adaptive music, and runtime audio budgets. | `file-operations`, `code-analysis`, `code-generation`, `audio-middleware`, `elevenlabs-audio-generation`, `performance-optimization`, `terminal-commands`, `observability`, `project-context` |
 | `game-designer` | Shape core loops, mechanics, progression, and tuning into implementation-ready game design specifications. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `level-designer` | Design readable spaces, encounter flow, and pacing plans for levels, missions, and playable areas. | `file-operations`, `markdown-generation`, `code-analysis`, `testing-infrastructure`, `project-context` |
 | `narrative-designer` | Create interactive story structure, dialogue, lore, and consequence design that fits gameplay realities. | `file-operations`, `markdown-generation`, `code-analysis`, `project-context` |
-| `technical-artist` | Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance. | `file-operations`, `code-analysis`, `code-generation`, `landing-page-creation`, `performance-optimization`, `terminal-commands`, `openai-image-generation`, `project-context` |
-| `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `landing-page-creation`, `pixijs`, `api-design`, `testing-infrastructure`, `safari-testing`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `project-context` |
+| `technical-artist` | Bridge art direction and runtime constraints through asset, shader, VFX, and optimization guidance. | `file-operations`, `code-analysis`, `code-generation`, `landing-page-creation`, `performance-optimization`, `terminal-commands`, `openai-image-generation`, `reference-based-image-generation`, `project-context` |
+| `pixijs-prototype-specialist` | Build PixiJS web game prototypes from designs with strong visual QA, touch-first layout, and backend-ready contracts. | `file-operations`, `code-generation`, `code-analysis`, `dependency-management`, `frontend-frameworks`, `landing-page-creation`, `pixijs`, `api-design`, `testing-infrastructure`, `safari-testing`, `terminal-commands`, `performance-optimization`, `openai-image-generation`, `reference-based-image-generation`, `project-context` |
 | `pixijs-architect` | Design scalable PixiJS game architectures with clean scene graphs, entity-component patterns, state machines, and asset management strategies. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
 | `pixijs-multiplayer-engineer` | Build PixiJS multiplayer game systems using WebSockets, Colyseus, or socket.io with reliable sync, client prediction, and latency-aware design. | `pixijs`, `file-operations`, `code-generation`, `code-analysis`, `api-design`, `performance-optimization`, `testing-infrastructure`, `project-context` |
 | `pixijs-shader-developer` | Write GLSL/WebGL shaders and PixiJS Filter subclasses for visual effects, post-processing, and custom rendering in PixiJS games. | `pixijs`, `shader-programming`, `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `project-context` |
@@ -139,6 +139,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `testing-infrastructure` | Test data, fixtures, Testcontainers, test pyramid |
 | `safari-testing` | Safari/WebKit QA for local web apps with MCP checks, console/network diagnostics, screenshots, and canvas-first validation |
 | `openai-image-generation` | Generate game-ready UI assets, textures, and concept art from prompts |
+| `reference-based-image-generation` | Generate visually consistent image sets from a reference image and derivative prompts |
 | `elevenlabs-audio-generation` | Generate short game-ready combat SFX, UI tones, and bark-style voice assets from prompts |
 | `unity-scripting` | Unity C# scripting patterns: MonoBehaviour, ScriptableObjects, event channels, DI, testable components |
 | `unity-mcp-validation` | Practical Unity MCP workflows for connectivity checks, live editor/runtime validation, and gameplay-vs-editor warning triage |
@@ -153,6 +154,23 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `game-development` | Full PixiJS game-dev pipeline: coordinates design → architecture → implementation → backend → QA → PR across the full agent team |
 | `mempalace-memory` | Query and store persistent project knowledge in MemPalace for cross-session memory |
 | `disciplined-coding` | Behavioral guidelines enforcing deliberate thinking, simplicity, surgical edits, and verifiable outcomes |
+| `caveman` | Ultra-compressed communication mode for terse, accurate technical responses |
+| `design-an-interface` | Generate and compare multiple radically different interface designs before implementation |
+| `diagnose` | Disciplined feedback-loop-first debugging for bugs and performance regressions |
+| `domain-model` | Stress-test plans against domain language, context docs, and ADRs |
+| `edit-article` | Restructure and tighten article drafts while preserving dependency order |
+| `github-triage` | Triage GitHub issues with label states, recommendations, and maintainer-approved updates |
+| `grill-me` | Stress-test a plan or design through one-question-at-a-time interviewing |
+| `improve-codebase-architecture` | Find deepening opportunities that improve locality, leverage, and testability |
+| `qa` | Run conversational QA sessions and file durable user-focused GitHub issues |
+| `request-refactor-plan` | Plan refactors as tiny safe commits with scope and testing decisions |
+| `tdd` | Drive implementation with vertical red-green-refactor cycles and behavior tests |
+| `to-issues` | Convert plans and PRDs into independently grabbable vertical-slice issues |
+| `to-prd` | Synthesize conversation and codebase context into a product requirements document |
+| `triage-issue` | Investigate a bug and produce a root-cause issue with a TDD fix plan |
+| `ubiquitous-language` | Extract and maintain a DDD-style domain glossary |
+| `write-a-skill` | Create reusable skills using local structure, triggers, and registry conventions |
+| `zoom-out` | Map unfamiliar code areas at a higher abstraction level |
 
 ## Workflow
 1. **Receive** the user's request.
