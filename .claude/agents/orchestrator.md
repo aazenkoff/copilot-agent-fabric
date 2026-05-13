@@ -63,8 +63,8 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 |-------|---------|------------|
 | `orchestrator` | Coordinate work across all agents | `project-context`, `game-development`, `to-prd`, `to-issues`, `github-triage`, `qa` |
 | `agent-creator` | Create and manage new agents | `write-a-skill` |
-| `code-writer` | Write production-quality code | `file-operations`, `code-generation`, `dependency-management`, `git-workflow`, `database-operations`, `api-design`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `openai-image-generation`, `project-context`, `tdd`, `design-an-interface` |
-| `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `api-design`, `database-operations`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `project-context`, `improve-codebase-architecture`, `request-refactor-plan`, `design-an-interface` |
+| `code-writer` | Write production-quality code | `file-operations`, `code-generation`, `go-concurrency`, `dependency-management`, `git-workflow`, `database-operations`, `api-design`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `openai-image-generation`, `project-context`, `tdd`, `design-an-interface` |
+| `code-reviewer` | Review code for quality, security, and structure; suggest and apply refactoring improvements | `file-operations`, `code-analysis`, `security-audit`, `code-generation`, `go-concurrency`, `api-design`, `database-operations`, `frontend-frameworks`, `landing-page-creation`, `performance-optimization`, `pixijs`, `project-context`, `improve-codebase-architecture`, `request-refactor-plan`, `design-an-interface` |
 | `documenter` | Generate and maintain documentation | `file-operations`, `markdown-generation`, `git-workflow`, `api-design`, `edit-article`, `to-prd`, `ubiquitous-language` |
 | `devops` | CI/CD, infrastructure, and deployment | `file-operations`, `terminal-commands`, `docker`, `ci-cd`, `kubernetes`, `git-workflow`, `database-operations`, `observability`, `project-context` |
 | `seo-aeo-expert` | Full-pipeline SEO and AEO strategist for Next.js/React sites — keyword research, content strategy, on-page SEO, structured data, Core Web Vitals, and Answer Engine Optimization | `web-search`, `code-analysis`, `code-generation`, `markdown-generation`, `performance-optimization`, `file-operations`, `project-context` |
@@ -108,6 +108,7 @@ Skills are reusable capabilities defined in `.github/skills/`. Agents use skills
 | `file-operations` | Read, write, search, navigate files |
 | `terminal-commands` | Execute shell commands, run scripts |
 | `code-generation` | Generate code following patterns |
+| `go-concurrency` | Go concurrency guidance preferring goroutines, channels, select/case, feedback channels, and explicit cancellation ownership |
 | `code-analysis` | Analyze structure, detect issues |
 | `web-search` | Search for docs and best practices |
 | `security-audit` | Check vulnerabilities and secrets |

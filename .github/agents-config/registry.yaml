@@ -22,14 +22,14 @@ agents:
     file: .claude/agents/code-writer.md
     description: Write production-quality code
     category: development
-    skills: [disciplined-coding, file-operations, code-generation, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, openai-image-generation, project-context, mempalace-memory, tdd, design-an-interface]
+    skills: [disciplined-coding, file-operations, code-generation, go-concurrency, dependency-management, git-workflow, database-operations, api-design, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, openai-image-generation, project-context, mempalace-memory, tdd, design-an-interface]
     status: active
 
   - name: code-reviewer
     file: .claude/agents/code-reviewer.md
     description: Review code for quality, security, and structure; suggest and apply refactoring improvements
     category: quality
-    skills: [disciplined-coding, file-operations, code-analysis, security-audit, code-generation, api-design, database-operations, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, project-context, mempalace-memory, improve-codebase-architecture, request-refactor-plan, design-an-interface]
+    skills: [disciplined-coding, file-operations, code-analysis, security-audit, code-generation, go-concurrency, api-design, database-operations, frontend-frameworks, landing-page-creation, performance-optimization, pixijs, project-context, mempalace-memory, improve-codebase-architecture, request-refactor-plan, design-an-interface]
     status: active
 
   - name: documenter
@@ -285,6 +285,12 @@ skills:
   - name: code-generation
     file: .github/skills/code-generation.skill.md
     description: Generate code following patterns, conventions, and best practices
+    category: development
+    status: active
+
+  - name: go-concurrency
+    file: .github/skills/go-concurrency.skill.md
+    description: Go concurrency guidance preferring goroutines, channels, select/case, feedback channels, and explicit cancellation ownership
     category: development
     status: active
 
