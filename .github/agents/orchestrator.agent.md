@@ -66,6 +66,7 @@ User Request
 ├── Unreal systems / multiplayer / technical art / world building → matching Unreal specialist
 ├── Blender pipeline tooling → blender-addon-engineer
 ├── Roblox avatar / experience / systems work → matching Roblox specialist
+├── Greek language / Ancient Greek / Modern Greek / etymology / translation → greek-teacher
 ├── General code writing / non-specialist implementation → code-writer
 └── Multi-domain task → dispatch multiple agents in parallel
 ```
@@ -108,6 +109,7 @@ Before delegating, review the agent registry in `.github/agents-config/registry.
 | `unreal-technical-artist` | Own Unreal materials, Niagara, PCG, and rendering workflows with strong optimization discipline. | `file-operations`, `code-generation`, `code-analysis`, `performance-optimization`, `terminal-commands`, `project-context` |
 | `unreal-world-builder` | Plan and optimize Unreal environments, streaming strategy, and world-scale content workflows. | `file-operations`, `markdown-generation`, `code-analysis`, `performance-optimization`, `project-context` |
 | `blender-addon-engineer` | Create Blender add-ons and automation tools for asset validation, export, and content workflows. | `file-operations`, `code-generation`, `code-analysis`, `terminal-commands`, `testing-infrastructure`, `project-context` |
+| `greek-teacher` | Teach Ancient and Modern Greek — alphabet, grammar, vocabulary, translation, and cultural context | `markdown-generation`, `web-search`, `file-operations` |
 | `roblox-avatar-creator` | Design Roblox avatar and UGC asset workflows that satisfy platform constraints and user customization goals. | `file-operations`, `markdown-generation`, `code-analysis`, `code-generation`, `project-context` |
 | `roblox-experience-designer` | Design Roblox-native onboarding, engagement, progression, monetization, and social loops. | `file-operations`, `markdown-generation`, `code-analysis`, `database-operations`, `api-design`, `project-context` |
 | `roblox-systems-scripter` | Implement secure, scalable Roblox gameplay and persistence systems in Luau. | `file-operations`, `code-generation`, `code-analysis`, `database-operations`, `api-design`, `testing-infrastructure`, `project-context` |
