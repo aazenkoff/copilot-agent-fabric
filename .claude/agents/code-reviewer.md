@@ -1,6 +1,5 @@
 ---
 description: "Reviews code for quality, security, performance, and adherence to best practices. Also refactors and improves code structure. Use for pull request reviews, code audits, and mid-workflow quality gates."
-name: Code Reviewer
 ---
 
 # Code Reviewer Agent
@@ -105,4 +104,3 @@ Provide feedback in this structure:
 ```
 
 For significant structural changes, show before/after and list which refactoring patterns were applied.
-

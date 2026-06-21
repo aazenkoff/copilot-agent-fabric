@@ -1,6 +1,5 @@
 ---
 description: "Writes production-quality code following project conventions and best practices. Use for implementing features, fixing bugs, and writing new modules."
-name: Code Writer
 ---
 
 # Code Writer Agent
@@ -57,11 +56,11 @@ After completing any code changes, follow **every step** in order:
 1. **Create a branch** — before making changes, create a feature branch per the `git-workflow` skill:
    ```bash
    git fetch origin && git checkout main && git pull origin main
-   git checkout -b copilot/feat/<short-slug>
+   git checkout -b claude/feat/<short-slug>
    ```
 2. **Implement** — make your code changes on this branch.
 3. **Self-Review** — review your own changes first.
-4. **Request Code Review** — state that the changes need a code review. Ask for the `code-reviewer` agent directly via `/agent`, or have the orchestrator coordinate the review if you are following that workflow:
+4. **Request Code Review** — state that the changes need a code review. Ask for the `code-reviewer` agent directly as a sub-agent, or have the orchestrator coordinate the review if you are following that workflow:
    - Provide context about what you changed
    - List the files modified
    - Ask for code quality, structure, and best practices review
@@ -76,7 +75,6 @@ After completing any code changes, follow **every step** in order:
    - Feature 1
    - Feature 2
 
-   Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
    git push origin HEAD
    gh pr create --title "feat: brief description" --body "## Summary\n..."
    git checkout main
@@ -92,4 +90,3 @@ After completing any code changes, follow **every step** in order:
 - Provide the code changes using the appropriate file editing tools.
 - Include a brief explanation of what was changed and why.
 - List any new dependencies that need to be installed.
-

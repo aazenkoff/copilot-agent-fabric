@@ -116,8 +116,8 @@ The environment includes the core engineering agents plus a full specialist game
 |-------|----------|------------|
 | **Orchestrator** | Meta | project-context, game-development, to-prd, to-issues, github-triage, … |
 | **Agent Creator** | Meta | write-a-skill |
-| **Code Writer** | Development | file-operations, code-generation, dependency-management, landing-page-creation, tdd, … |
-| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, improve-codebase-architecture, request-refactor-plan, … |
+| **Code Writer** | Development | file-operations, code-generation, go-concurrency, dependency-management, landing-page-creation, tdd, … |
+| **Code Reviewer** | Quality | file-operations, code-analysis, security-audit, go-concurrency, improve-codebase-architecture, request-refactor-plan, … |
 | **Documenter** | Documentation | file-operations, markdown-generation, edit-article, to-prd, ubiquitous-language, … |
 | **DevOps** | Operations | file-operations, terminal-commands, docker, ci-cd, kubernetes, … |
 | **Researcher** | Analysis | web-search, code-analysis, zoom-out |
@@ -154,6 +154,7 @@ The environment includes the core engineering agents plus a full specialist game
 | file-operations | Read, write, search, navigate files |
 | terminal-commands | Execute shell commands, run scripts |
 | code-generation | Generate code following patterns |
+| go-concurrency | Go concurrency guidance preferring goroutines, channels, select/case, feedback channels, and explicit cancellation ownership |
 | code-analysis | Analyze structure, detect issues |
 | web-search | Search for docs and best practices |
 | security-audit | Check vulnerabilities and secrets |
